@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "9c8e32f0-8d61-498a-bbff-7ae7b4ac0157",
+    "question_type": "mcq",
+    "topic": "Scripting Ability (Python/JavaScript)",
+    "difficulty": "medium",
+    "question": "Consider the following JavaScript code:\n\nfunction process() {\n  return new Promise((resolve) => {\n    setTimeout(() => resolve('done'), 0);\n  });\n}\n\nasync function run() {\n  console.log('start');\n  const result = await process();\n  console.log(result);\n}\nrun();\nconsole.log('end');\n\nWhat is the order of output printed to the console?",
+    "options": [
+      {
+        "id": "A",
+        "text": "start, done, end"
+      },
+      {
+        "id": "B",
+        "text": "start, end, done"
+      },
+      {
+        "id": "C",
+        "text": "done, start, end"
+      },
+      {
+        "id": "D",
+        "text": "end, start, done"
+      }
+    ],
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "When `run()` is invoked, it logs 'start' then encounters `await process()`. The `process()` promise resolves after the `setTimeout` callback, which is a macrotask. The `await` yields control back to the event loop, allowing the synchronous `console.log('end')` to run before the macrotask executes. After the current call stack clears, the `setTimeout` callback runs, resolves the promise, and schedules a microtask to resume the async function, logging 'done'. Thus the output is 'start', 'end', 'done'.",
+    "concepts_tested": [
+      "JavaScript event loop",
+      "async/await",
+      "Promise microtasks vs macrotasks"
+    ]
+  },
+  "created_at": "2026-09-01T21:44:51.040827",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

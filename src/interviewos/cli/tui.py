@@ -97,9 +97,27 @@ def print_question_card(
     console.print()
     console.print(panel)
 
-def prompt_candidate_answer() -> str:
-    """Prompt the candidate for input with styled indicators."""
+    # Voice TTS Output
+    try:
+        from interviewos.voice import get_voice_engine
+        get_voice_engine().speak(question_text)
+    except Exception:
+        pass
+
+def prompt_candidate_answer(voice_mode: bool = False) -> str:
+    """Prompt the candidate for input with optional Speech-to-Text (STT) mic listening."""
     console.print()
+    if voice_mode:
+        try:
+            from interviewos.voice import get_voice_engine
+            spoken = get_voice_engine().listen(timeout=8, phrase_time_limit=45)
+            if spoken:
+                console.print(f"[bold green]Candidate [Spoken Voice] ❯ [/bold green][white]{spoken}[/white]")
+                confirm = Prompt.ask("[dim]Press Enter to submit spoken answer, or type to override[/dim]", default=spoken)
+                return confirm.strip()
+        except Exception:
+            pass
+
     try:
         ans = Prompt.ask("[bold green]Candidate [You] ❯[/bold green]")
         return ans.strip()

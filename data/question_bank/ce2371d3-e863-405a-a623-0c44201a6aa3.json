@@ -1,0 +1,47 @@
+{
+  "question": {
+    "id": "ce2371d3-e863-405a-a623-0c44201a6aa3",
+    "question_type": "multiple_select",
+    "topic": "Networking Basics (TCP/IP, DNS, Firewalls, Routing)",
+    "difficulty": "medium",
+    "question": "Consider a scenario where a client initiates an HTTP request to a web server located on the internet. Which of the following statements are true regarding the protocols and devices involved?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The client uses TCP to establish a reliable connection with the server's port 80."
+      },
+      {
+        "id": "B",
+        "text": "DNS resolution occurs after the TCP three‑way handshake is completed."
+      },
+      {
+        "id": "C",
+        "text": "A stateful firewall inspects the SYN, SYN‑ACK, and ACK packets to allow the TCP connection."
+      },
+      {
+        "id": "D",
+        "text": "The router uses ARP to map the server's IP address to its MAC address on the same subnet."
+      },
+      {
+        "id": "E",
+        "text": "UDP is preferred for HTTP because it reduces latency."
+      }
+    ],
+    "correct_options": [
+      "A",
+      "C"
+    ],
+    "explanation": "HTTP relies on TCP for reliable transport, so option A is correct. A stateful firewall tracks the TCP connection state and permits the SYN, SYN‑ACK, and ACK exchange, making option C correct. DNS resolution must happen before the TCP handshake (so B is false). ARP is only used for Layer‑2 address resolution within the same subnet; for an internet‑hosted server the router forwards based on its routing table, not ARP (making D false). HTTP does not use UDP (making E false).",
+    "concepts_tested": [
+      "TCP connection establishment",
+      "DNS operation",
+      "Stateful firewall inspection",
+      "Routing vs. ARP",
+      "Application layer protocol selection"
+    ]
+  },
+  "created_at": "2026-09-01T21:45:21.375677",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -164,6 +164,13 @@ def build_parser() -> argparse.ArgumentParser:
         help="GitHub repository URL for project interview.",
     )
 
+    interview_parser.add_argument(
+        "--voice",
+        action="store_true",
+        default=False,
+        help="Enable real-time Voice mode (TTS speech synthesis & STT microphone transcription).",
+    )
+
     hiring_parser = subparsers.add_parser(
         "hiring",
         help="Run an orchestrated multi-round interview process.",
@@ -328,6 +335,7 @@ def main() -> None:
                 duration_minutes=args.duration,
                 difficulty=args.difficulty,
                 github_url=getattr(args, "github", None),
+                voice_mode=getattr(args, "voice", False),
             )
         )
         return

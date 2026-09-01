@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "84648884-6071-4031-9cc3-c78d8afea076",
+    "question_type": "mcq",
+    "topic": "Linux/Unix Fundamentals",
+    "difficulty": "medium",
+    "question": "A user executes the command `chmod 640 file.txt`. What are the resulting permissions for file.txt in symbolic notation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "rw-r-----"
+      },
+      {
+        "id": "B",
+        "text": "rw-rw-r--"
+      },
+      {
+        "id": "C",
+        "text": "rwxr-x---"
+      },
+      {
+        "id": "D",
+        "text": "rw-------"
+      }
+    ],
+    "correct_options": [
+      "A"
+    ],
+    "explanation": "The octal mode 640 breaks down as: owner 6 (4+2) = read+write (rw-), group 4 = read (r--), others 0 = no permissions (---). In symbolic notation this is rw-r-----.",
+    "concepts_tested": [
+      "file permissions",
+      "chmod command",
+      "octal to symbolic notation conversion"
+    ]
+  },
+  "created_at": "2026-09-01T21:44:49.627889",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

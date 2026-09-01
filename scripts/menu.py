@@ -37,6 +37,7 @@ class UserProfile:
         self.job_path = "data/input/job_descriptions/sample_jd.pdf"
         self.resume_path = "data/input/resumes/sample_resume.pdf"
         self.last_github_url = "https://github.com/omsaichand35/MCP"
+        self.voice_mode = True
 
     @classmethod
     def load(cls) -> "UserProfile":
@@ -49,6 +50,7 @@ class UserProfile:
                 profile.job_path = data.get("job_path", profile.job_path)
                 profile.resume_path = data.get("resume_path", profile.resume_path)
                 profile.last_github_url = data.get("last_github_url", profile.last_github_url)
+                profile.voice_mode = data.get("voice_mode", profile.voice_mode)
                 return profile
             except Exception:
                 pass
@@ -65,6 +67,7 @@ class UserProfile:
             "job_path": self.job_path,
             "resume_path": self.resume_path,
             "last_github_url": self.last_github_url,
+            "voice_mode": self.voice_mode,
         }
         PROFILE_FILE.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
@@ -120,11 +123,14 @@ def main():
         ctx_table = Table(box=ROUNDED, border_style="dim cyan", show_header=True, header_style="bold cyan", expand=True)
         ctx_table.add_column("Current Profile & Target Context", style="bold white", width=30)
         ctx_table.add_column("Loaded Path / Setting", style="yellow")
-        ctx_table.add_column("Status", style="bold green", justify="center", width=12)
+        ctx_table.add_column("Status", style="bold green", justify="center", width=14)
+
+        voice_status = "[bold green]✔ Enabled (TTS/STT)[/bold green]" if profile.voice_mode else "[dim]Disabled (Text-only)[/dim]"
 
         ctx_table.add_row("👤 Candidate", f"{profile.candidate_name} ({profile.candidate_email})", "[green]✔ Active[/green]")
         ctx_table.add_row("📄 Job Description", profile.job_path, "[green]✔ Loaded[/green]")
         ctx_table.add_row("📄 Candidate Resume", profile.resume_path, "[green]✔ Loaded[/green]")
+        ctx_table.add_row("🎙 Voice Mode (TTS & STT)", "Spoken AI audio + Mic listen", voice_status)
         ctx_table.add_row("🧠 LLM Provider", "NVIDIA NIM / OpenAI", "[green]✔ Configured[/green]")
 
         console.print(ctx_table)
@@ -144,17 +150,25 @@ def main():
         menu_table.add_row("[bold cyan]6[/bold cyan]", "[bold white]AI Learning Mentor & Tutor[/bold white]", "Skill gap roadmap, topic practice & adaptive learning agent")
         menu_table.add_row("[bold cyan]7[/bold cyan]", "[bold white]GitHub Repository Analyzer[/bold white]", "Standalone code hierarchy scanner, dependencies & AST agent")
         menu_table.add_row("[bold cyan]8[/bold cyan]", "[bold white]Full Hiring Pipeline (End-to-End)[/bold white]", "Autonomous multi-round evaluation across OA, Tech, Project & HR")
+        menu_table.add_row("[bold magenta]V[/bold magenta]", "[bold magenta]Toggle Voice Mode (TTS/STT)[/bold magenta]", f"Currently: {'[green]ON (Speaks & Listens)[/green]' if profile.voice_mode else '[red]OFF (Text-only)[/red]'}")
         menu_table.add_row("[bold yellow]C[/bold yellow]", "[bold yellow]Change Profile / JD / Resume[/bold yellow]", "Update your candidate name, email, target JD or resume")
         menu_table.add_row("[bold red]0[/bold red]", "[bold red]Exit Launcher[/bold red]", "Exit InterviewOS Terminal Environment")
 
         console.print(menu_table)
         console.print()
 
-        choice = Prompt.ask("[bold green]Select Option (0-8 or C)[/bold green]", default="1").strip()
+        choice = Prompt.ask("[bold green]Select Option (0-8, V, or C)[/bold green]", default="1").strip()
         
         if choice == "0":
             console.print("\n[bold cyan]Exiting InterviewOS Launcher. Good luck with your preparation![/bold cyan]\n")
             sys.exit(0)
+
+        elif choice.upper() == "V":
+            profile.voice_mode = not profile.voice_mode
+            profile.save()
+            console.print(f"\n[bold green]✔ Voice Mode {'Enabled (TTS + STT Active)' if profile.voice_mode else 'Disabled (Text-only)'}![/bold green]")
+            import time
+            time.sleep(1.0)
 
         elif choice.upper() == "C":
             profile.edit_profile()
@@ -176,6 +190,8 @@ def main():
                 "--email", profile.candidate_email,
                 "--github", github_url
             ]
+            if profile.voice_mode:
+                cmd.append("--voice")
             subprocess.run(cmd)
             input("\nPress Enter to return to menu...")
             
@@ -187,6 +203,8 @@ def main():
                 "--name", profile.candidate_name,
                 "--email", profile.candidate_email
             ]
+            if profile.voice_mode:
+                cmd.append("--voice")
             subprocess.run(cmd)
             input("\nPress Enter to return to menu...")
 
@@ -198,6 +216,8 @@ def main():
                 "--name", profile.candidate_name,
                 "--email", profile.candidate_email
             ]
+            if profile.voice_mode:
+                cmd.append("--voice")
             subprocess.run(cmd)
             input("\nPress Enter to return to menu...")
 
@@ -209,6 +229,8 @@ def main():
                 "--name", profile.candidate_name,
                 "--email", profile.candidate_email
             ]
+            if profile.voice_mode:
+                cmd.append("--voice")
             subprocess.run(cmd)
             input("\nPress Enter to return to menu...")
 

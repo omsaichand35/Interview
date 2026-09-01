@@ -511,6 +511,7 @@ class InterviewOSApplication:
         difficulty: str,
         job: JobProfile | None = None,
         github_url: str | None = None,
+        voice_mode: bool = False,
     ) -> float | None:
         """Run a terminal interview."""
         
@@ -569,7 +570,7 @@ class InterviewOSApplication:
             
             while session.state not in (InterviewState.CLOSING, InterviewState.COMPLETED):
                 print_question_card(session.questions_asked + 1, 5, session.current_question, competency="Algorithmic Formulation & Coding", timer_str=session.timer_display)
-                answer = prompt_candidate_answer()
+                answer = prompt_candidate_answer(voice_mode=voice_mode)
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
                     print("\n[Candidate requested to conclude interview.]")
@@ -642,7 +643,7 @@ class InterviewOSApplication:
                     engine.ask(session, question.question_text)
                 
                 print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency, timer_str=session.timer_display)
-                answer = prompt_candidate_answer()
+                answer = prompt_candidate_answer(voice_mode=voice_mode)
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
                     print("\n[Candidate requested to conclude interview.]")
@@ -712,7 +713,7 @@ class InterviewOSApplication:
                     engine.ask(session, question.question_text)
                 
                 print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency, timer_str=session.timer_display)
-                answer = prompt_candidate_answer()
+                answer = prompt_candidate_answer(voice_mode=voice_mode)
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
                     print("\n[Candidate requested to conclude interview.]")
@@ -782,7 +783,7 @@ class InterviewOSApplication:
                     engine.ask(session, question)
                 
                 print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency, timer_str=session.timer_display)
-                answer = prompt_candidate_answer()
+                answer = prompt_candidate_answer(voice_mode=voice_mode)
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
                     print("\n[Candidate requested to conclude interview.]")
@@ -853,7 +854,7 @@ class InterviewOSApplication:
             
             while session.state not in (InterviewState.CLOSING, InterviewState.COMPLETED):
                 print_question_card(session.questions_asked + 1, 5, session.current_question, competency="System Architecture & Code Ownership", timer_str=session.timer_display)
-                answer = prompt_candidate_answer()
+                answer = prompt_candidate_answer(voice_mode=voice_mode)
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
                     print("\n[Candidate requested to conclude interview.]")

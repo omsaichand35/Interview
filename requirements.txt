@@ -1,0 +1,11 @@
+pydantic>=2.7.0
+pydantic-settings>=2.2.0
+openai>=1.30.0
+pypdf>=4.2.0
+json-repair>=0.25.0
+rich>=13.7.0
+pyttsx3>=2.90
+SpeechRecognition>=3.10.0
+edge-tts>=6.1.0
+pytest>=8.0.0
+pytest-asyncio>=0.23.0

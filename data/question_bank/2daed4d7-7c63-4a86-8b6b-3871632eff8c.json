@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "2daed4d7-7c63-4a86-8b6b-3871632eff8c",
+    "question_type": "true_false",
+    "topic": "Databases and SQL",
+    "difficulty": "medium",
+    "question": "In SQL, a HAVING clause can be used in a query even if there is no GROUP BY clause.",
+    "options": [
+      {
+        "id": "opt_true",
+        "text": "True"
+      },
+      {
+        "id": "opt_false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "opt_true"
+    ],
+    "explanation": "The HAVING clause filters groups after aggregation. When GROUP BY is omitted, the entire result set is treated as a single group, so HAVING can still be applied to filter that group (e.g., SELECT COUNT(*) FROM Employees HAVING COUNT(*) > 5).",
+    "concepts_tested": [
+      "HAVING clause",
+      "GROUP BY clause",
+      "SQL query processing"
+    ]
+  },
+  "created_at": "2026-09-01T21:44:37.477396",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}
