@@ -479,27 +479,15 @@ class InterviewOSApplication:
             f"{session.id}"
         )
 
-        print(
-            "\nStarting assessment..."
-        )
-
         runner = TerminalOARunner(
-            engine
+            engine,
+            duration_minutes=duration_minutes
         )
 
         result = runner.run(
             session.id
         )
 
-        print(
-            "\nFinal status: "
-            + (
-                "PASSED"
-                if result.score >= threshold
-                else "NOT PASSED"
-            )
-        )
-        
         return result.score
 
     async def run_interview(
