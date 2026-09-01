@@ -1,13 +1,19 @@
 from functools import lru_cache
 from pathlib import Path
-
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+def _find_env_file() -> tuple[Path, ...]:
+    current = Path(__file__).resolve()
+    for parent in current.parents:
+        if (parent / "pyproject.toml").exists():
+            return (parent / ".env", Path(".env"))
+    return (Path(".env"),)
 
 class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=_find_env_file(),
         env_file_encoding="utf-8",
         case_sensitive=False,
         extra="ignore"

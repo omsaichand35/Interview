@@ -24,9 +24,14 @@ class PDFLoader(DocumentLoader):
         path = Path(path)
 
         if not path.exists():
-            raise DocumentProcessingError(
-                f"PDF file does not exist: {path}"
-            )
+            from interviewos.config.paths import get_project_paths
+            alt_path = get_project_paths().root / path
+            if alt_path.exists():
+                path = alt_path
+            else:
+                raise DocumentProcessingError(
+                    f"PDF file does not exist: {path}"
+                )
 
         if not path.is_file():
             raise DocumentProcessingError(
