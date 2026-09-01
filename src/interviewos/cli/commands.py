@@ -611,6 +611,7 @@ class InterviewOSApplication:
             session.technical_blueprint = blueprint
             
             engine.start(session)
+            engine.state_machine.transition(session, InterviewEvent.INTRODUCTION_COMPLETE)
             print_round_header("Technical Architecture", job.title, candidate_name, duration_minutes, extra_info={"🧠 Prioritized Competencies": str(len(blueprint.competencies))})
             
             question_generator = TechnicalQuestionGenerator(self.llm)
@@ -684,6 +685,7 @@ class InterviewOSApplication:
             session.hr_blueprint = blueprint
             
             engine.start(session)
+            engine.state_machine.transition(session, InterviewEvent.INTRODUCTION_COMPLETE)
             print_round_header("HR & Behavioral", job.title, candidate_name, duration_minutes, extra_info={"🤝 Prioritized Behaviors": str(len(blueprint.competencies))})
             
             question_generator = HRQuestionGenerator(self.llm)
@@ -755,6 +757,7 @@ class InterviewOSApplication:
             session.managerial_blueprint = blueprint
             
             engine.start(session)
+            engine.state_machine.transition(session, InterviewEvent.INTRODUCTION_COMPLETE)
             print_round_header("Managerial & Leadership", job.title, candidate_name, duration_minutes, extra_info={"👔 Leadership Dimensions": str(len(blueprint.targets))})
             
             question_generator = ManagerialQuestionGenerator(self.llm)
