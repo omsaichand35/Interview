@@ -45,7 +45,40 @@ LLM_API_KEY=your_nvidia_or_openai_api_key
 GITHUB_TOKEN=your_github_personal_access_token
 ```
 
-### 3. CLI Interview Commands
+### 3. One-Click Interactive Menu Launcher
+
+Launch all interviews, assessments, and tools interactively from a single terminal menu:
+
+```bash
+# Windows
+.\run.bat
+# or
+powershell -ExecutionPolicy Bypass -File .\run.ps1
+
+# Linux / macOS
+python3 scripts/menu.py
+```
+
+---
+
+### 4. Direct Runner Scripts (`scripts/`)
+
+| Script | Purpose |
+| :--- | :--- |
+| **`scripts/run_project_interview.ps1`** | Launch Project Deep Dive Interview (GitHub AST parsing) |
+| **`scripts/run_technical_interview.ps1`** | Launch Technical Framework & Architecture Round |
+| **`scripts/run_dsa_interview.ps1`** | Launch DSA Algorithmic Problem & Coding Round |
+| **`scripts/run_hr_interview.ps1`** | Launch HR & Behavioral Interview |
+| **`scripts/run_oa.ps1`** | Launch timed Online Assessment (OA) |
+| **`scripts/run_mentor.ps1`** | Launch AI Learning Mentor & Roadmap Agent |
+| **`scripts/run_project_analyze.ps1`** | Run standalone GitHub repository code analysis |
+| **`scripts/run_all_tests.ps1`** | Run full pytest test suite |
+
+*(Equivalent `.sh` scripts are also provided in `scripts/` for Linux / macOS environments)*
+
+---
+
+### 5. CLI Interview Commands
 
 ```bash
 # Run Project Deep Dive
