@@ -1,0 +1,50 @@
+{
+  "id": "92d0066a-33c3-41c7-87d9-0b32f55f003d",
+  "candidate_id": "c175baf5-fc3a-4ceb-bd5c-9bbdc721ba5c",
+  "role": "Evertz Student Engineer Internship 2026-27",
+  "assessment_id": "22dd6df8-395e-4b60-835f-d2e6d2ea5e9f",
+  "question_ids": [
+    "84648884-6071-4031-9cc3-c78d8afea076",
+    "ce2371d3-e863-405a-a623-0c44201a6aa3",
+    "2daed4d7-7c63-4a86-8b6b-3871632eff8c",
+    "9c8e32f0-8d61-498a-bbff-7ae7b4ac0157",
+    "1b88f254-fb07-4c7e-8f53-d50364ef54f5"
+  ],
+  "answers": [
+    {
+      "question_id": "84648884-6071-4031-9cc3-c78d8afea076",
+      "selected_options": [
+        "A"
+      ]
+    },
+    {
+      "question_id": "ce2371d3-e863-405a-a623-0c44201a6aa3",
+      "selected_options": [
+        "A"
+      ]
+    },
+    {
+      "question_id": "2daed4d7-7c63-4a86-8b6b-3871632eff8c",
+      "selected_options": [
+        "opt_false"
+      ]
+    },
+    {
+      "question_id": "9c8e32f0-8d61-498a-bbff-7ae7b4ac0157",
+      "selected_options": [
+        "A"
+      ]
+    },
+    {
+      "question_id": "1b88f254-fb07-4c7e-8f53-d50364ef54f5",
+      "selected_options": [
+        "optA"
+      ]
+    }
+  ],
+  "status": "submitted",
+  "duration_minutes": 20,
+  "started_at": "2026-09-01T21:45:31.439614",
+  "submitted_at": "2026-09-01T21:49:31.720598",
+  "result": null
+}

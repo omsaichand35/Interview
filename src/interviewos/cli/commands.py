@@ -569,7 +569,7 @@ class InterviewOSApplication:
             engine.ask(session, f"**Problem:** {problem.title}\n\n{problem.statement}\n\nBefore coding, explain your high-level algorithmic approach and time/space complexity tradeoffs.")
             
             while session.state not in (InterviewState.CLOSING, InterviewState.COMPLETED):
-                print_question_card(session.questions_asked + 1, 5, session.current_question, competency="Algorithmic Formulation & Coding", timer_str=session.timer_display)
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency="Algorithmic Formulation & Coding", timer_str=session.timer_display, voice_mode=voice_mode)
                 answer = prompt_candidate_answer(voice_mode=voice_mode)
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
@@ -642,7 +642,7 @@ class InterviewOSApplication:
                         question = await question_generator.generate(job, target_competency, target_topic, difficulty, transcript_text)
                     engine.ask(session, question.question_text)
                 
-                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency, timer_str=session.timer_display)
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency, timer_str=session.timer_display, voice_mode=voice_mode)
                 answer = prompt_candidate_answer(voice_mode=voice_mode)
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
@@ -712,7 +712,7 @@ class InterviewOSApplication:
                         question = await question_generator.generate(job, target_competency, transcript_text)
                     engine.ask(session, question.question_text)
                 
-                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency, timer_str=session.timer_display)
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency, timer_str=session.timer_display, voice_mode=voice_mode)
                 answer = prompt_candidate_answer(voice_mode=voice_mode)
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
@@ -782,7 +782,7 @@ class InterviewOSApplication:
                         question = await question_generator.generate(job, target_competency, transcript_text)
                     engine.ask(session, question)
                 
-                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency, timer_str=session.timer_display)
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency, timer_str=session.timer_display, voice_mode=voice_mode)
                 answer = prompt_candidate_answer(voice_mode=voice_mode)
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
@@ -853,7 +853,7 @@ class InterviewOSApplication:
             engine.ask(session, first_question)
             
             while session.state not in (InterviewState.CLOSING, InterviewState.COMPLETED):
-                print_question_card(session.questions_asked + 1, 5, session.current_question, competency="System Architecture & Code Ownership", timer_str=session.timer_display)
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency="System Architecture & Code Ownership", timer_str=session.timer_display, voice_mode=voice_mode)
                 answer = prompt_candidate_answer(voice_mode=voice_mode)
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):

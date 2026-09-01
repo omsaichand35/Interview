@@ -73,7 +73,8 @@ def print_question_card(
     prompt_id: Optional[str] = None,
     competency: Optional[str] = None,
     topic: Optional[str] = None,
-    timer_str: Optional[str] = None
+    timer_str: Optional[str] = None,
+    voice_mode: bool = False
 ) -> None:
     """Render an interviewer question inside a styled panel."""
     header_parts = []
@@ -97,12 +98,13 @@ def print_question_card(
     console.print()
     console.print(panel)
 
-    # Voice TTS Output
-    try:
-        from interviewos.voice import get_voice_engine
-        get_voice_engine().speak(question_text)
-    except Exception:
-        pass
+    # Voice TTS Output only when explicitly in voice mode (interviews)
+    if voice_mode:
+        try:
+            from interviewos.voice import get_voice_engine
+            get_voice_engine().speak(question_text)
+        except Exception:
+            pass
 
 def prompt_candidate_answer(voice_mode: bool = False) -> str:
     """Prompt the candidate for input with optional Speech-to-Text (STT) mic listening."""

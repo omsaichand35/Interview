@@ -1,0 +1,44 @@
+{
+  "question": {
+    "id": "1b88f254-fb07-4c7e-8f53-d50364ef54f5",
+    "question_type": "multiple_select",
+    "topic": "Front‑End Web Development (HTML5, CSS3, JavaScript ES6+, Frameworks)",
+    "difficulty": "medium",
+    "question": "You are tasked with creating a responsive navigation bar that collapses into a hamburger menu on screens narrower than 768px, using only HTML5, CSS3, and vanilla JavaScript (no frameworks). Which of the following approaches are appropriate to achieve this?",
+    "options": [
+      {
+        "id": "optA",
+        "text": "Use a CSS media query to change the flex direction from row to column and hide the menu links, showing a hamburger icon when viewport width is less than 768px."
+      },
+      {
+        "id": "optB",
+        "text": "Use Flexbox to always stack the navigation items vertically, regardless of screen size."
+      },
+      {
+        "id": "optC",
+        "text": "Rely on the :hover pseudo‑class on the hamburger icon to reveal the menu links on all devices."
+      },
+      {
+        "id": "optD",
+        "text": "Add a click event listener to the hamburger icon that toggles a CSS class (e.g., 'open') on the navigation menu, which controls its visibility via CSS."
+      }
+    ],
+    "correct_options": [
+      "optA",
+      "optD"
+    ],
+    "explanation": "Option A correctly uses a media query to apply different layouts based on viewport width, which is the standard way to create breakpoints for responsive design. Option D correctly describes using JavaScript to toggle a class that controls the menu's visibility, a common pattern for interactive mobile menus. Option B is incorrect because forcing a vertical layout on all screen sizes defeats the purpose of a responsive navbar that should be horizontal on larger displays. Option C is incorrect because the :hover pseudo‑class does not work reliably on touch‑only devices and would not provide an accessible way to open the menu.",
+    "concepts_tested": [
+      "CSS media queries",
+      "Flexbox layout",
+      "JavaScript event handling",
+      "DOM class manipulation",
+      "Responsive design",
+      "Accessibility considerations"
+    ]
+  },
+  "created_at": "2026-09-01T21:45:31.433357",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}
