@@ -163,23 +163,18 @@ class TerminalOARunner:
             if raw.lower() in ('done', 'exit', 'quit', 'finish', 'submit'):
                 return None
 
-            selected = [
-                value.strip().upper()
-                for value in raw.split(",")
-                if value.strip()
-            ]
-
-            valid_letters = set(mapping.keys())
-
-            if not all(value in valid_letters for value in selected):
-                console.print(f"[red]Invalid option. Choose from: {', '.join(sorted(valid_letters))}[/red]")
+            if len(selected) != 1:
+                console.print("[dim yellow]Please choose exactly one option (e.g. A).[/dim yellow]")
                 continue
 
-            selected_ids = [mapping[letter] for letter in selected]
+            chosen_letter = selected[0]
+            if chosen_letter not in mapping:
+                console.print(f"[red]Invalid option. Choose from: {', '.join(sorted(mapping.keys()))}[/red]")
+                continue
 
             return CandidateAnswer(
                 question_id=question.id,
-                selected_options=selected_ids,
+                selected_options=[mapping[chosen_letter]],
             )
 
     def _display_result(

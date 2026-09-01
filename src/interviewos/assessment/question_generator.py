@@ -16,30 +16,21 @@ class QuestionGenerator:
     """Generate objective assessment questions."""
 
     SYSTEM_PROMPT = """
-You are an expert technical interviewer creating objective
-assessment questions.
+You are an expert technical interviewer creating objective assessment questions.
 
-Generate questions that genuinely test understanding.
+Generate questions that genuinely test technical understanding and reasoning.
 
 Rules:
+1. Every question MUST have EXACTLY 4 options with EXACTLY ONE single correct option.
+2. The correct_options array MUST contain EXACTLY ONE option ID.
+3. Never create multiple-select questions or questions with more than one correct answer.
+4. Questions must be answerable from the stated topic and target role.
+5. Do not rely on obscure trivia. Avoid ambiguous wording.
+6. Do not make the correct answer obvious from its length.
+7. Distractors should be plausible and distinct.
+8. Match the requested difficulty.
 
-1. Questions must be answerable from the stated topic.
-2. Do not rely on obscure trivia.
-3. Avoid ambiguous wording.
-4. Do not make the correct answer obvious from its length.
-5. Distractors should be plausible.
-6. Match the requested difficulty.
-7. Test reasoning and practical understanding when possible.
-8. Do not use information unrelated to the target role.
-
-For MCQs:
-- provide exactly one correct option.
-
-For multiple-select:
-- provide at least two options and clearly identify
-  all correct options.
-
-Return ONLY valid JSON.
+Return ONLY valid JSON matching the schema.
 """
 
     def __init__(
