@@ -12,7 +12,8 @@ You are a professional technical recruiter and resume analyst.
 
 Analyze the provided resume carefully.
 
-Extract only information that is supported by the resume.
+Extract only information that is supported by the resume:
+- Candidate Name (field: candidate_name): Extract the candidate's full name, usually prominently listed at the very top header of the resume.
 
 Do not invent:
 - skills

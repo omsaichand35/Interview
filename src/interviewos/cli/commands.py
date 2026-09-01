@@ -69,6 +69,19 @@ class InterviewOSApplication:
         self.mentor = None
         self.rag = None
 
+    def _populate_fallback_candidate_name(self) -> None:
+        if self.resume and (not self.resume.candidate_name or self.resume.candidate_name.lower() in ("none", "null", "unknown")):
+            from pathlib import Path
+            import json
+            prof_file = Path("data/profile.json")
+            if prof_file.exists():
+                try:
+                    p_data = json.loads(prof_file.read_text(encoding="utf-8"))
+                    if p_data.get("candidate_name"):
+                        self.resume.candidate_name = p_data["candidate_name"]
+                except Exception:
+                    pass
+
     async def analyze_documents_async(self) -> None:
         """Analyze resume and job description asynchronously."""
 
@@ -77,6 +90,7 @@ class InterviewOSApplication:
             resume_document = self.pdf_loader.load(self.resume_path)
             print("Analyzing resume...")
             self.resume = await ResumeAnalyzer(self.llm).analyze_async(resume_document)
+            self._populate_fallback_candidate_name()
             print_resume(self.resume)
         else:
             print("No resume provided, skipping resume analysis...")
@@ -95,6 +109,7 @@ class InterviewOSApplication:
             resume_document = self.pdf_loader.load(self.resume_path)
             print("Analyzing resume...")
             self.resume = ResumeAnalyzer(self.llm).analyze(resume_document)
+            self._populate_fallback_candidate_name()
             print_resume(self.resume)
         else:
             print("No resume provided, skipping resume analysis...")
