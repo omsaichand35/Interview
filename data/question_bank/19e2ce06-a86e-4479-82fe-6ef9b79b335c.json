@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "19e2ce06-a86e-4479-82fe-6ef9b79b335c",
+    "question_type": "mcq",
+    "topic": "Machine Learning Fundamentals",
+    "difficulty": "medium",
+    "question": "In ridge regression (L2 regularization), as the regularization parameter λ increases from zero to a very large value, how do the model's bias and variance on the training data typically change?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Bias decreases, variance decreases"
+      },
+      {
+        "id": "B",
+        "text": "Bias increases, variance decreases"
+      },
+      {
+        "id": "C",
+        "text": "Bias decreases, variance increases"
+      },
+      {
+        "id": "D",
+        "text": "Bias increases, variance increases"
+      }
+    ],
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "Increasing λ in ridge regression shrinks coefficients toward zero, which constrains the model complexity. This reduces variance (the model becomes less sensitive to training data fluctuations) but increases bias (the model becomes less flexible and may underfit). This is the classic bias-variance tradeoff: stronger regularization moves the model toward higher bias, lower variance.",
+    "concepts_tested": [
+      "Regularization",
+      "Bias-Variance Tradeoff",
+      "Ridge Regression"
+    ]
+  },
+  "created_at": "2026-09-01T09:02:40.216972",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "90ce5e2c-c2e9-4083-9506-9f8923e5a3e1",
+    "question_type": "mcq",
+    "topic": "MLOps",
+    "difficulty": "easy",
+    "question": "What is the primary purpose of a model registry in an MLOps pipeline?",
+    "options": [
+      {
+        "id": "a",
+        "text": "To automatically retrain models when data drift is detected"
+      },
+      {
+        "id": "b",
+        "text": "To store, version, and manage the lifecycle of trained model artifacts"
+      },
+      {
+        "id": "c",
+        "text": "To monitor real-time prediction latency and throughput"
+      },
+      {
+        "id": "d",
+        "text": "To generate synthetic training data for model augmentation"
+      }
+    ],
+    "correct_options": [
+      "b"
+    ],
+    "explanation": "A model registry is a centralized repository for storing, versioning, and managing trained model artifacts throughout their lifecycle. It enables tracking model versions, metadata, and stages (staging, production, archived), which is essential for reproducibility, governance, and CI/CD in MLOps. The other options describe separate MLOps components: automated retraining (pipelines/orchestration), monitoring (observability), and data generation (data engineering).",
+    "concepts_tested": [
+      "Model registry purpose",
+      "MLOps component responsibilities",
+      "Model lifecycle management"
+    ]
+  },
+  "created_at": "2026-09-01T01:33:27.101845",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

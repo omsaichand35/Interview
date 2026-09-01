@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "61f157c4-39ff-4c74-970c-27c6a7438aa1",
+    "question_type": "true_false",
+    "topic": "PyTorch or TensorFlow",
+    "difficulty": "medium",
+    "question": "In PyTorch, calling `loss.backward()` multiple times on the same computation graph without calling `optimizer.zero_grad()` or detaching the loss will accumulate gradients in the leaf tensors' `.grad` attributes.",
+    "options": [
+      {
+        "id": "true",
+        "text": "True"
+      },
+      {
+        "id": "false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "true"
+    ],
+    "explanation": "PyTorch accumulates gradients by design. Each call to `backward()` adds to the existing `.grad` buffers of leaf tensors rather than overwriting them. This enables patterns like gradient accumulation for large effective batch sizes. Developers must explicitly call `optimizer.zero_grad()` or `model.zero_grad()` before each backward pass to reset gradients, or use `loss.detach()` to create a new computation graph.",
+    "concepts_tested": [
+      "PyTorch autograd mechanics",
+      "Gradient accumulation behavior",
+      "Training loop best practices"
+    ]
+  },
+  "created_at": "2026-09-01T01:29:59.784828",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

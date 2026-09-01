@@ -1,0 +1,41 @@
+{
+  "question": {
+    "id": "e7368bf4-9981-4f81-ae38-25105c3b97e9",
+    "question_type": "mcq",
+    "topic": "Python",
+    "difficulty": "hard",
+    "question": "In CPython, when a reference cycle involves objects that define `__del__` methods, the garbage collector cannot determine a safe finalization order. What happens to these objects, and what is the practical consequence for an ML training loop that creates cyclic references between model objects holding GPU tensor references?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The objects are immediately deallocated in arbitrary order; GPU memory is freed but may cause CUDA errors if tensors are accessed during finalization."
+      },
+      {
+        "id": "b",
+        "text": "The objects are placed in `gc.garbage` list and never finalized; their `__del__` methods are not called, causing GPU memory leaks until the interpreter exits."
+      },
+      {
+        "id": "c",
+        "text": "The garbage collector breaks the cycle by randomly clearing one reference; `__del__` is called on all objects, but GPU tensors may be accessed after free."
+      },
+      {
+        "id": "d",
+        "text": "The interpreter raises `ReferenceError` at cycle detection time; the training loop crashes unless `gc.disable()` is called before model creation."
+      }
+    ],
+    "correct_options": [
+      "b"
+    ],
+    "explanation": "When a reference cycle contains objects with `__del__` methods, CPython's garbage collector cannot safely determine finalization order (since `__del__` might access other objects in the cycle). As a result, these objects are moved to the `gc.garbage` list and their `__del__` methods are never called. For ML workloads, this means model objects holding references to large GPU tensors (via PyTorch, TensorFlow, etc.) will not release GPU memory, causing persistent memory leaks across training iterations. The solution is to avoid `__del__` in favor of explicit cleanup methods (e.g., `close()`, context managers) or use `weakref` to break cycles.",
+    "concepts_tested": [
+      "CPython garbage collection",
+      "Reference cycles and __del__",
+      "gc.garbage behavior",
+      "GPU memory management in ML pipelines"
+    ]
+  },
+  "created_at": "2026-09-01T01:25:18.622010",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

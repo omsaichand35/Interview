@@ -1,0 +1,33 @@
+{
+  "question": {
+    "id": "42b1cefc-3122-4b2e-b3e2-b8e70ab34d08",
+    "question_type": "true_false",
+    "topic": "Docker",
+    "difficulty": "medium",
+    "question": "Docker layer caching automatically ensures reproducibility of ML model training results across different builds when the same Dockerfile is used.",
+    "options": [
+      {
+        "id": "a",
+        "text": "True"
+      },
+      {
+        "id": "b",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "b"
+    ],
+    "explanation": "Docker layer caching only reuses layers when the Dockerfile instructions and their context haven't changed. It does not guarantee reproducibility of ML training results because: 1) External dependencies (apt packages, pip packages without pinned versions) can change between builds, 2) Non-deterministic operations (random seeds, parallel processing) affect training, 3) Hardware differences (GPU vs CPU, different GPU architectures) produce different results, 4) Timestamps and environment variables can vary. True reproducibility requires pinned dependency versions, fixed random seeds, and controlled runtime environments.",
+    "concepts_tested": [
+      "Docker layer caching",
+      "ML reproducibility",
+      "Dependency management",
+      "Build determinism"
+    ]
+  },
+  "created_at": "2026-09-01T01:57:30.789484",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

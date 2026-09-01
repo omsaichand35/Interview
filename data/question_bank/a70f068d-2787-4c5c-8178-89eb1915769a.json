@@ -1,0 +1,46 @@
+{
+  "question": {
+    "id": "a70f068d-2787-4c5c-8178-89eb1915769a",
+    "question_type": "multiple_select",
+    "topic": "Kubernetes",
+    "difficulty": "medium",
+    "question": "An AI/ML engineer is deploying a distributed training workload on a Kubernetes cluster with GPU nodes. Which of the following statements about GPU resource management and pod scheduling are correct?",
+    "options": [
+      {
+        "id": "opt-1",
+        "text": "GPU resources are requested using the standard 'resources.limits.nvidia.com/gpu' field in the pod spec, and Kubernetes automatically schedules pods only on nodes with available GPUs."
+      },
+      {
+        "id": "opt-2",
+        "text": "The NVIDIA device plugin must be installed on each GPU node to advertise GPU capacity to the kubelet and enable GPU resource requests."
+      },
+      {
+        "id": "opt-3",
+        "text": "Setting 'resources.requests.nvidia.com/gpu: 1' and 'resources.limits.nvidia.com/gpu: 1' guarantees the pod gets exclusive access to a physical GPU device."
+      },
+      {
+        "id": "opt-4",
+        "text": "Using 'nvidia.com/gpu' resource requests works without any additional node labeling; the device plugin automatically handles node selection."
+      },
+      {
+        "id": "opt-5",
+        "text": "For multi-GPU training pods, you can request fractional GPUs (e.g., 0.5) to share a single GPU across multiple training jobs."
+      }
+    ],
+    "correct_options": [
+      "opt-2",
+      "opt-3"
+    ],
+    "explanation": "Option 2 is correct: The NVIDIA device plugin is required on each GPU node to discover GPUs and register them as allocatable resources with the kubelet. Option 3 is correct: Kubernetes GPU scheduling uses a 'limit equals request' model — you must set both request and limit to the same integer value, which guarantees exclusive access to whole physical GPUs. Option 1 is incorrect because the resource name is 'nvidia.com/gpu' (not 'resources.limits.nvidia.com/gpu' as a path). Option 4 is misleading — while the device plugin advertises capacity, you often need node selectors/affinity to target GPU node pools. Option 5 is incorrect: Kubernetes does not support fractional GPU requests; GPUs are allocated as whole devices.",
+    "concepts_tested": [
+      "GPU resource management in Kubernetes",
+      "NVIDIA device plugin",
+      "Pod scheduling for ML workloads",
+      "Resource requests and limits for GPUs"
+    ]
+  },
+  "created_at": "2026-09-01T01:25:27.946817",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

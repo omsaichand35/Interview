@@ -1,0 +1,33 @@
+{
+  "question": {
+    "id": "9b35b22a-74bf-4644-98af-eb68011b8efe",
+    "question_type": "true_false",
+    "topic": "Python Programming & Best Practices",
+    "difficulty": "medium",
+    "question": "In Python, a function defined with a mutable default argument (e.g., `def process_data(items=[]):`) creates a new list instance for each call where the argument is omitted.",
+    "options": [
+      {
+        "id": "true",
+        "text": "True"
+      },
+      {
+        "id": "false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "false"
+    ],
+    "explanation": "Mutable default arguments in Python are evaluated once at function definition time, not at each call. All calls that omit the argument share the same mutable object, leading to unexpected state persistence across calls. The correct pattern is to use `None` as the default and create a new mutable object inside the function.",
+    "concepts_tested": [
+      "Mutable default arguments",
+      "Function definition semantics",
+      "Python gotchas",
+      "Best practices for default parameters"
+    ]
+  },
+  "created_at": "2026-09-01T02:15:13.331011",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

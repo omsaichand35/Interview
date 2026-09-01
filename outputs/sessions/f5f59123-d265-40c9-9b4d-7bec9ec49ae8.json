@@ -1,0 +1,85 @@
+{
+  "id": "f5f59123-d265-40c9-9b4d-7bec9ec49ae8",
+  "candidate_id": "f5744aa0-e007-4a20-aa0b-8a322c8b7fb0",
+  "role": "AI/ML Engineer",
+  "assessment_id": "24a66efc-b465-4df1-b09b-afea7e79fe1b",
+  "question_ids": [
+    "cd252a0f-60ce-48a4-b741-b477a97a3055",
+    "1ad6eaef-ef0d-4d40-8f9a-f29b20082b7d",
+    "d392586d-3101-41e6-ae6f-16856972f61b",
+    "febe3b54-e503-4d35-9506-4bb28a69c5c4",
+    "d3740631-b92e-4631-a4f6-000d52d33b3e",
+    "554e1e45-127f-4b9a-83a2-22d4043b46c1",
+    "1e0cce6c-78c1-40a9-ba51-7fbd708f3c13",
+    "7d46ea7d-9ec4-4be7-a638-77bcb894d9b3",
+    "2360c908-319b-40f9-a60e-61da40f2adf6",
+    "757f9dd5-f830-46cf-9947-75f46d6c349c"
+  ],
+  "answers": [
+    {
+      "question_id": "cd252a0f-60ce-48a4-b741-b477a97a3055",
+      "selected_options": [
+        "OPT1"
+      ]
+    },
+    {
+      "question_id": "1ad6eaef-ef0d-4d40-8f9a-f29b20082b7d",
+      "selected_options": [
+        "OPTA"
+      ]
+    },
+    {
+      "question_id": "d392586d-3101-41e6-ae6f-16856972f61b",
+      "selected_options": [
+        "OPT_A"
+      ]
+    },
+    {
+      "question_id": "febe3b54-e503-4d35-9506-4bb28a69c5c4",
+      "selected_options": [
+        "A"
+      ]
+    },
+    {
+      "question_id": "d3740631-b92e-4631-a4f6-000d52d33b3e",
+      "selected_options": [
+        "OPT1"
+      ]
+    },
+    {
+      "question_id": "554e1e45-127f-4b9a-83a2-22d4043b46c1",
+      "selected_options": [
+        "OPTB"
+      ]
+    },
+    {
+      "question_id": "1e0cce6c-78c1-40a9-ba51-7fbd708f3c13",
+      "selected_options": [
+        "A"
+      ]
+    },
+    {
+      "question_id": "7d46ea7d-9ec4-4be7-a638-77bcb894d9b3",
+      "selected_options": [
+        "OPT1"
+      ]
+    },
+    {
+      "question_id": "2360c908-319b-40f9-a60e-61da40f2adf6",
+      "selected_options": [
+        "A"
+      ]
+    },
+    {
+      "question_id": "757f9dd5-f830-46cf-9947-75f46d6c349c",
+      "selected_options": [
+        "A"
+      ]
+    }
+  ],
+  "status": "submitted",
+  "duration_minutes": 60,
+  "started_at": "2026-09-01T14:50:49.265432",
+  "submitted_at": "2026-09-01T14:52:58.371758",
+  "result": null
+}

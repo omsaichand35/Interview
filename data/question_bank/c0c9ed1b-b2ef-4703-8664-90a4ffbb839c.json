@@ -1,0 +1,42 @@
+{
+  "question": {
+    "id": "c0c9ed1b-b2ef-4703-8664-90a4ffbb839c",
+    "question_type": "mcq",
+    "topic": "Docker",
+    "difficulty": "medium",
+    "question": "You are building a Docker image for serving a PyTorch model in production. The training environment requires the full PyTorch installation with CUDA support (approx. 8GB), but the inference server only needs the CPU version of PyTorch and the model weights (approx. 500MB). Which Dockerfile strategy best optimizes the final production image size while maintaining reproducible builds?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use a single-stage build with the CUDA base image and remove unnecessary packages with apt-get clean in the final layer."
+      },
+      {
+        "id": "b",
+        "text": "Use a multi-stage build: first stage uses the CUDA base image for training/export, second stage copies only the model artifacts and uses a minimal Python base image with CPU-only PyTorch."
+      },
+      {
+        "id": "c",
+        "text": "Use a single-stage build with the CPU-only PyTorch base image and install CUDA toolkit at runtime via apt when GPU is needed."
+      },
+      {
+        "id": "d",
+        "text": "Use docker export/import to flatten the trained image, then manually remove CUDA libraries from the exported tarball."
+      }
+    ],
+    "correct_options": [
+      "b"
+    ],
+    "explanation": "Multi-stage builds are the Docker best practice for this scenario. The first stage can use the full CUDA-enabled PyTorch image for model training/export, while the second stage starts from a minimal base (e.g., python:3.11-slim), installs only the CPU version of PyTorch, and copies just the model artifacts (weights, config) from the first stage. This avoids shipping the 8GB CUDA toolkit and training dependencies to production. Option A doesn't remove the CUDA libraries from lower layers. Option C installs CUDA at runtime, adding complexity and breaking reproducibility. Option D (export/import) loses layer caching, breaks reproducibility, and is error-prone.",
+    "concepts_tested": [
+      "Docker multi-stage builds",
+      "Image size optimization",
+      "ML model deployment",
+      "Build reproducibility",
+      "Layer caching"
+    ]
+  },
+  "created_at": "2026-09-01T01:57:58.668809",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

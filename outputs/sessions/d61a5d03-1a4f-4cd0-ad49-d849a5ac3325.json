@@ -1,0 +1,85 @@
+{
+  "id": "d61a5d03-1a4f-4cd0-ad49-d849a5ac3325",
+  "candidate_id": "4f9954d1-cb48-4796-a9f1-c8936ab9caf7",
+  "role": "AI/ML ENGINEER",
+  "assessment_id": "df8140e3-5321-4e64-b350-d43ae4a1e02f",
+  "question_ids": [
+    "908abcfa-849c-4e43-9385-ea89a3bbd043",
+    "ca9e7ed2-ad86-432d-b554-46dce75db6a2",
+    "6fc87d43-722f-4f89-bb3c-2e924433d3ff",
+    "e5ea57b5-69d5-4b83-b5b3-0dfe1ae333f6",
+    "4c6aa8c5-013d-40f7-ac92-04ae8a8fc08b",
+    "27ba351c-e0bd-4f72-adac-f461a3c45016",
+    "4f0bc7d4-47c0-4a07-aed9-d39e04446eb4",
+    "a36ef4e2-b51a-4674-8dd7-281c8f67bfe4",
+    "defdac56-6169-422f-8ed0-a21fcf31b9b3",
+    "f041bbe1-b205-4380-98ba-f801aa7c606f"
+  ],
+  "answers": [
+    {
+      "question_id": "908abcfa-849c-4e43-9385-ea89a3bbd043",
+      "selected_options": [
+        "B"
+      ]
+    },
+    {
+      "question_id": "ca9e7ed2-ad86-432d-b554-46dce75db6a2",
+      "selected_options": [
+        "D"
+      ]
+    },
+    {
+      "question_id": "6fc87d43-722f-4f89-bb3c-2e924433d3ff",
+      "selected_options": [
+        "A"
+      ]
+    },
+    {
+      "question_id": "e5ea57b5-69d5-4b83-b5b3-0dfe1ae333f6",
+      "selected_options": [
+        "C"
+      ]
+    },
+    {
+      "question_id": "4c6aa8c5-013d-40f7-ac92-04ae8a8fc08b",
+      "selected_options": [
+        "D"
+      ]
+    },
+    {
+      "question_id": "27ba351c-e0bd-4f72-adac-f461a3c45016",
+      "selected_options": [
+        "TRUE"
+      ]
+    },
+    {
+      "question_id": "4f0bc7d4-47c0-4a07-aed9-d39e04446eb4",
+      "selected_options": [
+        "D"
+      ]
+    },
+    {
+      "question_id": "a36ef4e2-b51a-4674-8dd7-281c8f67bfe4",
+      "selected_options": [
+        "B"
+      ]
+    },
+    {
+      "question_id": "defdac56-6169-422f-8ed0-a21fcf31b9b3",
+      "selected_options": [
+        "TRUE"
+      ]
+    },
+    {
+      "question_id": "f041bbe1-b205-4380-98ba-f801aa7c606f",
+      "selected_options": [
+        "A"
+      ]
+    }
+  ],
+  "status": "submitted",
+  "duration_minutes": 15,
+  "started_at": "2026-09-01T09:07:58.565327",
+  "submitted_at": "2026-09-01T09:09:40.637337",
+  "result": null
+}

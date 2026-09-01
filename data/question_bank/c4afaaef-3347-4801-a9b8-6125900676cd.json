@@ -1,0 +1,42 @@
+{
+  "question": {
+    "id": "c4afaaef-3347-4801-a9b8-6125900676cd",
+    "question_type": "multiple_select",
+    "topic": "MLOps, Deployment & Version Control",
+    "difficulty": "easy",
+    "question": "Which of the following are essential components of a CI/CD pipeline for machine learning models?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "Automated testing of model performance on a validation set"
+      },
+      {
+        "id": "opt2",
+        "text": "Manual model deployment to production"
+      },
+      {
+        "id": "opt3",
+        "text": "Versioning of data and model artifacts"
+      },
+      {
+        "id": "opt4",
+        "text": "Automated retraining on new data without validation"
+      }
+    ],
+    "correct_options": [
+      "opt1",
+      "opt3"
+    ],
+    "explanation": "A robust ML CI/CD pipeline requires automated validation of model performance (opt1) and versioning of data, code, and model artifacts (opt3) to ensure reproducibility and traceability. Manual deployment (opt2) contradicts the goal of automation, and retraining without validation (opt4) risks deploying degraded models.",
+    "concepts_tested": [
+      "CI/CD for ML",
+      "Model validation",
+      "Artifact versioning",
+      "Automation best practices"
+    ]
+  },
+  "created_at": "2026-09-01T09:02:02.340049",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

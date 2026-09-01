@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "908abcfa-849c-4e43-9385-ea89a3bbd043",
+    "question_type": "mcq",
+    "topic": "Python Programming",
+    "difficulty": "medium",
+    "question": "Consider the following Python function:\n\ndef append_to(element, to=[]):\n    to.append(element)\n    return to\n\nWhat is the output of the following calls?\nprint(append_to(1))\nprint(append_to(2))\nprint(append_to(3))",
+    "options": [
+      {
+        "id": "A",
+        "text": "[1], [2], [3]"
+      },
+      {
+        "id": "B",
+        "text": "[1], [1, 2], [1, 2, 3]"
+      },
+      {
+        "id": "C",
+        "text": "[1, 2, 3], [1, 2, 3], [1, 2, 3]"
+      },
+      {
+        "id": "D",
+        "text": "[1], [2], [1, 2, 3]"
+      }
+    ],
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "In Python, default arguments are evaluated once at function definition time. The list `[]` is created once and shared across all calls that use the default value. Each call mutates the same list, so the results accumulate: first call returns [1], second returns [1, 2], third returns [1, 2, 3].",
+    "concepts_tested": [
+      "Mutable default arguments",
+      "Function definition semantics",
+      "List mutability"
+    ]
+  },
+  "created_at": "2026-09-01T09:05:21.173522",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

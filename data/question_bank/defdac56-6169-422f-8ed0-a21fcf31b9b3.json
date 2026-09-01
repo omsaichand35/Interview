@@ -1,0 +1,33 @@
+{
+  "question": {
+    "id": "defdac56-6169-422f-8ed0-a21fcf31b9b3",
+    "question_type": "true_false",
+    "topic": "Git & Version Control",
+    "difficulty": "medium",
+    "question": "Using `git rebase` on a feature branch that has already been pushed to a shared remote repository is safe as long as you force-push the updated branch afterward.",
+    "options": [
+      {
+        "id": "true",
+        "text": "True"
+      },
+      {
+        "id": "false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "false"
+    ],
+    "explanation": "Rebasing rewrites commit history by creating new commits with different SHAs. If the branch was already pushed and others may have pulled it, force-pushing after rebasing will cause divergence for anyone who based work on the original commits. This leads to duplicate commits, merge conflicts, and a corrupted history for collaborators. The safe practice is to only rebase local, unpublished branches; for shared branches, use `git merge` instead.",
+    "concepts_tested": [
+      "git rebase",
+      "force push",
+      "shared branch workflow",
+      "commit history rewriting"
+    ]
+  },
+  "created_at": "2026-09-01T09:04:56.624345",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

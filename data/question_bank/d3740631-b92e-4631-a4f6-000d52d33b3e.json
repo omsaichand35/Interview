@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "d3740631-b92e-4631-a4f6-000d52d33b3e",
+    "question_type": "mcq",
+    "topic": "Deep Learning",
+    "difficulty": "medium",
+    "question": "Which of the following statements about batch normalization in deep neural networks is correct?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "Batch normalization is applied after the activation function."
+      },
+      {
+        "id": "opt2",
+        "text": "Batch normalization reduces internal covariate shift by normalizing the inputs of each layer to have zero mean and unit variance across the mini-batch."
+      },
+      {
+        "id": "opt3",
+        "text": "Batch normalization eliminates the need for any form of regularization such as dropout."
+      },
+      {
+        "id": "opt4",
+        "text": "During inference, batch normalization uses the statistics of the current mini-batch to normalize activations."
+      }
+    ],
+    "correct_options": [
+      "opt2"
+    ],
+    "explanation": "Batch normalization normalizes layer inputs per mini-batch to zero mean and unit variance, which mitigates internal covariate shift and stabilizes training. It is typically placed before the activation function, does not replace other regularizers, and during inference uses running estimates of mean and variance rather than the current batch statistics.",
+    "concepts_tested": [
+      "batch normalization",
+      "internal covariate shift",
+      "training deep networks"
+    ]
+  },
+  "created_at": "2026-09-01T14:48:52.068344",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

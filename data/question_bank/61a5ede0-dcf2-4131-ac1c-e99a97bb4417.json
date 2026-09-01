@@ -1,0 +1,48 @@
+{
+  "question": {
+    "id": "61a5ede0-dcf2-4131-ac1c-e99a97bb4417",
+    "question_type": "multiple_select",
+    "topic": "Machine Learning Fundamentals",
+    "difficulty": "medium",
+    "question": "Which of the following statements about L1 and L2 regularization are correct?",
+    "options": [
+      {
+        "id": "A",
+        "text": "L1 regularization tends to produce sparse weight vectors, effectively performing feature selection"
+      },
+      {
+        "id": "B",
+        "text": "L2 regularization shrinks weights towards zero but rarely sets them exactly to zero"
+      },
+      {
+        "id": "C",
+        "text": "L1 regularization has a unique global minimum for convex loss functions, while L2 can have multiple minima"
+      },
+      {
+        "id": "D",
+        "text": "The L1 penalty term is differentiable everywhere, making gradient-based optimization straightforward"
+      },
+      {
+        "id": "E",
+        "text": "Elastic Net regularization combines L1 and L2 penalties to handle correlated features better than either alone"
+      }
+    ],
+    "correct_options": [
+      "A",
+      "B",
+      "E"
+    ],
+    "explanation": "L1 regularization (Lasso) produces sparsity by driving some weights exactly to zero, performing feature selection. L2 regularization (Ridge) shrinks weights proportionally but rarely produces exact zeros. L1 is non-differentiable at zero (making optimization trickier, not easier). For convex loss functions, L2 has a unique minimum due to strict convexity, while L1 can have multiple minima along flat regions. Elastic Net combines both penalties to handle correlated features more effectively.",
+    "concepts_tested": [
+      "Regularization",
+      "L1/L2 penalties",
+      "Feature selection",
+      "Optimization properties",
+      "Elastic Net"
+    ]
+  },
+  "created_at": "2026-09-01T02:08:56.745959",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

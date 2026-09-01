@@ -1,0 +1,47 @@
+{
+  "question": {
+    "id": "2e7bf935-11ae-40f7-b5c3-bf6c94f6a04f",
+    "question_type": "multiple_select",
+    "topic": "Docker",
+    "difficulty": "medium",
+    "question": "Which of the following Docker practices are recommended when deploying a machine‑learning model serving container to production?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "Use a multi‑stage build to keep the final image small and free of build‑time dependencies."
+      },
+      {
+        "id": "opt2",
+        "text": "Run the container as root for simplicity and to avoid permission issues."
+      },
+      {
+        "id": "opt3",
+        "text": "Pin the base image by digest (e.g., python@sha256:…) to guarantee reproducible builds."
+      },
+      {
+        "id": "opt4",
+        "text": "Mount the host’s entire filesystem into the container for easy access to data and code."
+      },
+      {
+        "id": "opt5",
+        "text": "Set explicit resource limits (CPU, memory) using `docker run --cpus` / `--memory` or equivalent orchestrator settings."
+      }
+    ],
+    "correct_options": [
+      "opt1",
+      "opt3",
+      "opt5"
+    ],
+    "explanation": "Multi‑stage builds reduce attack surface and image size (opt1). Pinning the base image by digest ensures the exact same base is used every time, preventing drift (opt3). Applying resource limits prevents a single container from exhausting host resources and provides predictable performance (opt5). Running as root (opt2) and mounting the whole host filesystem (opt4) are security anti‑patterns and should be avoided.",
+    "concepts_tested": [
+      "Docker multi‑stage builds",
+      "Image reproducibility via digest pinning",
+      "Container security (non‑root user, least‑privilege mounts)",
+      "Resource constraints and runtime limits"
+    ]
+  },
+  "created_at": "2026-09-01T01:56:50.712988",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "f041bbe1-b205-4380-98ba-f801aa7c606f",
+    "question_type": "mcq",
+    "topic": "MLOps & Model Deployment",
+    "difficulty": "easy",
+    "question": "What is the primary purpose of a model registry in MLOps?",
+    "options": [
+      {
+        "id": "A",
+        "text": "To store training datasets for reproducibility"
+      },
+      {
+        "id": "B",
+        "text": "To track model versions, metadata, and lineage for reproducibility and governance"
+      },
+      {
+        "id": "C",
+        "text": "To automatically retrain models when performance degrades"
+      },
+      {
+        "id": "D",
+        "text": "To serve model predictions via REST APIs"
+      }
+    ],
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "A model registry is a centralized repository that stores trained models along with their versions, metadata (hyperparameters, metrics, training data references), and lineage information. This enables reproducibility, auditability, and governance. Storing datasets is typically handled by data versioning tools (e.g., DVC). Automatic retraining is an orchestration/pipeline concern. Serving predictions is the role of a model serving platform (e.g., TensorFlow Serving, Triton).",
+    "concepts_tested": [
+      "Model Registry",
+      "MLOps Components",
+      "Model Versioning"
+    ]
+  },
+  "created_at": "2026-09-01T09:05:19.125755",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

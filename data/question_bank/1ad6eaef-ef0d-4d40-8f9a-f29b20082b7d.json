@@ -1,0 +1,60 @@
+{
+  "question": {
+    "id": "1ad6eaef-ef0d-4d40-8f9a-f29b20082b7d",
+    "question_type": "multiple_select",
+    "topic": "Python Programming",
+    "difficulty": "hard",
+    "question": "Consider the following Python class definition:\n\n```python\nclass Descriptor:\n    def __init__(self, value=None):\n        self.value = value\n    def __get__(self, obj, owner):\n        if obj is None:\n            return self\n        return self.value * 2\n    def __set__(self, obj, value):\n        self.value = value\n\nclass MyClass:\n    attr = Descriptor(5)\n    def __init__(self):\n        self.instance_attr = 10\n    def __getattr__(self, name):\n        return f\\\"missing {name}\\\"\n    def __getattribute__(self, name):\n        if name == 'special':\n            return 42\n        return object.__getattribute__(self, name)\n```\n\nWhich of the following statements are true when executing the code below?\n\n```python\nobj = MyClass()\nprint(obj.attr)\nprint(obj.instance_attr)\nprint(obj.special)\nprint(obj.missing)\n```",
+    "options": [
+      {
+        "id": "optA",
+        "text": "obj.attr prints 10."
+      },
+      {
+        "id": "optB",
+        "text": "obj.instance_attr prints 10."
+      },
+      {
+        "id": "optC",
+        "text": "obj.special prints 42."
+      },
+      {
+        "id": "optD",
+        "text": "obj.missing prints \\\"missing missing\\\"."
+      },
+      {
+        "id": "optE",
+        "text": "obj.attr prints 5."
+      },
+      {
+        "id": "optF",
+        "text": "obj.instance_attr raises AttributeError."
+      },
+      {
+        "id": "optG",
+        "text": "obj.special raises AttributeError."
+      },
+      {
+        "id": "optH",
+        "text": "obj.missing raises AttributeError."
+      }
+    ],
+    "correct_options": [
+      "optA",
+      "optB",
+      "optC",
+      "optD"
+    ],
+    "explanation": "attr is a data descriptor (has __set__), so Descriptor.__get__ returns self.value * 2 = 10. instance_attr is set in __init__ to 10. special is intercepted by __getattribute__ returning 42. missing triggers __getattribute__ (which raises AttributeError for non-special names), causing __getattr__ to return f\\\"missing {name}\\\" → \\\"missing missing\\\".",
+    "concepts_tested": [
+      "descriptor protocol",
+      "__getattr__ vs __getattribute__",
+      "attribute lookup order",
+      "data descriptors"
+    ]
+  },
+  "created_at": "2026-09-01T14:50:49.254924",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

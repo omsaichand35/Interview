@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "6f32d220-bb9a-4be9-a173-f1108529c2ad",
+    "question_type": "true_false",
+    "topic": "Docker",
+    "difficulty": "medium",
+    "question": "A Docker container can directly access the host's GPU without any additional configuration.",
+    "options": [
+      {
+        "id": "opt_true",
+        "text": "True"
+      },
+      {
+        "id": "opt_false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "opt_false"
+    ],
+    "explanation": "By default, Docker containers are isolated from host hardware. To enable GPU access you must use the `--gpus` flag (or the legacy `nvidia-docker` runtime) and have the NVIDIA Container Toolkit installed on the host. Without this explicit configuration the container cannot see the GPU.",
+    "concepts_tested": [
+      "Docker GPU support",
+      "Container runtime configuration",
+      "NVIDIA Container Toolkit"
+    ]
+  },
+  "created_at": "2026-09-01T01:23:08.059884",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

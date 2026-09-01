@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "fca7014e-eb05-4df5-8793-4315aae63f6c",
+    "question_type": "true_false",
+    "topic": "Machine Learning Fundamentals",
+    "difficulty": "medium",
+    "question": "Gradient descent is guaranteed to converge to the global minimum for any differentiable loss function.",
+    "options": [
+      {
+        "id": "true",
+        "text": "True"
+      },
+      {
+        "id": "false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "false"
+    ],
+    "explanation": "Gradient descent converges to a global minimum only for convex loss functions. For non-convex functions (e.g., neural networks), it may converge to a local minimum or saddle point.",
+    "concepts_tested": [
+      "Gradient Descent",
+      "Optimization",
+      "Convexity"
+    ]
+  },
+  "created_at": "2026-09-01T09:01:46.826071",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,41 @@
+{
+  "question": {
+    "id": "4f0bc7d4-47c0-4a07-aed9-d39e04446eb4",
+    "question_type": "mcq",
+    "topic": "SQL & Data Querying",
+    "difficulty": "medium",
+    "question": "You have a table `transactions` with columns `user_id`, `transaction_date`, and `amount`. You need to compute, for each transaction, the rolling 30-day sum of `amount` per user (including the current day). Which query correctly implements this using a window function?",
+    "options": [
+      {
+        "id": "a",
+        "text": "SELECT user_id, transaction_date, amount, SUM(amount) OVER (PARTITION BY user_id ORDER BY transaction_date ROWS BETWEEN 29 PRECEDING AND CURRENT ROW) AS rolling_30d_sum FROM transactions;"
+      },
+      {
+        "id": "b",
+        "text": "SELECT user_id, transaction_date, amount, SUM(amount) OVER (PARTITION BY user_id ORDER BY transaction_date RANGE BETWEEN INTERVAL '29' DAY PRECEDING AND CURRENT ROW) AS rolling_30d_sum FROM transactions;"
+      },
+      {
+        "id": "c",
+        "text": "SELECT user_id, transaction_date, amount, SUM(amount) OVER (PARTITION BY user_id ORDER BY transaction_date RANGE BETWEEN INTERVAL '30' DAY PRECEDING AND CURRENT ROW) AS rolling_30d_sum FROM transactions;"
+      },
+      {
+        "id": "d",
+        "text": "SELECT user_id, transaction_date, amount, SUM(amount) OVER (PARTITION BY user_id ORDER BY transaction_date ROWS BETWEEN 30 PRECEDING AND CURRENT ROW) AS rolling_30d_sum FROM transactions;"
+      }
+    ],
+    "correct_options": [
+      "b"
+    ],
+    "explanation": "Option B is correct because it uses `RANGE` with an `INTERVAL '29' DAY PRECEDING`, which defines a logical window of 30 calendar days (current day + 29 preceding days) based on the `transaction_date` values. This correctly handles gaps in dates (e.g., weekends with no transactions). Option A uses `ROWS 29 PRECEDING`, which counts 29 physical rows, not calendar days. Option C uses a 30-day interval, resulting in a 31-day window. Option D uses `ROWS 30 PRECEDING`, which is 31 rows.",
+    "concepts_tested": [
+      "Window functions",
+      "RANGE vs ROWS framing",
+      "Time-based windowing",
+      "Feature engineering patterns"
+    ]
+  },
+  "created_at": "2026-09-01T09:07:58.565327",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

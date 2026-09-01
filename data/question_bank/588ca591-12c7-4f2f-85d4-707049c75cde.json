@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "588ca591-12c7-4f2f-85d4-707049c75cde",
+    "question_type": "mcq",
+    "topic": "Python Programming & Best Practices",
+    "difficulty": "medium",
+    "question": "You are building a data preprocessing pipeline for a large-scale ML training job. The pipeline reads raw samples from disk, applies transformations, and yields batches to the trainer. Which implementation approach best balances memory efficiency and code maintainability?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Load all transformed samples into a list, then slice into batches. This ensures deterministic ordering and simplifies debugging."
+      },
+      {
+        "id": "b",
+        "text": "Use a generator function with yield to stream transformed samples one at a time, and let the DataLoader handle batching."
+      },
+      {
+        "id": "c",
+        "text": "Pre-allocate a NumPy array of the full dataset size, fill it during transformation, then return views for each batch."
+      },
+      {
+        "id": "d",
+        "text": "Store transformed samples in a temporary SQLite database, then query batches by index during training."
+      }
+    ],
+    "correct_options": [
+      "b"
+    ],
+    "explanation": "Generator functions with yield provide lazy evaluation, keeping memory usage constant regardless of dataset size. This is the standard pattern in PyTorch's IterableDataset and TensorFlow's tf.data.Dataset. Option (a) loads everything into memory, defeating the purpose of streaming. Option (c) requires knowing the final size upfront and still holds all data in RAM. Option (d) adds I/O overhead and complexity without benefit for typical preprocessing pipelines.",
+    "concepts_tested": [
+      "Generators and lazy evaluation",
+      "Memory-efficient data processing",
+      "ML data pipeline best practices"
+    ]
+  },
+  "created_at": "2026-09-01T09:02:33.393236",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,41 @@
+{
+  "question": {
+    "id": "b0ca6395-4314-4048-8c75-9edd36060972",
+    "question_type": "mcq",
+    "topic": "Docker",
+    "difficulty": "medium",
+    "question": "An AI/ML engineer is optimizing a Dockerfile for a PyTorch training container. The current Dockerfile copies the entire project directory (including large datasets and .git folder) before installing Python dependencies via pip. Which change would most effectively improve build cache utilization and reduce rebuild times when only source code changes?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Add a .dockerignore file excluding datasets/ and .git/, and copy requirements.txt separately before copying source code"
+      },
+      {
+        "id": "B",
+        "text": "Use a multi-stage build with a builder stage that compiles PyTorch from source"
+      },
+      {
+        "id": "C",
+        "text": "Set the DOCKER_BUILDKIT=1 environment variable and use --mount=type=cache for pip cache"
+      },
+      {
+        "id": "D",
+        "text": "Combine all RUN commands into a single layer to minimize image size"
+      }
+    ],
+    "correct_options": [
+      "A"
+    ],
+    "explanation": "Option A is correct because it addresses two key Docker best practices: (1) Using .dockerignore prevents large, frequently changing files (datasets, .git) from invalidating the build cache when they change, and (2) copying requirements.txt separately before source code allows Docker to cache the dependency installation layer—only when requirements.txt changes will pip reinstall packages. This is the standard pattern for Python/ML projects. Option B (multi-stage build) is useful for reducing final image size but doesn't directly improve cache utilization for dependency installation. Option C (BuildKit cache mount) speeds up pip downloads but doesn't solve the cache invalidation caused by copying large directories. Option D (combining RUN commands) reduces layers but harms cache granularity—any change would invalidate the entire combined layer.",
+    "concepts_tested": [
+      "Docker build cache optimization",
+      "Layer ordering best practices",
+      ".dockerignore usage",
+      "Python dependency caching in Docker"
+    ]
+  },
+  "created_at": "2026-09-01T01:29:58.158741",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

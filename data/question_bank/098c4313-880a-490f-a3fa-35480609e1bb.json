@@ -1,0 +1,48 @@
+{
+  "question": {
+    "id": "098c4313-880a-490f-a3fa-35480609e1bb",
+    "question_type": "multiple_select",
+    "topic": "Machine Learning",
+    "difficulty": "hard",
+    "question": "Consider an overparameterized linear regression model (more features than training samples) trained with gradient descent on the squared loss without any explicit regularization. Which of the following statements are correct?",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "The solution converges to the minimum ℓ₂-norm interpolating solution."
+      },
+      {
+        "id": "opt_b",
+        "text": "Gradient descent with a small step size converges to the maximum‑margin solution."
+      },
+      {
+        "id": "opt_c",
+        "text": "The test error exhibits a double‑descent curve as a function of model width."
+      },
+      {
+        "id": "opt_d",
+        "text": "Adding an ℓ₂ weight‑decay term changes the implicit bias to that of ridge regression."
+      },
+      {
+        "id": "opt_e",
+        "text": "Early stopping acts as an explicit ℓ₂ regularizer."
+      }
+    ],
+    "correct_options": [
+      "opt_a",
+      "opt_c",
+      "opt_d"
+    ],
+    "explanation": "In the overparameterized linear regression setting, gradient descent on the squared loss implicitly minimizes the ℓ₂ norm among all interpolating solutions (A). The test risk versus model width often shows a double‑descent pattern, decreasing after the interpolation threshold (C). Introducing an ℓ₂ weight‑decay term modifies the objective to ridge regression, altering the implicit bias accordingly (D). Gradient descent does not converge to a maximum‑margin solution for regression; that property holds for classification with logistic or hinge loss (B). Early stopping does not implement an exact ℓ₂ penalty but rather acts as a spectral filter, so describing it as an explicit ℓ₂ regularizer is inaccurate (E).",
+    "concepts_tested": [
+      "overparameterized models",
+      "implicit bias",
+      "double descent",
+      "ridge regression",
+      "gradient descent dynamics"
+    ]
+  },
+  "created_at": "2026-09-01T14:47:18.797032",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

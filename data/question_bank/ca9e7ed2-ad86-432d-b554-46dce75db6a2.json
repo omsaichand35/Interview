@@ -1,0 +1,48 @@
+{
+  "question": {
+    "id": "ca9e7ed2-ad86-432d-b554-46dce75db6a2",
+    "question_type": "multiple_select",
+    "topic": "Python Programming",
+    "difficulty": "medium",
+    "question": "When processing large datasets in Python for ML workflows, which of the following statements about memory efficiency are correct?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Using a list comprehension to load all data into memory is more memory-efficient than using a generator expression"
+      },
+      {
+        "id": "b",
+        "text": "NumPy arrays store data in contiguous memory blocks, making them more memory-efficient than Python lists for numerical data"
+      },
+      {
+        "id": "c",
+        "text": "The `mmap` module allows memory-mapping large files, enabling access to data larger than available RAM without loading it entirely"
+      },
+      {
+        "id": "d",
+        "text": "Setting `dtype=np.float32` instead of `np.float64` for a NumPy array reduces memory usage by approximately 50%"
+      },
+      {
+        "id": "e",
+        "text": "Using `del variable` immediately frees the memory back to the operating system in CPython"
+      }
+    ],
+    "correct_options": [
+      "b",
+      "c",
+      "d"
+    ],
+    "explanation": "Option B is correct: NumPy arrays use contiguous C-style memory layouts with fixed-size elements, avoiding the per-object overhead of Python lists. Option C is correct: memory-mapped files (via `mmap` or `np.memmap`) allow the OS to page data in/out as needed, enabling work with datasets larger than RAM. Option D is correct: float32 uses 4 bytes per element vs 8 bytes for float64, halving memory for the array data. Option A is incorrect: generators yield items lazily, using constant memory, while list comprehensions materialize all items at once. Option E is incorrect: `del` only decrements the reference count; memory is returned to Python's allocator, not necessarily to the OS, and cyclic garbage collection may be needed.",
+    "concepts_tested": [
+      "Memory management",
+      "NumPy internals",
+      "Generator vs list comprehension",
+      "Memory-mapped files",
+      "Data type precision tradeoffs"
+    ]
+  },
+  "created_at": "2026-09-01T09:05:10.965314",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

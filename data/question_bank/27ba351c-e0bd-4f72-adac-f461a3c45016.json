@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "27ba351c-e0bd-4f72-adac-f461a3c45016",
+    "question_type": "true_false",
+    "topic": "PyTorch/TensorFlow Framework",
+    "difficulty": "medium",
+    "question": "In PyTorch, calling `loss.backward()` accumulates gradients in the `.grad` attribute by default (requiring manual zeroing), whereas in TensorFlow 2.x using `tf.GradientTape`, gradients are computed fresh each time and do not accumulate unless explicitly configured to do so.",
+    "options": [
+      {
+        "id": "true",
+        "text": "True"
+      },
+      {
+        "id": "false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "true"
+    ],
+    "explanation": "This statement is true. PyTorch's autograd accumulates gradients in the `.grad` attribute of parameters by default, which is why `optimizer.zero_grad()` or `model.zero_grad()` must be called before each backward pass. In contrast, TensorFlow 2.x's `tf.GradientTape` computes gradients on-demand and returns them directly; it does not store or accumulate them in variable attributes unless the user manually implements accumulation logic.",
+    "concepts_tested": [
+      "Autograd mechanics",
+      "Gradient accumulation behavior",
+      "PyTorch vs TensorFlow API differences"
+    ]
+  },
+  "created_at": "2026-09-01T09:04:59.767299",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,41 @@
+{
+  "question": {
+    "id": "cd252a0f-60ce-48a4-b741-b477a97a3055",
+    "question_type": "mcq",
+    "topic": "Python Programming",
+    "difficulty": "hard",
+    "question": "What is the output of the following Python code?\n\n```python\ndef make_adder(n):\n    return lambda x: x + n\n\nadds = [make_adder(i) for i in range(3)]\nprint([add(0) for add in adds])\n```",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "[0, 1, 2]"
+      },
+      {
+        "id": "opt2",
+        "text": "[2, 2, 2]"
+      },
+      {
+        "id": "opt3",
+        "text": "[0, 0, 0]"
+      },
+      {
+        "id": "opt4",
+        "text": "[1, 2, 3]"
+      }
+    ],
+    "correct_options": [
+      "opt2"
+    ],
+    "explanation": "The lambda captures the variable `n` by reference, not by value. At the time the lambdas are created, they all refer to the same variable `n` from the enclosing scope. After the list comprehension finishes, `n` holds its last value, which is 2. When each lambda is later called, it uses the current value of `n` (2), resulting in `[2, 2, 2]`. This demonstrates Python's late binding closure behavior.",
+    "concepts_tested": [
+      "closures",
+      "late binding",
+      "variable scoping",
+      "lambda functions"
+    ]
+  },
+  "created_at": "2026-09-01T14:48:59.424871",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

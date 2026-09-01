@@ -1,0 +1,41 @@
+{
+  "question": {
+    "id": "6e91ccf3-dc42-45b2-b1eb-040edaaf5783",
+    "question_type": "mcq",
+    "topic": "Docker",
+    "difficulty": "medium",
+    "question": "When using a multi-stage Docker build to create a production image for serving a PyTorch model, which approach correctly minimizes the final image size while ensuring the model weights are available at runtime?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Copy the entire training environment including GPU toolkit to the final stage"
+      },
+      {
+        "id": "b",
+        "text": "Install pip dependencies in the first stage, copy only the model weights and inference code to a minimal base image in the final stage"
+      },
+      {
+        "id": "c",
+        "text": "Use a single stage with --no-cache flag to avoid layer bloat"
+      },
+      {
+        "id": "d",
+        "text": "Build the model weights into the image during the first stage using a build argument"
+      }
+    ],
+    "correct_options": [
+      "b"
+    ],
+    "explanation": "Multi-stage builds allow separating the build environment (with heavy dependencies like CUDA toolkit, training libraries) from the runtime environment. The correct pattern: Stage 1 installs dependencies and trains/exports the model. Stage 2 uses a minimal base (e.g., python:slim or distroless), copies only the necessary artifacts (model weights, inference script, runtime dependencies), and sets the entrypoint. Option A defeats the purpose by copying the heavy build environment. Option C doesn't address layer separation. Option D embeds weights at build time, which prevents updating models without rebuilding the image.",
+    "concepts_tested": [
+      "Multi-stage Docker builds",
+      "Image size optimization",
+      "ML model deployment",
+      "Build vs runtime separation"
+    ]
+  },
+  "created_at": "2026-09-01T01:21:49.443577",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,41 @@
+{
+  "question": {
+    "id": "53f711db-e407-4469-be76-fb4246da30d4",
+    "question_type": "mcq",
+    "topic": "Deep Learning Concepts & Frameworks",
+    "difficulty": "medium",
+    "question": "When using AdamW optimizer instead of Adam with weight decay, what is the key difference in how weight decay is applied?",
+    "options": [
+      {
+        "id": "A",
+        "text": "AdamW applies weight decay before the adaptive learning rate scaling, while Adam applies it after"
+      },
+      {
+        "id": "B",
+        "text": "AdamW applies weight decay directly to the parameters (decoupled), while Adam adds it to the gradient (coupled)"
+      },
+      {
+        "id": "C",
+        "text": "AdamW uses a fixed weight decay schedule, while Adam uses a cosine annealing schedule"
+      },
+      {
+        "id": "D",
+        "text": "AdamW applies weight decay only to weights, while Adam applies it to both weights and biases"
+      }
+    ],
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "The key distinction is that AdamW implements decoupled weight decay: it applies the weight decay term directly to the parameter update (θ ← θ - ηλθ), separate from the gradient-based adaptive learning rate. In contrast, standard Adam with weight decay adds the L2 regularization term to the gradient before the adaptive scaling (g ← g + λθ), which couples weight decay with the adaptive learning rate and leads to suboptimal regularization, especially for parameters with large historical gradients. This decoupling was introduced in the 'Fixing Weight Decay Regularization in Adam' paper (Loshchilov & Hutter, 2019).",
+    "concepts_tested": [
+      "Optimizer internals",
+      "Weight decay regularization",
+      "Adam vs AdamW",
+      "Decoupled weight decay"
+    ]
+  },
+  "created_at": "2026-09-01T09:01:52.099425",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,42 @@
+{
+  "question": {
+    "id": "d6384f24-cbf1-43c1-b333-d3c9c403827b",
+    "question_type": "mcq",
+    "topic": "Machine Learning",
+    "difficulty": "hard",
+    "question": "In the 'Edge of Stability' (EoS) regime observed when training deep neural networks with gradient descent using a constant step size η, the maximum eigenvalue of the loss Hessian λ_max oscillates around 2/η. What is the primary mechanism that prevents λ_max from exceeding 2/η by a large margin and causing divergence?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The learning rate automatically decays when the loss curvature increases, effectively implementing an adaptive schedule."
+      },
+      {
+        "id": "b",
+        "text": "Gradient descent enters a limit cycle where the parameters oscillate between regions of high and low curvature, with the sharpest directions self-stabilizing through a third-order 'self-stabilization' effect."
+      },
+      {
+        "id": "c",
+        "text": "Batch normalization layers dynamically rescale the gradients to maintain the effective Hessian eigenvalues below the stability threshold."
+      },
+      {
+        "id": "d",
+        "text": "The loss landscape is locally convex in high-curvature directions, causing gradient descent to converge rapidly and reduce λ_max before it can exceed 2/η."
+      }
+    ],
+    "correct_options": [
+      "b"
+    ],
+    "explanation": "The Edge of Stability phenomenon (Cohen et al., 2021) shows that with constant step size η, GD operates at the boundary of linear stability (λ_max ≈ 2/η). The key mechanism is a third-order self-stabilization effect: in directions of high curvature, the gradient update overshoots the minimum, but the third-order term in the Taylor expansion creates a restoring force that pushes parameters back toward lower-curvature regions. This creates a stable limit cycle where λ_max oscillates around 2/η rather than diverging. Options A, C, and D are incorrect: EoS occurs with constant η (no auto-decay), without batch norm, and the landscape is not locally convex in these sharp directions.",
+    "concepts_tested": [
+      "Optimization theory",
+      "Edge of Stability",
+      "Hessian spectrum",
+      "Gradient descent dynamics",
+      "Non-convex optimization"
+    ]
+  },
+  "created_at": "2026-09-01T01:29:14.814028",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

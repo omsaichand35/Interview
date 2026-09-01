@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "6fc87d43-722f-4f89-bb3c-2e924433d3ff",
+    "question_type": "true_false",
+    "topic": "Machine Learning Fundamentals",
+    "difficulty": "medium",
+    "question": "Increasing the regularization strength (e.g., larger lambda in L2 regularization) always reduces the model's variance without increasing its bias.",
+    "options": [
+      {
+        "id": "a",
+        "text": "True"
+      },
+      {
+        "id": "b",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "b"
+    ],
+    "explanation": "Increasing regularization strength reduces variance by constraining the model complexity, but it simultaneously increases bias because the model becomes less flexible and may underfit the training data. The bias-variance tradeoff means you cannot reduce one without affecting the other; stronger regularization pushes the model toward higher bias and lower variance.",
+    "concepts_tested": [
+      "bias-variance tradeoff",
+      "regularization",
+      "model complexity"
+    ]
+  },
+  "created_at": "2026-09-01T09:05:14.932168",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

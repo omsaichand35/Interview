@@ -1,0 +1,48 @@
+{
+  "question": {
+    "id": "8d327236-34e6-4971-940d-4f8b5091d719",
+    "question_type": "multiple_select",
+    "topic": "Kubernetes",
+    "difficulty": "medium",
+    "question": "Which of the following are valid approaches for scheduling GPU-accelerated machine learning workloads in Kubernetes?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "Using the NVIDIA device plugin to expose GPUs as extended resources"
+      },
+      {
+        "id": "opt2",
+        "text": "Setting resource limits and requests for nvidia.com/gpu"
+      },
+      {
+        "id": "opt3",
+        "text": "Using node selectors to target nodes with GPU labels"
+      },
+      {
+        "id": "opt4",
+        "text": "Configuring CPU limits only, as GPUs are automatically detected by the scheduler"
+      },
+      {
+        "id": "opt5",
+        "text": "Applying taints to GPU nodes and tolerations to ML pods"
+      }
+    ],
+    "correct_options": [
+      "opt1",
+      "opt2",
+      "opt3",
+      "opt5"
+    ],
+    "explanation": "Kubernetes schedules GPU workloads by exposing GPUs as extended resources via the NVIDIA device plugin (opt1). Pods must request nvidia.com/gpu in their resource limits/requests (opt2). Node selectors (opt3) and taints/tolerations (opt5) are standard mechanisms to constrain pods to GPU-enabled nodes. GPUs are not automatically detected by the scheduler without the device plugin and explicit resource requests, so opt4 is incorrect.",
+    "concepts_tested": [
+      "GPU scheduling in Kubernetes",
+      "Extended resources",
+      "Node selection and taints/tolerations",
+      "Resource requests and limits"
+    ]
+  },
+  "created_at": "2026-09-01T01:58:23.603606",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

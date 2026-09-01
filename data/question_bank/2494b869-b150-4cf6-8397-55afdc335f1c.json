@@ -1,0 +1,48 @@
+{
+  "question": {
+    "id": "2494b869-b150-4cf6-8397-55afdc335f1c",
+    "question_type": "multiple_select",
+    "topic": "Docker",
+    "difficulty": "medium",
+    "question": "Which of the following are recommended Docker practices when containerizing a machine learning model for production serving?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use a multi-stage build to separate build dependencies from runtime dependencies"
+      },
+      {
+        "id": "b",
+        "text": "Install all Python packages with pip install --no-cache-dir to reduce image size"
+      },
+      {
+        "id": "c",
+        "text": "Run the container as root to ensure the model has access to all system resources"
+      },
+      {
+        "id": "d",
+        "text": "Pin base image digests (e.g., python@sha256:...) rather than using mutable tags like python:3.11"
+      },
+      {
+        "id": "e",
+        "text": "Copy the entire project directory including .git, __pycache__, and test files into the image"
+      }
+    ],
+    "correct_options": [
+      "a",
+      "b",
+      "d"
+    ],
+    "explanation": "Multi-stage builds (a) keep final images small by discarding build tools. Using --no-cache-dir (b) prevents pip cache from bloating the image. Pinning digests (d) ensures reproducible, immutable base images. Running as root (c) is a security anti-pattern; containers should run as non-root users. Copying unnecessary files (e) increases image size and attack surface; use .dockerignore to exclude them.",
+    "concepts_tested": [
+      "Docker multi-stage builds",
+      "Image size optimization",
+      "Security best practices (non-root user)",
+      "Reproducible builds with digest pinning",
+      "Dockerignore usage"
+    ]
+  },
+  "created_at": "2026-09-01T01:30:56.252985",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

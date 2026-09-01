@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "92c000cc-9c13-4179-8462-39667874dfa0",
+    "question_type": "true_false",
+    "topic": "Docker",
+    "difficulty": "medium",
+    "question": "Docker containers share the host operating system's kernel while maintaining isolated user-space environments.",
+    "options": [
+      {
+        "id": "opt_true",
+        "text": "True"
+      },
+      {
+        "id": "opt_false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "opt_true"
+    ],
+    "explanation": "Docker uses the host's kernel and provides isolation via namespaces and cgroups, giving each container its own user space while sharing the kernel.",
+    "concepts_tested": [
+      "Docker architecture",
+      "container isolation",
+      "kernel sharing"
+    ]
+  },
+  "created_at": "2026-09-01T14:47:09.828546",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

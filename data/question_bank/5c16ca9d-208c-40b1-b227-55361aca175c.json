@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "5c16ca9d-208c-40b1-b227-55361aca175c",
+    "question_type": "true_false",
+    "topic": "MLOps & Deployment (Docker, Git, Monitoring)",
+    "difficulty": "easy",
+    "question": "Docker containers ensure that an ML model will produce identical predictions across different hardware architectures without any additional configuration.",
+    "options": [
+      {
+        "id": "a",
+        "text": "True"
+      },
+      {
+        "id": "b",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "b"
+    ],
+    "explanation": "Docker containers package the application code, dependencies, and runtime environment, providing software-level consistency. However, they cannot guarantee bitwise identical numerical results across different hardware architectures (e.g., x86 vs ARM, CPU vs GPU) due to variations in floating-point implementations, processor instruction sets, GPU compute capabilities, and non-deterministic behavior in some ML libraries. Achieving strict reproducibility across hardware often requires additional measures like setting random seeds, using deterministic algorithms, and controlling numerical precision.",
+    "concepts_tested": [
+      "Docker limitations",
+      "Hardware architecture differences",
+      "Numerical reproducibility in ML"
+    ]
+  },
+  "created_at": "2026-09-01T08:57:30.554267",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

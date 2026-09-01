@@ -1,0 +1,49 @@
+{
+  "question": {
+    "id": "5d010ffe-aa31-4b66-99a8-1770919f297b",
+    "question_type": "multiple_select",
+    "topic": "Machine Learning Fundamentals",
+    "difficulty": "medium",
+    "question": "Which of the following statements about L1 and L2 regularization are correct?",
+    "options": [
+      {
+        "id": "a",
+        "text": "L1 regularization tends to produce sparse models by driving some feature weights exactly to zero"
+      },
+      {
+        "id": "b",
+        "text": "L2 regularization shrinks all weights towards zero but rarely sets them exactly to zero"
+      },
+      {
+        "id": "c",
+        "text": "L1 regularization is differentiable everywhere, making it easier to optimize with gradient descent"
+      },
+      {
+        "id": "d",
+        "text": "When features are highly correlated, L2 regularization tends to distribute weight evenly among them"
+      },
+      {
+        "id": "e",
+        "text": "Elastic Net regularization combines L1 and L2 penalties but cannot produce sparse solutions"
+      }
+    ],
+    "correct_options": [
+      "a",
+      "b",
+      "d"
+    ],
+    "explanation": "L1 regularization (Lasso) produces sparsity by driving some coefficients to exactly zero, useful for feature selection. L2 regularization (Ridge) shrinks coefficients proportionally but doesn't typically zero them out. L1 is NOT differentiable at zero (subgradient methods are used). For correlated features, L2 distributes weights evenly while L1 tends to pick one. Elastic Net combines both and CAN produce sparse solutions (it inherits L1's sparsity property).",
+    "concepts_tested": [
+      "L1 regularization",
+      "L2 regularization",
+      "sparsity",
+      "correlated features",
+      "Elastic Net",
+      "optimization"
+    ]
+  },
+  "created_at": "2026-09-01T09:01:49.550708",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,33 @@
+{
+  "question": {
+    "id": "68012417-f4d2-4e21-888a-35c3bea7c9a5",
+    "question_type": "true_false",
+    "topic": "Docker",
+    "difficulty": "medium",
+    "question": "A Docker image built with a multi-stage build where the final stage uses a distroless base image will have a smaller attack surface than the same image built with a single-stage build using a full Ubuntu base, assuming identical application code and dependencies.",
+    "options": [
+      {
+        "id": "a",
+        "text": "True"
+      },
+      {
+        "id": "b",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "a"
+    ],
+    "explanation": "Multi-stage builds allow copying only necessary artifacts (compiled binaries, installed packages, model weights) to a minimal final stage. Distroless images contain only the application and its runtime dependencies—no shell, package manager, or standard Linux utilities—significantly reducing the attack surface compared to a full Ubuntu base that includes hundreds of unnecessary binaries and libraries.",
+    "concepts_tested": [
+      "Docker multi-stage builds",
+      "Distroless container images",
+      "Container security and attack surface reduction",
+      "Image optimization for production ML workloads"
+    ]
+  },
+  "created_at": "2026-09-01T01:31:15.398356",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

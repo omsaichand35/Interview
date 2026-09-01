@@ -1,0 +1,48 @@
+{
+  "question": {
+    "id": "95c9764d-c94d-4104-9ac9-ebe47a3cbe2c",
+    "question_type": "multiple_select",
+    "topic": "Python Programming & Best Practices",
+    "difficulty": "medium",
+    "question": "Which of the following are recommended Python best practices for building maintainable and reproducible machine learning pipelines?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pinning exact dependency versions (e.g., numpy==1.24.3) in requirements.txt or using a lock file like poetry.lock"
+      },
+      {
+        "id": "b",
+        "text": "Using mutable default arguments for function parameters to avoid re-initializing large objects like model weights"
+      },
+      {
+        "id": "c",
+        "text": "Adding type hints to function signatures and using static analysis tools like mypy in CI"
+      },
+      {
+        "id": "d",
+        "text": "Placing all preprocessing, training, and inference logic in a single Jupyter notebook for rapid iteration"
+      },
+      {
+        "id": "e",
+        "text": "Structuring code as an installable package (with pyproject.toml) separating data, models, and training modules"
+      }
+    ],
+    "correct_options": [
+      "a",
+      "c",
+      "e"
+    ],
+    "explanation": "Correct practices: (a) Dependency pinning/lock files ensure reproducible environments across development, CI, and production. (c) Type hints improve code clarity, catch bugs early, and enable better IDE support; mypy in CI enforces consistency. (e) Packaging code (pyproject.toml) with modular structure enables testing, versioning, and deployment. Incorrect: (b) Mutable default arguments are a well-known Python gotcha — they share state across calls, causing subtle bugs. (d) Notebooks are great for exploration but unsuitable for production pipelines due to hidden state, lack of version control diffing, and difficulty in testing.",
+    "concepts_tested": [
+      "Dependency management and reproducibility",
+      "Type hints and static analysis",
+      "Python packaging and project structure",
+      "Common Python pitfalls (mutable defaults)",
+      "Notebooks vs production code"
+    ]
+  },
+  "created_at": "2026-09-01T09:01:53.474211",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

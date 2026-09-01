@@ -1,0 +1,41 @@
+{
+  "question": {
+    "id": "ac7764a1-5aec-40bb-8db6-9e5f947e7340",
+    "question_type": "mcq",
+    "topic": "Docker",
+    "difficulty": "medium",
+    "question": "In a multi-stage Docker build for an ML model serving API, why is it recommended to copy the trained model artifacts from a previous build stage rather than installing training dependencies in the final image?",
+    "options": [
+      {
+        "id": "a",
+        "text": "To reduce image size and attack surface"
+      },
+      {
+        "id": "b",
+        "text": "To enable GPU acceleration in the serving container"
+      },
+      {
+        "id": "c",
+        "text": "To ensure the model is retrained on each deployment"
+      },
+      {
+        "id": "d",
+        "text": "To leverage Docker layer caching for training steps"
+      }
+    ],
+    "correct_options": [
+      "a"
+    ],
+    "explanation": "Multi-stage builds allow you to separate the build environment (with training dependencies, GPU toolkits, large datasets) from the runtime environment. Copying only the model artifacts into a minimal base image reduces the final image size, removes unnecessary packages (reducing attack surface), and speeds up deployment. GPU acceleration is configured at runtime, not by omitting training dependencies. Retraining on each deployment is generally undesirable. Layer caching benefits the build stage, not the final image composition.",
+    "concepts_tested": [
+      "Multi-stage Docker builds",
+      "Image size optimization",
+      "Security best practices",
+      "ML model deployment"
+    ]
+  },
+  "created_at": "2026-09-01T01:23:29.017772",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

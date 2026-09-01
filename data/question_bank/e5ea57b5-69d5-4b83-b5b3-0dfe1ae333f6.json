@@ -1,0 +1,41 @@
+{
+  "question": {
+    "id": "e5ea57b5-69d5-4b83-b5b3-0dfe1ae333f6",
+    "question_type": "mcq",
+    "topic": "Machine Learning Fundamentals",
+    "difficulty": "medium",
+    "question": "A data scientist trains a logistic regression model with L2 regularization (Ridge) on a dataset with highly correlated features. They observe that the model's training accuracy is 98% but validation accuracy is only 72%. They then increase the regularization strength (λ) significantly. What is the most likely effect on the model's coefficients and validation performance?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Coefficients shrink toward zero; validation accuracy improves as overfitting reduces"
+      },
+      {
+        "id": "B",
+        "text": "Coefficients grow larger in magnitude; validation accuracy improves due to better feature utilization"
+      },
+      {
+        "id": "C",
+        "text": "Coefficients shrink toward zero; validation accuracy decreases further due to underfitting"
+      },
+      {
+        "id": "D",
+        "text": "Coefficients remain unchanged; validation accuracy stays the same because L2 only affects training loss"
+      }
+    ],
+    "correct_options": [
+      "A"
+    ],
+    "explanation": "The large gap between training (98%) and validation (72%) accuracy indicates overfitting. L2 regularization adds a penalty proportional to the square of coefficient magnitudes, shrinking them toward zero. Increasing λ strengthens this penalty, reducing model complexity and variance, which typically improves validation performance by reducing overfitting. The coefficients for correlated features will become more similar in magnitude rather than one dominating, improving generalization.",
+    "concepts_tested": [
+      "Regularization",
+      "Bias-variance tradeoff",
+      "Overfitting detection",
+      "L2 regularization effects"
+    ]
+  },
+  "created_at": "2026-09-01T09:04:59.639274",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

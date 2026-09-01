@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "2360c908-319b-40f9-a60e-61da40f2adf6",
+    "question_type": "mcq",
+    "topic": "Git Version Control",
+    "difficulty": "easy",
+    "question": "Which Git command stages changes for the next commit?",
+    "options": [
+      {
+        "id": "a",
+        "text": "git add"
+      },
+      {
+        "id": "b",
+        "text": "git commit"
+      },
+      {
+        "id": "c",
+        "text": "git push"
+      },
+      {
+        "id": "d",
+        "text": "git pull"
+      }
+    ],
+    "correct_options": [
+      "a"
+    ],
+    "explanation": "git add stages changes in the working directory to the index, preparing them for commit.",
+    "concepts_tested": [
+      "Git staging area",
+      "git add command"
+    ]
+  },
+  "created_at": "2026-09-01T14:48:38.719539",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

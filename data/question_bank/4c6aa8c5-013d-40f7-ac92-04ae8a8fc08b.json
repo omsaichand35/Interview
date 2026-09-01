@@ -1,0 +1,49 @@
+{
+  "question": {
+    "id": "4c6aa8c5-013d-40f7-ac92-04ae8a8fc08b",
+    "question_type": "multiple_select",
+    "topic": "Deep Learning Concepts",
+    "difficulty": "medium",
+    "question": "Which of the following statements about regularization techniques in deep neural networks are correct?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Dropout randomly sets a fraction of neuron activations to zero during training, effectively creating an ensemble of thinned networks."
+      },
+      {
+        "id": "B",
+        "text": "L2 regularization adds a penalty proportional to the square of weight magnitudes, which encourages weights to become exactly zero."
+      },
+      {
+        "id": "C",
+        "text": "Batch normalization reduces internal covariate shift and acts as a regularizer by adding noise to activations through batch statistics."
+      },
+      {
+        "id": "D",
+        "text": "Early stopping prevents overfitting by halting training when validation loss stops improving, but requires a separate validation set."
+      },
+      {
+        "id": "E",
+        "text": "Data augmentation increases the effective size of the training set by applying label-preserving transformations to input samples."
+      }
+    ],
+    "correct_options": [
+      "A",
+      "C",
+      "D",
+      "E"
+    ],
+    "explanation": "A is correct: Dropout randomly zeros activations during training, approximating model averaging. B is incorrect: L2 regularization shrinks weights toward zero but does not make them exactly zero (that's L1). C is correct: Batch norm uses batch statistics which adds noise, providing regularization. D is correct: Early stopping uses a validation set to prevent overfitting. E is correct: Data augmentation expands training data via transformations that preserve labels.",
+    "concepts_tested": [
+      "Dropout",
+      "L2 Regularization",
+      "Batch Normalization",
+      "Early Stopping",
+      "Data Augmentation"
+    ]
+  },
+  "created_at": "2026-09-01T09:06:20.178290",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,51 @@
+{
+  "question": {
+    "id": "757f9dd5-f830-46cf-9947-75f46d6c349c",
+    "question_type": "multiple_select",
+    "topic": "System Design for ML Systems",
+    "difficulty": "medium",
+    "question": "When designing a scalable inference service for a recommendation model that must serve millions of requests per second with sub‑100 ms latency, which of the following architectural choices are appropriate? (Select all that apply)",
+    "options": [
+      {
+        "id": "A",
+        "text": "Use a single monolithic microservice that loads the model into memory and handles all request preprocessing, inference, and post‑processing."
+      },
+      {
+        "id": "B",
+        "text": "Deploy the model behind a load‑balancer with multiple stateless inference workers that share a GPU‑enabled inference server (e.g., Triton Inference Server) and cache frequent feature lookups in an in‑memory store like Redis."
+      },
+      {
+        "id": "C",
+        "text": "Store raw user interaction logs directly in the model’s checkpoint file to avoid extra I/O during inference."
+      },
+      {
+        "id": "D",
+        "text": "Implement a two‑stage pipeline where a lightweight candidate generation model runs on CPU and passes top‑k items to a heavyweight ranking model on GPU, both exposed via separate API endpoints behind a service mesh."
+      },
+      {
+        "id": "E",
+        "text": "Perform model updates by hot‑swapping the model file on disk while the service is running without any versioning or rollback mechanism."
+      },
+      {
+        "id": "F",
+        "text": "Serve all requests through a single-threaded Python Flask app to simplify debugging."
+      }
+    ],
+    "correct_options": [
+      "B",
+      "D"
+    ],
+    "explanation": "Option B is appropriate because stateless workers behind a load balancer allow horizontal scaling, a GPU‑optimized inference server maximizes throughput, and caching frequent features in Redis reduces latency. Option D is appropriate because a two‑stage pipeline splits work: a fast CPU‑based candidate generation narrows the set, and a more accurate GPU‑heavy ranking model refines it, meeting latency targets while preserving quality. Options A, C, E, and F are flawed: A creates a bottleneck and single point of failure; C conflates training data with model artifacts, causing inefficiency and versioning issues; E risks serving inconsistent models without rollback; F cannot handle the required throughput.",
+    "concepts_tested": [
+      "model serving scalability",
+      "latency optimization",
+      "caching strategies",
+      "two‑stage inference",
+      "model versioning and safety"
+    ]
+  },
+  "created_at": "2026-09-01T14:49:08.512972",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

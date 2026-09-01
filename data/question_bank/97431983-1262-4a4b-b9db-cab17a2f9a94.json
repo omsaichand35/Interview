@@ -1,0 +1,48 @@
+{
+  "question": {
+    "id": "97431983-1262-4a4b-b9db-cab17a2f9a94",
+    "question_type": "multiple_select",
+    "topic": "Python",
+    "difficulty": "hard",
+    "question": "Which of the following statements correctly describe memory-efficient patterns for processing large datasets in Python ML pipelines?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Using generator expressions with `yield` instead of list comprehensions avoids materializing the entire dataset in memory at once."
+      },
+      {
+        "id": "b",
+        "text": "The `mmap` module allows NumPy arrays to be loaded from disk without copying data into RAM, enabling out-of-core computation on datasets larger than available memory."
+      },
+      {
+        "id": "c",
+        "text": "Setting `num_workers > 0` in PyTorch DataLoader with `persistent_workers=True` eliminates all memory overhead from inter-process communication."
+      },
+      {
+        "id": "d",
+        "text": "Using `__slots__` on custom Dataset classes reduces per-instance memory overhead by preventing creation of `__dict__` for each sample."
+      },
+      {
+        "id": "e",
+        "text": "Calling `gc.collect()` after each batch iteration is a recommended practice to prevent memory fragmentation in long-running training loops."
+      }
+    ],
+    "correct_options": [
+      "a",
+      "b",
+      "d"
+    ],
+    "explanation": "A is correct: generators yield items lazily, avoiding full materialization. B is correct: `np.memmap` (or `mmap` + `np.frombuffer`) enables memory-mapped file access for out-of-core processing. D is correct: `__slots__` eliminates the instance `__dict__`, saving ~56 bytes per instance. C is incorrect: `persistent_workers` reduces worker startup overhead but does not eliminate IPC memory overhead (data still copies between processes). E is incorrect: manual `gc.collect()` calls are generally harmful; Python's generational GC handles cyclic references automatically, and frequent collection adds CPU overhead without fixing fragmentation.",
+    "concepts_tested": [
+      "Generator expressions vs list comprehensions",
+      "Memory-mapped files (mmap) for out-of-core computation",
+      "PyTorch DataLoader worker architecture and IPC",
+      "Python __slots__ for memory optimization",
+      "Garbage collection behavior in long-running processes"
+    ]
+  },
+  "created_at": "2026-09-01T01:26:36.364557",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

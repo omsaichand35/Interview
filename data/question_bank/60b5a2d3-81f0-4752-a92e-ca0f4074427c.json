@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "60b5a2d3-81f0-4752-a92e-ca0f4074427c",
+    "question_type": "true_false",
+    "topic": "Git",
+    "difficulty": "medium",
+    "question": "Git LFS (Large File Storage) stores large files directly in the Git repository's object database, increasing repository size but ensuring all history is self-contained.",
+    "options": [
+      {
+        "id": "true",
+        "text": "True"
+      },
+      {
+        "id": "false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "false"
+    ],
+    "explanation": "Git LFS does not store large files in the Git object database. Instead, it replaces large files with small pointer files in the repository, while the actual file content is stored on a separate LFS server. This keeps the Git repository size small and cloning fast.",
+    "concepts_tested": [
+      "Git LFS",
+      "Large file handling in Git",
+      "Repository storage mechanics"
+    ]
+  },
+  "created_at": "2026-09-01T01:33:13.997903",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

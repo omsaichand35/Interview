@@ -1,0 +1,19 @@
+{
+  "id": "66a7bab3-690e-4e58-95dd-50511daf4f76",
+  "candidate_id": "a76f7cb4-1ff2-40ce-b618-aae11143bcff",
+  "role": "AI/ML ENGINEER",
+  "assessment_id": "5a794d95-0f85-4fd3-a398-a021d028f01b",
+  "question_ids": [
+    "b0ca6395-4314-4048-8c75-9edd36060972",
+    "2494b869-b150-4cf6-8397-55afdc335f1c",
+    "68012417-f4d2-4e21-888a-35c3bea7c9a5",
+    "3b5ebfaf-9aa4-4498-857d-18b6d5837f90",
+    "1a812b81-28da-4a8f-9e6d-5bce17d16b8f"
+  ],
+  "answers": [],
+  "status": "in_progress",
+  "duration_minutes": 10,
+  "started_at": "2026-09-01T01:32:16.219889",
+  "submitted_at": null,
+  "result": null
+}

@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "43a32cd1-b26b-4c34-9f84-31819d8c239e",
+    "question_type": "mcq",
+    "topic": "Machine Learning Fundamentals",
+    "difficulty": "medium",
+    "question": "A binary classifier outputs predicted probabilities. You evaluate it on a test set and observe that the ROC AUC is 0.85, but the PR AUC (average precision) is only 0.35. What does this discrepancy most likely indicate about the dataset and model behavior?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The model is overfitting severely; the high ROC AUC is an artifact of data leakage."
+      },
+      {
+        "id": "B",
+        "text": "The positive class is rare (highly imbalanced data), and the model assigns moderate probabilities to many negative samples."
+      },
+      {
+        "id": "C",
+        "text": "The model's probability calibration is poor, causing both metrics to be unreliable."
+      },
+      {
+        "id": "D",
+        "text": "The test set contains significant label noise, disproportionately affecting precision."
+      }
+    ],
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "ROC AUC is insensitive to class imbalance because it measures ranking ability across all thresholds. PR AUC (average precision) is highly sensitive to class imbalance; when the positive class is rare, even a small number of false positives drastically reduces precision. A high ROC AUC with low PR AUC is a classic signature of imbalanced data where the model ranks positives well overall but produces many false positives at practical thresholds.",
+    "concepts_tested": [
+      "ROC AUC vs PR AUC interpretation",
+      "Class imbalance effects on evaluation metrics",
+      "Model evaluation in practice"
+    ]
+  },
+  "created_at": "2026-09-01T02:06:27.098885",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

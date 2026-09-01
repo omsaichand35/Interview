@@ -1,0 +1,41 @@
+{
+  "question": {
+    "id": "0e437b5d-e2c8-4fbd-8662-f48eef9cf0d9",
+    "question_type": "mcq",
+    "topic": "ML System Design & Architecture",
+    "difficulty": "medium",
+    "question": "When designing a low-latency online prediction service for a high-throughput recommendation model, which architecture pattern best balances latency, scalability, and model freshness?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Batch inference with nightly model updates"
+      },
+      {
+        "id": "B",
+        "text": "Model deployed as a microservice with a feature store and online inference"
+      },
+      {
+        "id": "C",
+        "text": "Single monolithic service handling both training and inference"
+      },
+      {
+        "id": "D",
+        "text": "Serverless functions triggered per request with cold starts"
+      }
+    ],
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "Option B describes a decoupled microservice architecture that serves predictions in real time, leverages a feature store for up-to-date features, and can be scaled independently, providing low latency, high throughput, and fresh model versions. Batch inference (A) introduces high latency and stale predictions. A monolithic service (C) hampers scalability and makes independent updates difficult. Serverless functions (D) suffer from cold-start latency, which is unsuitable for strict low-latency requirements.",
+    "concepts_tested": [
+      "online inference",
+      "feature store",
+      "model serving architecture",
+      "latency vs batch trade-offs"
+    ]
+  },
+  "created_at": "2026-09-01T09:02:23.036293",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

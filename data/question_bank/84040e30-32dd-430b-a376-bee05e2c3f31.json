@@ -1,0 +1,49 @@
+{
+  "question": {
+    "id": "84040e30-32dd-430b-a376-bee05e2c3f31",
+    "question_type": "multiple_select",
+    "topic": "Deep Learning",
+    "difficulty": "medium",
+    "question": "Which of the following techniques are effective for reducing overfitting in deep neural networks?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Dropout applied to hidden layers during training"
+      },
+      {
+        "id": "B",
+        "text": "Increasing the number of epochs without early stopping"
+      },
+      {
+        "id": "C",
+        "text": "L2 weight regularization (weight decay)"
+      },
+      {
+        "id": "D",
+        "text": "Using a larger batch size (e.g., 4096 instead of 32)"
+      },
+      {
+        "id": "E",
+        "text": "Data augmentation on input samples"
+      }
+    ],
+    "correct_options": [
+      "A",
+      "C",
+      "E"
+    ],
+    "explanation": "Dropout (A) randomly zeros activations during training, forcing the network to learn robust features. L2 regularization (C) penalizes large weights, encouraging simpler models. Data augmentation (E) effectively increases training data diversity. Increasing epochs without early stopping (B) typically increases overfitting. Larger batch sizes (D) often generalize worse than smaller batches due to reduced stochasticity and convergence to sharper minima.",
+    "concepts_tested": [
+      "Regularization techniques",
+      "Overfitting prevention",
+      "Dropout",
+      "Weight decay",
+      "Data augmentation",
+      "Batch size effects"
+    ]
+  },
+  "created_at": "2026-09-01T01:29:36.604036",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

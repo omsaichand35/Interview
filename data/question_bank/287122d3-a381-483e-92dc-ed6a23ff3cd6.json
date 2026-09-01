@@ -1,0 +1,41 @@
+{
+  "question": {
+    "id": "287122d3-a381-483e-92dc-ed6a23ff3cd6",
+    "question_type": "mcq",
+    "topic": "MLOps & Production Deployment",
+    "difficulty": "easy",
+    "question": "What is the primary purpose of model versioning in MLOps?",
+    "options": [
+      {
+        "id": "a",
+        "text": "To track changes to training data only"
+      },
+      {
+        "id": "b",
+        "text": "To enable reproducibility and rollback of model artifacts"
+      },
+      {
+        "id": "c",
+        "text": "To automatically retrain models when performance degrades"
+      },
+      {
+        "id": "d",
+        "text": "To compress model size for faster inference"
+      }
+    ],
+    "correct_options": [
+      "b"
+    ],
+    "explanation": "Model versioning in MLOps primarily ensures that specific model artifacts (weights, architecture, hyperparameters) can be reproduced, compared, and rolled back if a newer version underperforms. While tracking training data is related (data versioning), model versioning focuses on the model artifacts themselves. Automatic retraining is a separate pipeline capability, and model compression is an optimization technique.",
+    "concepts_tested": [
+      "model versioning",
+      "reproducibility",
+      "rollback strategy",
+      "MLOps fundamentals"
+    ]
+  },
+  "created_at": "2026-09-01T02:16:00.020501",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,42 @@
+{
+  "question": {
+    "id": "85b25eaf-7ce2-4aa7-a240-ef0fd6d2a91c",
+    "question_type": "mcq",
+    "topic": "PyTorch/TensorFlow",
+    "difficulty": "medium",
+    "question": "In TensorFlow 2.x, what is the primary purpose of decorating a Python function with @tf.function?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It forces the function to run in eager execution mode for easier debugging."
+      },
+      {
+        "id": "B",
+        "text": "It traces the function and builds a static graph that can be executed more efficiently, though Python side‑effects may be omitted."
+      },
+      {
+        "id": "C",
+        "text": "It automatically converts all tensors to NumPy arrays to enable interoperability with other libraries."
+      },
+      {
+        "id": "D",
+        "text": "It disables GPU placement and forces all operations to run on the CPU."
+      }
+    ],
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "@tf.function traces the decorated function the first time it is called, creating a static TensorFlow graph that can be executed faster and serialized. However, because the function is traced, any Python side‑effects (e.g., printing, appending to lists) that depend on the Python control flow may not execute on every call, which is a common gotcha.",
+    "concepts_tested": [
+      "TensorFlow 2.x",
+      "tf.function",
+      "eager execution",
+      "graph mode",
+      "function tracing"
+    ]
+  },
+  "created_at": "2026-09-01T14:47:03.127926",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,47 @@
+{
+  "question": {
+    "id": "2b7cbd5e-bf7b-467f-b041-f96fe21abfc7",
+    "question_type": "multiple_select",
+    "topic": "Docker",
+    "difficulty": "medium",
+    "question": "An AI/ML engineer is building a Docker image for a training pipeline that uses PyTorch with CUDA. Which of the following practices will improve build performance, image size, and runtime reproducibility?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use a multi-stage build to separate the build-time dependencies (compilers, CUDA toolkit) from the runtime environment"
+      },
+      {
+        "id": "b",
+        "text": "Pin the base image to a specific digest (e.g., nvidia/cuda:12.1.0-base-ubuntu22.04@sha256:...) rather than a mutable tag"
+      },
+      {
+        "id": "c",
+        "text": "Install Python packages with `pip install --no-cache-dir` and clean apt cache in the same RUN layer"
+      },
+      {
+        "id": "d",
+        "text": "Set the working directory to /root to ensure consistent paths across containers"
+      },
+      {
+        "id": "e",
+        "text": "Copy the entire project context with `COPY . .` before installing dependencies to leverage layer caching"
+      }
+    ],
+    "correct_options": [
+      "a",
+      "b",
+      "c"
+    ],
+    "explanation": "Multi-stage builds (a) keep the final image small by discarding build-time tooling. Pinning to a digest (b) guarantees the exact same base image is pulled every time, preventing silent breakages from tag mutations. Combining `--no-cache-dir` with apt cleanup in one RUN layer (c) reduces layer size and avoids caching stale package indexes. Option (d) is not a best practice—/root is not a standard working directory and can cause permission issues; /app or /workspace is preferred. Option (e) is incorrect because copying the entire context before installing dependencies invalidates the cache on any file change; dependencies should be copied and installed first (e.g., COPY requirements.txt . then RUN pip install) to maximize layer reuse.",
+    "concepts_tested": [
+      "Multi-stage Docker builds",
+      "Image reproducibility with digests",
+      "Layer caching optimization",
+      "Dockerfile best practices for ML workloads"
+    ]
+  },
+  "created_at": "2026-09-01T01:22:50.490833",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

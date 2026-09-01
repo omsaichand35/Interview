@@ -1,0 +1,45 @@
+{
+  "question": {
+    "id": "554e1e45-127f-4b9a-83a2-22d4043b46c1",
+    "question_type": "multiple_select",
+    "topic": "Deep Learning",
+    "difficulty": "medium",
+    "question": "Consider a deep neural network trained for image classification. Which of the following statements correctly describe the impact of using batch normalization (BN) layers in the network?",
+    "options": [
+      {
+        "id": "optA",
+        "text": "BN reduces internal covariate shift, allowing the use of higher learning rates."
+      },
+      {
+        "id": "optB",
+        "text": "BN eliminates the need for any form of weight initialization."
+      },
+      {
+        "id": "optC",
+        "text": "During inference, BN uses the moving average of mean and variance computed during training."
+      },
+      {
+        "id": "optD",
+        "text": "BN adds negligible computational overhead compared to a plain convolutional layer."
+      },
+      {
+        "id": "optE",
+        "text": "BN guarantees that the network will not overfit."
+      }
+    ],
+    "correct_options": [
+      "optA",
+      "optC"
+    ],
+    "explanation": "Batch normalization reduces internal covariate shift, which stabilizes training and often permits higher learning rates (making A correct). At test time, BN does not compute statistics on the current batch; instead it relies on the running estimates of mean and variance gathered during training (making C correct). BN does not remove the need for proper weight initialization (B is false). While BN adds some extra computation (mean, variance, scaling, shifting), it is not negligible (D is false). BN helps regularize but does not guarantee prevention of overfitting (E is false).",
+    "concepts_tested": [
+      "batch normalization",
+      "internal covariate shift",
+      "training vs inference behavior"
+    ]
+  },
+  "created_at": "2026-09-01T14:48:55.310630",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

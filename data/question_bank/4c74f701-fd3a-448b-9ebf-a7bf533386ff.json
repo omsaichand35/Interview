@@ -1,0 +1,42 @@
+{
+  "question": {
+    "id": "4c74f701-fd3a-448b-9ebf-a7bf533386ff",
+    "question_type": "mcq",
+    "topic": "System Design for ML Systems",
+    "difficulty": "medium",
+    "question": "You are designing a production model serving system that must handle variable traffic, support frequent model updates with zero downtime, and ensure consistent feature computation between training and inference. Which architecture best addresses these requirements?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Deploy a single monolithic service with the model embedded, using a load balancer to scale horizontally."
+      },
+      {
+        "id": "B",
+        "text": "Use a feature store for offline features and a separate real-time feature service, with model versioning via a model registry, and canary deployments for updates."
+      },
+      {
+        "id": "C",
+        "text": "Store models in a database and load them at startup; use a cron job to retrain and replace the model file daily."
+      },
+      {
+        "id": "D",
+        "text": "Use a message queue for inference requests, with workers pulling tasks and running inference sequentially."
+      }
+    ],
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "Option B incorporates a feature store to guarantee feature consistency between training and serving, a model registry for versioning, and canary deployments to roll out updates safely with zero downtime. The other options either lack feature consistency (A, C), introduce latency and scaling bottlenecks (D), or rely on manual, error-prone processes (C).",
+    "concepts_tested": [
+      "Model serving architecture",
+      "Feature stores",
+      "Model registry and versioning",
+      "Canary deployments",
+      "Zero-downtime updates"
+    ]
+  },
+  "created_at": "2026-09-01T02:19:20.372152",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

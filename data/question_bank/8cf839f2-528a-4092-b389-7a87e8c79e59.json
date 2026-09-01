@@ -1,0 +1,42 @@
+{
+  "question": {
+    "id": "8cf839f2-528a-4092-b389-7a87e8c79e59",
+    "question_type": "mcq",
+    "topic": "Docker",
+    "difficulty": "medium",
+    "question": "When building a Docker image for serving a PyTorch model in production, which multi-stage build strategy BEST optimizes both final image size and build cache efficiency?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Install all dependencies including CUDA toolkit in the builder stage, then copy the entire /usr/local directory to the runtime stage"
+      },
+      {
+        "id": "B",
+        "text": "Use a single stage with --no-cache flag to ensure reproducible builds, then run docker-slim to reduce image size post-build"
+      },
+      {
+        "id": "C",
+        "text": "Install system dependencies and compile wheels in a builder stage using a CUDA base image, then copy only the virtual environment and model artifacts to a minimal runtime base (e.g., nvidia/cuda:12.1-runtime)"
+      },
+      {
+        "id": "D",
+        "text": "Build the entire environment in the runtime stage using pip install --no-cache-dir, relying on layer caching for subsequent builds when requirements.txt hasn't changed"
+      }
+    ],
+    "correct_options": [
+      "C"
+    ],
+    "explanation": "Option C correctly uses multi-stage builds: the builder stage uses a full CUDA image (with compilers, headers) to compile wheels and install dependencies, while the runtime stage uses a minimal 'runtime' CUDA image (no compilers, smaller) and copies only the venv and model artifacts. This minimizes final image size and preserves cache for dependency installation when requirements.txt is unchanged. Option A copies unnecessary build tools. Option B defeats caching and adds complexity. Option D doesn't separate build-time from runtime dependencies, resulting in larger images with build tools.",
+    "concepts_tested": [
+      "Multi-stage Docker builds",
+      "Image size optimization",
+      "Build cache efficiency",
+      "CUDA runtime vs development images",
+      "ML model serving containers"
+    ]
+  },
+  "created_at": "2026-09-01T01:55:04.391360",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

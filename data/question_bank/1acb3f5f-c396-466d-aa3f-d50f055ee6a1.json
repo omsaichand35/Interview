@@ -1,0 +1,37 @@
+{
+  "question": {
+    "id": "1acb3f5f-c396-466d-aa3f-d50f055ee6a1",
+    "question_type": "multiple_select",
+    "topic": "SQL",
+    "difficulty": "medium",
+    "question": "Given a table `orders(order_id INT, customer_id INT, order_date DATE, amount DECIMAL)`, which of the following queries correctly returns the total order amount per customer for orders placed in the last 30 days (relative to the current date), excluding customers whose total amount is less than 100?",
+    "options": [
+      {
+        "id": "a",
+        "text": "SELECT customer_id, SUM(amount) AS total FROM orders WHERE order_date >= CURRENT_DATE - INTERVAL '30' DAY GROUP BY customer_id HAVING SUM(amount) >= 100;"
+      },
+      {
+        "id": "b",
+        "text": "SELECT customer_id, SUM(amount) AS total FROM orders WHERE order_date >= DATE_SUB(CURRENT_DATE, INTERVAL 30 DAY) GROUP BY customer_id HAVING total >= 100;"
+      },
+      {
+        "id": "c",
+        "text": "SELECT customer_id, SUM(amount) AS total FROM orders WHERE order_date >= CURRENT_DATE - 30 GROUP BY customer_id HAVING SUM(amount) > 100;"
+      },
+      {
+        "id": "d",
+        "text": "SELECT * FROM (SELECT customer_id, SUM(amount) AS total FROM orders WHERE order_date >= CURRENT_DATE - INTERVAL '30' DAY GROUP BY customer_id) sub WHERE total >= 100;"
+      }
+    ],
+    "correct_options": [
+      "a",
+      "d"
+    ],
+    "explanation": "Option A correctly filters rows for the last 30 days, groups by customer, and uses HAVING with the aggregate SUM(amount) to enforce the minimum total. Option B incorrectly uses the alias 'total' in the HAVING clause, which is not allowed in standard SQL (unless wrapped in a subquery). Option C incorrectly subtracts an integer from a date, which does not produce a proper date interval in most SQL dialects. Option D uses a derived table to compute the sum first, then filters on the alias in the outer query, which is valid and returns the same result as Option A.",
+    "concepts_tested": []
+  },
+  "created_at": "2026-09-01T14:47:34.563249",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "3b5ebfaf-9aa4-4498-857d-18b6d5837f90",
+    "question_type": "mcq",
+    "topic": "Docker",
+    "difficulty": "medium",
+    "question": "In a Dockerfile, you modify a RUN command that appears on line 15 out of 30 total lines. Assuming no other changes, which layers will be rebuilt during the next `docker build`?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only the modified layer (line 15) is rebuilt; layers 16-30 use cached versions"
+      },
+      {
+        "id": "b",
+        "text": "The modified layer (line 15) and all subsequent layers (16-30) are rebuilt"
+      },
+      {
+        "id": "c",
+        "text": "Docker automatically reorders the Dockerfile to place the modified command last, preserving cache for previous layers"
+      },
+      {
+        "id": "d",
+        "text": "The entire image is rebuilt from scratch because the layer checksum changed"
+      }
+    ],
+    "correct_options": [
+      "b"
+    ],
+    "explanation": "Docker's build cache is invalidated at the first changed instruction. When a RUN, COPY, ADD, or other filesystem-modifying command changes, that layer gets a new hash, and all downstream layers must be rebuilt because their parent layer has changed. This is why Dockerfile best practices recommend ordering instructions from least frequently changing (base image, system dependencies) to most frequently changing (application code).",
+    "concepts_tested": [
+      "Docker layer caching",
+      "Dockerfile optimization",
+      "Build performance"
+    ]
+  },
+  "created_at": "2026-09-01T01:31:37.009876",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

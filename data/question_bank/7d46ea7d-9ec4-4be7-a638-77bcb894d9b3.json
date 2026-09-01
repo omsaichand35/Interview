@@ -1,0 +1,42 @@
+{
+  "question": {
+    "id": "7d46ea7d-9ec4-4be7-a638-77bcb894d9b3",
+    "question_type": "multiple_select",
+    "topic": "Docker and MLOps",
+    "difficulty": "medium",
+    "question": "Which of the following statements about using Docker in an MLOps pipeline are correct?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "Docker images can be versioned using tags to ensure reproducibility of model training environments."
+      },
+      {
+        "id": "opt2",
+        "text": "Docker containers always require root privileges to run GPU workloads."
+      },
+      {
+        "id": "opt3",
+        "text": "Using multi-stage builds can reduce the size of the final image by separating build-time dependencies from runtime dependencies."
+      },
+      {
+        "id": "opt4",
+        "text": "Docker Compose is primarily used for orchestrating Kubernetes clusters."
+      }
+    ],
+    "correct_options": [
+      "opt1",
+      "opt3"
+    ],
+    "explanation": "Option A is correct because tagging Docker images (e.g., :v1.0, :latest) allows teams to reproduce the exact environment used for training or inference. Option C is correct because multi-stage Dockerfiles compile dependencies in an initial stage and copy only the needed artifacts to a slim runtime stage, reducing image size. Option B is incorrect; GPU access can be granted to non‑root users via the NVIDIA Container Toolkit and appropriate group permissions. Option D is incorrect; Docker Compose defines and runs multi‑container Docker applications, while Kubernetes orchestration is handled by tools like Helm or Kustomize, not Compose.",
+    "concepts_tested": [
+      "Docker image versioning and tags",
+      "Multi‑stage Docker builds",
+      "GPU container execution",
+      "Docker Compose vs. Kubernetes orchestration"
+    ]
+  },
+  "created_at": "2026-09-01T14:48:54.874916",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

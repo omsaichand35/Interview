@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "f71e326e-b9a0-43eb-a465-c284abc8d86d",
+    "question_type": "mcq",
+    "topic": "Machine Learning Fundamentals",
+    "difficulty": "medium",
+    "question": "When using k-fold cross-validation to estimate model performance, which of the following statements correctly describes the effect of increasing the number of folds (k) on the bias and variance of the performance estimate?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Increasing k reduces bias but increases variance."
+      },
+      {
+        "id": "B",
+        "text": "Increasing k reduces both bias and variance."
+      },
+      {
+        "id": "C",
+        "text": "Decreasing k reduces bias but increases variance."
+      },
+      {
+        "id": "D",
+        "text": "The choice of k has no effect on bias or variance."
+      }
+    ],
+    "correct_options": [
+      "A"
+    ],
+    "explanation": "With more folds (larger k), each training set is larger, so the model is trained on data more similar to the full dataset, reducing the bias of the performance estimate. However, the validation sets become smaller and more correlated across folds, which increases the variance of the estimate. This classic bias‑variance trade‑off is a fundamental property of k‑fold cross‑validation.",
+    "concepts_tested": [
+      "Cross-validation",
+      "Bias-variance tradeoff",
+      "Model evaluation"
+    ]
+  },
+  "created_at": "2026-09-01T08:57:27.665241",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

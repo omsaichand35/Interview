@@ -1,0 +1,41 @@
+{
+  "question": {
+    "id": "1e0cce6c-78c1-40a9-ba51-7fbd708f3c13",
+    "question_type": "mcq",
+    "topic": "SQL and Databases",
+    "difficulty": "medium",
+    "question": "You have a table `orders` with columns `order_id`, `customer_id`, `order_date`, and `total_amount`. Which query correctly returns the `customer_id` and the count of orders for customers who have placed more than 5 orders in the last 30 days and whose average order amount exceeds $100?",
+    "options": [
+      {
+        "id": "a",
+        "text": "SELECT customer_id, COUNT(*) AS order_cnt FROM orders WHERE order_date >= CURRENT_DATE - INTERVAL '30 days' GROUP BY customer_id HAVING COUNT(*) > 5 AND AVG(total_amount) > 100;"
+      },
+      {
+        "id": "b",
+        "text": "SELECT customer_id, COUNT(*) FROM orders WHERE order_date >= CURRENT_DATE - INTERVAL '30 days' AND COUNT(*) > 5 AND AVG(total_amount) > 100 GROUP BY customer_id;"
+      },
+      {
+        "id": "c",
+        "text": "SELECT customer_id, COUNT(*) FROM orders GROUP BY customer_id HAVING COUNT(*) > 5 OR AVG(total_amount) > 100;"
+      },
+      {
+        "id": "d",
+        "text": "SELECT customer_id, COUNT(*) AS order_cnt FROM orders WHERE order_date >= CURRENT_DATE - INTERVAL '30 days' GROUP BY customer_id HAVING COUNT(*) > 5;"
+      }
+    ],
+    "correct_options": [
+      "a"
+    ],
+    "explanation": "Option A correctly filters rows to the last 30 days with WHERE, groups by customer_id, and uses HAVING to apply aggregate conditions: count > 5 and average total_amount > 100. Option B incorrectly places aggregate functions in WHERE, which is not allowed. Option C uses OR instead of AND and omits the date filter. Option D omits the average amount condition in HAVING.",
+    "concepts_tested": [
+      "SQL aggregation",
+      "WHERE vs HAVING",
+      "Date interval filtering",
+      "Logical operators in HAVING"
+    ]
+  },
+  "created_at": "2026-09-01T14:48:58.764689",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

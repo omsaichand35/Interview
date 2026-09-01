@@ -1,0 +1,47 @@
+{
+  "question": {
+    "id": "febe3b54-e503-4d35-9506-4bb28a69c5c4",
+    "question_type": "multiple_select",
+    "topic": "Machine Learning Fundamentals",
+    "difficulty": "hard",
+    "question": "Which of the following statements about the bias-variance decomposition and the effect of model complexity on generalization error are correct?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Increasing model complexity typically reduces bias but increases variance."
+      },
+      {
+        "id": "B",
+        "text": "With an infinite amount of training data, the variance component of the expected prediction error approaches zero for a model of fixed complexity."
+      },
+      {
+        "id": "C",
+        "text": "L2 regularization introduces bias to reduce variance, and it is most beneficial when the true underlying model is sparse."
+      },
+      {
+        "id": "D",
+        "text": "According to the bias-variance tradeoff, the model that achieves the lowest training error will also have the lowest expected test error."
+      },
+      {
+        "id": "E",
+        "text": "Adding more features to a linear regression model always reduces bias and may increase variance."
+      }
+    ],
+    "correct_options": [
+      "A",
+      "B"
+    ],
+    "explanation": "Statement A correctly describes the typical bias-variance trade‑off: more flexible models fit the training data better (lower bias) but are more sensitive to fluctuations in the data (higher variance). Statement B is correct because variance stems from the model’s sensitivity to the particular training sample; as the sample size grows without bound, this sensitivity diminishes for a fixed hypothesis class. Statement C is inaccurate: while L2 regularization does introduce bias to reduce variance, it is most effective when many features have small, non‑zero weights, not when the true model is sparse (that scenario favors L1). Statement D reverses the trade‑off; low training error often indicates overfitting and higher test error. Statement E is false because adding irrelevant or redundant features does not guarantee a reduction in bias and can unnecessarily increase variance.",
+    "concepts_tested": [
+      "bias-variance tradeoff",
+      "model complexity",
+      "variance with infinite data",
+      "regularization effects",
+      "feature impact on bias/variance"
+    ]
+  },
+  "created_at": "2026-09-01T14:48:57.950202",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

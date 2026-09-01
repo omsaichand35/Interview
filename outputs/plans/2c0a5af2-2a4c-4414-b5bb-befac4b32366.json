@@ -1,0 +1,671 @@
+{
+  "id": "2c0a5af2-2a4c-4414-b5bb-befac4b32366",
+  "candidate_name": "OMSAI RAMACHANDRAN",
+  "goal": "Prepare for AI/ML Engineer interviews and close critical skill gaps for production-ready ML systems.",
+  "overall_mastery": 17.1,
+  "topics": [
+    {
+      "id": "7e4dc4a9-c756-4c63-8340-5c8eeab21840",
+      "title": "Machine Learning Fundamentals",
+      "mastery_score": 66.0,
+      "state": "not_started",
+      "priority": "medium",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "4663fccf-7f05-42ef-a13e-5f3facb0fe27",
+          "title": "Supervised & Unsupervised Learning Algorithms",
+          "mastery_score": 70.0,
+          "state": "not_started",
+          "priority": "medium",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "d9937eb8-e21d-4191-a146-6d4f9438dc9f",
+          "title": "Model Evaluation & Validation (Cross-validation, Metrics)",
+          "mastery_score": 65.0,
+          "state": "not_started",
+          "priority": "medium",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "d3b1a31c-e4c8-49c1-8b93-7e6ca3bb4d5e",
+          "title": "Feature Engineering & Selection",
+          "mastery_score": 60.0,
+          "state": "not_started",
+          "priority": "medium",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "bfa7eb65-a237-425f-bc12-a5c0f4ed3172",
+          "title": "Ensemble Methods (Bagging, Boosting, Stacking)",
+          "mastery_score": 65.0,
+          "state": "not_started",
+          "priority": "medium",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "f81b5f83-ad3a-4dfa-ad41-4671370c00de",
+          "title": "Statistical Learning Theory & Bias-Variance Tradeoff",
+          "mastery_score": 70.0,
+          "state": "not_started",
+          "priority": "medium",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "021feb17-6684-4432-bbbd-af74d6f77760",
+      "title": "Deep Learning Fundamentals",
+      "mastery_score": 48.0,
+      "state": "not_started",
+      "priority": "high",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "8c11c345-471e-483a-ad80-cc0e543baecb",
+          "title": "Neural Network Architectures (MLP, CNN, RNN, Transformers)",
+          "mastery_score": 50.0,
+          "state": "not_started",
+          "priority": "high",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "3dff74d0-0298-4873-90f3-4d3d08c38c97",
+          "title": "Backpropagation & Gradient Descent Variants",
+          "mastery_score": 55.0,
+          "state": "not_started",
+          "priority": "high",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "d5518598-b338-402b-839d-b85b2b56ee4f",
+          "title": "Regularization Techniques (Dropout, Batch Norm, Weight Decay)",
+          "mastery_score": 45.0,
+          "state": "not_started",
+          "priority": "high",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "82233420-be93-4f10-ac9e-5f847241c046",
+          "title": "Optimization Algorithms (Adam, RMSprop, Learning Rate Scheduling)",
+          "mastery_score": 50.0,
+          "state": "not_started",
+          "priority": "high",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "bb038cfc-1664-4529-8c41-62fad5488958",
+          "title": "Sequence Modeling & Attention Mechanisms",
+          "mastery_score": 40.0,
+          "state": "not_started",
+          "priority": "high",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "8cfc83c6-d930-4e1f-b09f-8e8a70f11525",
+      "title": "Deep Learning Frameworks: PyTorch & TensorFlow",
+      "mastery_score": 0.0,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "74278183-cf83-41ff-b7c9-6560794815c9",
+          "title": "PyTorch Core: Tensors, Autograd, nn.Module, DataLoader",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "0591b9c5-50ea-4ef2-8bc7-fc4a5eff6a07",
+          "title": "TensorFlow/Keras: Functional API, Subclassing, tf.data",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "9a4482cc-011d-42b2-b416-ba0aa2ca94d5",
+          "title": "Custom Training Loops & Callbacks",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "9382948c-4a5c-47a6-aa7a-10ab72b772c9",
+          "title": "Distributed Training (DDP, FSDP, TPU/GPU Strategies)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "9ed68da3-6e4f-4716-aeed-09d50570c233",
+          "title": "Model Serialization (TorchScript, ONNX, SavedModel)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "ffc3358f-db2a-47a0-bad8-982c379ab0ae",
+          "title": "Debugging & Profiling (TensorBoard, Profiler, Hooks)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "009a6e00-4e8d-41ce-b9ec-17b87023a645",
+      "title": "MLOps & Model Deployment",
+      "mastery_score": 5.71,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "f3c58f54-74b9-49a8-a5a9-4c2d83819b91",
+          "title": "CI/CD Pipelines for ML (GitHub Actions, GitLab CI, Jenkins)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "41fae5e4-bbba-41ff-884b-a3c9c4c69ba2",
+          "title": "Model Registry & Versioning (MLflow, DVC, Weights & Biases)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "78e2996f-85e1-46b7-bee9-6f24933aa478",
+          "title": "Model Monitoring & Drift Detection (Prometheus, Grafana, Evidently)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "30edc2df-15f1-4711-8c28-b9ad35c2e3a4",
+          "title": "Containerization with Docker",
+          "mastery_score": 40.0,
+          "state": "not_started",
+          "priority": "high",
+          "prerequisites": [],
+          "subtopics": [
+            {
+              "id": "f2357574-b808-485d-8e2c-6d41c2740ce5",
+              "title": "Dockerfile Best Practices (Multi-stage builds, Caching)",
+              "mastery_score": 50.0,
+              "state": "not_started",
+              "priority": "high",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            },
+            {
+              "id": "a2c87483-5461-4353-bad0-7b7cabb81a85",
+              "title": "Docker Compose for Local ML Stacks",
+              "mastery_score": 40.0,
+              "state": "not_started",
+              "priority": "high",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            },
+            {
+              "id": "40edf527-64be-4545-9ca2-d7bd354e49dd",
+              "title": "GPU Support & NVIDIA Container Toolkit",
+              "mastery_score": 30.0,
+              "state": "not_started",
+              "priority": "high",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            }
+          ],
+          "assessment_history": []
+        },
+        {
+          "id": "ebdc91b9-c5a0-48d5-b5d6-ca8764d198ea",
+          "title": "Orchestration with Kubernetes",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [
+            {
+              "id": "101ce71b-ba2a-466a-ba8f-615bddb2d8e8",
+              "title": "Core Concepts: Pods, Services, Deployments, ConfigMaps",
+              "mastery_score": 0.0,
+              "state": "not_started",
+              "priority": "critical",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            },
+            {
+              "id": "917f27d7-1362-44f4-bc93-f15274874db4",
+              "title": "Kubeflow / KServe / Seldon for Model Serving",
+              "mastery_score": 0.0,
+              "state": "not_started",
+              "priority": "critical",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            },
+            {
+              "id": "c2ff512f-4e2d-462c-b2e5-966302c9d67c",
+              "title": "Helm Charts & Kustomize for ML Workloads",
+              "mastery_score": 0.0,
+              "state": "not_started",
+              "priority": "critical",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            },
+            {
+              "id": "146d0f2e-c454-4d74-b206-762c9907d2f5",
+              "title": "Resource Management (GPU Scheduling, Limits/Requests)",
+              "mastery_score": 0.0,
+              "state": "not_started",
+              "priority": "critical",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            }
+          ],
+          "assessment_history": []
+        },
+        {
+          "id": "b2973363-1181-40c1-89ce-55d7df2ca204",
+          "title": "Cloud Platforms (AWS / GCP)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [
+            {
+              "id": "ff100b92-5ce2-4be1-b1cb-c574b6055f39",
+              "title": "Managed ML Services (SageMaker, Vertex AI, AI Platform)",
+              "mastery_score": 0.0,
+              "state": "not_started",
+              "priority": "critical",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            },
+            {
+              "id": "74d26199-4f58-4dd7-91d8-dea73a435f77",
+              "title": "Storage & Data Lakes (S3, GCS, Feature Stores)",
+              "mastery_score": 0.0,
+              "state": "not_started",
+              "priority": "critical",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            },
+            {
+              "id": "70927c47-a0ed-46fa-8ec6-add9bf7b9aaf",
+              "title": "Serverless Inference (Lambda, Cloud Run, Cloud Functions)",
+              "mastery_score": 0.0,
+              "state": "not_started",
+              "priority": "critical",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            },
+            {
+              "id": "dff6d091-da76-4da8-b2c7-18c5bea317fd",
+              "title": "IAM, VPC & Security Best Practices",
+              "mastery_score": 0.0,
+              "state": "not_started",
+              "priority": "critical",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            }
+          ],
+          "assessment_history": []
+        },
+        {
+          "id": "b7890719-43b7-4a38-a3aa-d75d000fe7c0",
+          "title": "API Development with FastAPI",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [
+            {
+              "id": "800b7e00-e25f-4004-a643-05f70b62a063",
+              "title": "Async Endpoints & Dependency Injection",
+              "mastery_score": 0.0,
+              "state": "not_started",
+              "priority": "critical",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            },
+            {
+              "id": "875a2a5e-f829-406a-b1f3-39254b58a423",
+              "title": "Pydantic Validation & Serialization",
+              "mastery_score": 0.0,
+              "state": "not_started",
+              "priority": "critical",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            },
+            {
+              "id": "b4f3d68e-1739-4b14-9a84-0e54efa5e686",
+              "title": "Batching & Streaming Inference Endpoints",
+              "mastery_score": 0.0,
+              "state": "not_started",
+              "priority": "critical",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            },
+            {
+              "id": "cb90e5ce-b1b3-445f-86fd-079c4a18bc8b",
+              "title": "Testing (Pytest) & Documentation (Swagger/OpenAPI)",
+              "mastery_score": 0.0,
+              "state": "not_started",
+              "priority": "critical",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            }
+          ],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "e05c69d2-4cd0-4984-b5b3-383d90838ccd",
+      "title": "Natural Language Processing (NLP)",
+      "mastery_score": 0.0,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "dcae00f9-378e-4b7f-95cc-bc460f021ccf",
+          "title": "Text Preprocessing & Tokenization (Subword, BPE, WordPiece)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "aa674e43-c25e-4126-9697-6ce06b3554e0",
+          "title": "Embeddings: Word2Vec, GloVe, FastText, Contextual (BERT)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "9b37d96f-736c-4898-8fc0-7819769160b0",
+          "title": "Transformer Architecture Deep Dive (Attention, Encoder/Decoder)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "9f68fd09-8007-4c47-9da4-82af121249bf",
+          "title": "Transfer Learning & Fine-tuning (LoRA, QLoRA, PEFT)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "7ab2db0b-84a5-4aa4-be18-2bb9f95f58a2",
+          "title": "Large Language Models (LLMs): Prompt Engineering, RAG, Agents",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "ec6aed1e-e854-4e82-98f6-120dbc051117",
+          "title": "NLP Tasks: Classification, NER, Summarization, Translation",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "80418545-b919-4395-93f8-032061807923",
+          "title": "Evaluation Metrics (BLEU, ROUGE, Perplexity, Human Eval)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "7304ab61-962d-4aff-9b00-08224664cddb",
+      "title": "Computer Vision (CV)",
+      "mastery_score": 0.0,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "785a45b4-fa25-4e9c-9ab0-586abf7a43a7",
+          "title": "Image Processing Fundamentals (OpenCV, Albumentations, TorchVision)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "c599fcb1-6216-4d35-8c9c-4bf27f2c1f1c",
+          "title": "CNN Architectures (ResNet, EfficientNet, ConvNeXt)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "90496988-a024-428c-84be-266c30aadb04",
+          "title": "Object Detection (YOLO, Faster R-CNN, DETR)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "17fd726e-6dd5-44b8-bc17-1cfa91a7e571",
+          "title": "Segmentation (U-Net, Mask R-CNN, SAM)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "c2ba88b7-eb43-4db7-b952-f2398e087a2d",
+          "title": "Vision Transformers (ViT, DeiT, Swin, CLIP)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "5b52bcc5-de17-4375-886c-080f329904df",
+          "title": "Generative Models (GANs, Diffusion Models, VAEs)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "82c7cb6b-36f5-45d0-be12-d0a34db577f1",
+          "title": "Model Optimization (Quantization, Pruning, TensorRT, ONNX Runtime)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "ac61f447-8cde-4fa1-b841-0b6318fe4db6",
+      "title": "Linux & System Administration",
+      "mastery_score": 0.0,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "5c953b3e-1783-4b7a-8fb4-903a74637059",
+          "title": "File System Hierarchy & Permissions (chmod, chown, ACLs)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "4b401d81-b64a-46a8-afe8-6b05691c213c",
+          "title": "Process Management (ps, top, htop, systemd, nohup, screen/tmux)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "3d83501d-8d8a-4455-b55f-c5453f1dec4b",
+          "title": "Shell Scripting (Bash/Zsh) for Automation",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "71ad8590-0867-478c-b607-0c9c812eb9ca",
+          "title": "Networking Basics (SSH, SCP, Ports, Firewalls, DNS)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "ffd8be6f-03a1-4e8e-9864-a0f32218f636",
+          "title": "Package Management (apt, yum, conda, pip, virtualenv)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "d67bbc66-d0d5-41ad-8f43-fb8cd053d9fc",
+          "title": "Log Analysis & Debugging (grep, awk, sed, journalctl, dmesg)",
+          "mastery_score": 0.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    }
+  ],
+  "last_updated": "2026-08-31T23:34:15.306529",
+  "recommended_next_topic_id": "74278183-cf83-41ff-b7c9-6560794815c9"
+}

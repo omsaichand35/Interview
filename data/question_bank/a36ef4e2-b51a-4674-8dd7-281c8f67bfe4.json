@@ -1,0 +1,52 @@
+{
+  "question": {
+    "id": "a36ef4e2-b51a-4674-8dd7-281c8f67bfe4",
+    "question_type": "multiple_select",
+    "topic": "Docker & Containerization",
+    "difficulty": "medium",
+    "question": "An AI/ML engineer is building a Docker image for a PyTorch training workload that requires GPU access. The base image is nvidia/cuda:12.1-runtime-ubuntu22.04. Which of the following practices are recommended for this scenario?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Use a multi-stage build to separate the build environment (with compilers, CUDA toolkit) from the runtime environment (runtime-only CUDA libraries)"
+      },
+      {
+        "id": "B",
+        "text": "Install Python packages with pip using --no-cache-dir and combine all pip installs into a single RUN layer to minimize image size"
+      },
+      {
+        "id": "C",
+        "text": "Run the container with --privileged flag to ensure GPU access works correctly"
+      },
+      {
+        "id": "D",
+        "text": "Set the NVIDIA_VISIBLE_DEVICES environment variable in the Dockerfile to restrict which GPUs the container can see"
+      },
+      {
+        "id": "E",
+        "text": "Use COPY --from=builder to copy only the installed packages from the build stage, excluding source code and build artifacts"
+      },
+      {
+        "id": "F",
+        "text": "Mount the host's /dev/nvidia0 directly into the container using -v /dev/nvidia0:/dev/nvidia0 for GPU access"
+      }
+    ],
+    "correct_options": [
+      "A",
+      "B",
+      "E"
+    ],
+    "explanation": "A) Multi-stage builds are recommended to keep runtime images small by excluding build tools and CUDA toolkit. B) Combining pip installs into one RUN layer with --no-cache-dir reduces layer count and avoids caching pip's cache. E) COPY --from=builder correctly transfers only necessary artifacts. C) --privileged is a security risk; GPU access should use --gpus all (Docker 19.03+) or nvidia-container-toolkit. D) NVIDIA_VISIBLE_DEVICES should be set at runtime (docker run -e), not baked into the image, to allow flexibility. F) Direct device mounting is outdated; modern Docker uses --gpus flag with nvidia-container-runtime.",
+    "concepts_tested": [
+      "Multi-stage Docker builds",
+      "Layer optimization and caching",
+      "GPU containerization with NVIDIA Container Toolkit",
+      "Security best practices",
+      "Environment variable configuration"
+    ]
+  },
+  "created_at": "2026-09-01T09:05:49.641133",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

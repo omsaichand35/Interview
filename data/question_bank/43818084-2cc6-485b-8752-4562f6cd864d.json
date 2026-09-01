@@ -1,0 +1,48 @@
+{
+  "question": {
+    "id": "43818084-2cc6-485b-8752-4562f6cd864d",
+    "question_type": "multiple_select",
+    "topic": "MLOps & Production Deployment",
+    "difficulty": "easy",
+    "question": "Which of the following are key components of a production ML monitoring system?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Data drift detection (monitoring input feature distribution changes)"
+      },
+      {
+        "id": "b",
+        "text": "Model performance metrics tracking (accuracy, latency, error rates)"
+      },
+      {
+        "id": "c",
+        "text": "Automatic model retraining triggered by every prediction request"
+      },
+      {
+        "id": "d",
+        "text": "Infrastructure health monitoring (CPU, memory, GPU utilization)"
+      },
+      {
+        "id": "e",
+        "text": "Manual model approval for every single inference"
+      }
+    ],
+    "correct_options": [
+      "a",
+      "b",
+      "d"
+    ],
+    "explanation": "A production ML monitoring system should track data drift (A) to detect when input distributions shift, monitor model performance metrics (B) like accuracy and latency to catch degradation, and observe infrastructure health (D) to ensure system reliability. Automatic retraining on every prediction (C) is impractical and wasteful; retraining is typically scheduled or triggered by drift/performance thresholds. Manual approval per inference (E) defeats the purpose of automated production systems.",
+    "concepts_tested": [
+      "ML monitoring",
+      "data drift detection",
+      "model performance tracking",
+      "infrastructure monitoring",
+      "production ML best practices"
+    ]
+  },
+  "created_at": "2026-09-01T02:16:34.073447",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

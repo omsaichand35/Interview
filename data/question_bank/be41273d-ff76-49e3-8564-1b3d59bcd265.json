@@ -1,0 +1,33 @@
+{
+  "question": {
+    "id": "be41273d-ff76-49e3-8564-1b3d59bcd265",
+    "question_type": "true_false",
+    "topic": "Machine Learning",
+    "difficulty": "hard",
+    "question": "In a properly trained neural network with batch normalization, the gradient of the loss with respect to the scale parameter (gamma) of a batch normalization layer is always zero when evaluated on the training set after convergence.",
+    "options": [
+      {
+        "id": "true",
+        "text": "True"
+      },
+      {
+        "id": "false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "false"
+    ],
+    "explanation": "The gradient with respect to gamma (scale parameter) is not necessarily zero at convergence. Gamma is a learnable parameter that scales the normalized activations. At convergence, the gradients of all learnable parameters (including gamma and beta) approach zero only if the loss has reached a stationary point with respect to those parameters. However, batch norm's gamma and beta are optimized jointly with other weights; their gradients depend on the upstream gradients and the normalized activations. There is no theoretical guarantee that gamma's gradient is zero at convergence—it depends on the specific optimization trajectory and loss landscape. In practice, gradients for all parameters become small near convergence, but this is a property of the optimization process, not a mathematical certainty specific to batch norm's gamma.",
+    "concepts_tested": [
+      "Batch Normalization",
+      "Gradient Computation",
+      "Optimization Convergence",
+      "Learnable Parameters"
+    ]
+  },
+  "created_at": "2026-09-01T01:28:29.040473",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

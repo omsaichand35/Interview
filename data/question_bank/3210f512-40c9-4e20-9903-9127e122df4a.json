@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "3210f512-40c9-4e20-9903-9127e122df4a",
+    "question_type": "mcq",
+    "topic": "Data Structures & Algorithms",
+    "difficulty": "medium",
+    "question": "When implementing a decision tree algorithm, you often need to compute the median of a feature's values for a subset of training samples many times. Which data structure allows you to retrieve the median in O(log n) time after an initial O(n) preprocessing step?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Unsorted array"
+      },
+      {
+        "id": "B",
+        "text": "Binary max-heap"
+      },
+      {
+        "id": "C",
+        "text": "Binary min-heap"
+      },
+      {
+        "id": "D",
+        "text": "Order-statistic tree (augmented BST with subtree sizes)"
+      }
+    ],
+    "correct_options": [
+      "D"
+    ],
+    "explanation": "An order-statistic tree stores the size of each subtree, enabling selection of the k‑th smallest element (including the median) in O(log n) time. Heaps only provide efficient access to the minimum or maximum, and an unsorted array would require O(n) scanning for each median query.",
+    "concepts_tested": [
+      "Order-statistic tree",
+      "Median selection",
+      "Augmented data structures"
+    ]
+  },
+  "created_at": "2026-09-01T14:47:09.001068",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

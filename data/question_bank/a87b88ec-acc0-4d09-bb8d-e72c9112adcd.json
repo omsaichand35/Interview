@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "a87b88ec-acc0-4d09-bb8d-e72c9112adcd",
+    "question_type": "true_false",
+    "topic": "Deep Learning",
+    "difficulty": "medium",
+    "question": "Using ReLU activation functions completely eliminates the vanishing gradient problem in deep networks.",
+    "options": [
+      {
+        "id": "True",
+        "text": "True"
+      },
+      {
+        "id": "False",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "False"
+    ],
+    "explanation": "While ReLU mitigates the vanishing gradient problem for positive activations by providing a gradient of 1, it does not eliminate it entirely. Issues such as the 'dying ReLU' problem (where neurons output zero and stop learning) and the fact that gradients can still become very small in deep architectures mean vanishing gradients can still occur.",
+    "concepts_tested": [
+      "activation functions",
+      "vanishing gradient problem",
+      "ReLU"
+    ]
+  },
+  "created_at": "2026-09-01T14:46:59.310639",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

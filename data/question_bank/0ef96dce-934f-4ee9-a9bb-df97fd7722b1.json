@@ -1,0 +1,33 @@
+{
+  "question": {
+    "id": "0ef96dce-934f-4ee9-a9bb-df97fd7722b1",
+    "question_type": "true_false",
+    "topic": "SQL & Data Management",
+    "difficulty": "medium",
+    "question": "When using SQL to create training and validation datasets for a time-series forecasting model, using a random ROW_NUMBER() partition split is generally safer than a temporal split to prevent data leakage.",
+    "options": [
+      {
+        "id": "true",
+        "text": "True"
+      },
+      {
+        "id": "false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "false"
+    ],
+    "explanation": "For time-series forecasting, a temporal split (training on earlier data, validating on later data) is required to prevent data leakage. Random splitting using ROW_NUMBER() would allow future information to leak into the training set, causing overly optimistic performance estimates that fail in production.",
+    "concepts_tested": [
+      "Time-series data splitting",
+      "Data leakage prevention",
+      "SQL for ML data preparation",
+      "Train/validation methodology"
+    ]
+  },
+  "created_at": "2026-09-01T02:18:27.922124",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

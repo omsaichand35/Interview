@@ -1,0 +1,48 @@
+{
+  "question": {
+    "id": "1a812b81-28da-4a8f-9e6d-5bce17d16b8f",
+    "question_type": "multiple_select",
+    "topic": "Kubernetes",
+    "difficulty": "medium",
+    "question": "An AI/ML engineer is setting up a Kubernetes cluster for distributed training of large language models. Which of the following Kubernetes features are critical for ensuring efficient GPU utilization and fault tolerance during training?",
+    "options": [
+      {
+        "id": "A",
+        "text": "GPU resource requests and limits via resource quotas"
+      },
+      {
+        "id": "B",
+        "text": "Pod topology spread constraints for multi-zone GPU placement"
+      },
+      {
+        "id": "C",
+        "text": "Horizontal Pod Autoscaler (HPA) based on GPU memory usage"
+      },
+      {
+        "id": "D",
+        "text": "NVIDIA device plugin for GPU discovery and allocation"
+      },
+      {
+        "id": "E",
+        "text": "PriorityClass with preemption for training job prioritization"
+      }
+    ],
+    "correct_options": [
+      "A",
+      "B",
+      "D"
+    ],
+    "explanation": "GPU resource requests and limits (A) ensure that training pods receive the required GPU resources and prevent overcommitment. Pod topology spread constraints (B) distribute pods across failure domains (zones/regions) to improve fault tolerance. The NVIDIA device plugin (D) is essential for Kubernetes to discover, advertise, and allocate GPUs to pods. Horizontal Pod Autoscaler (C) is generally unsuitable for stateful distributed training jobs, which typically have a fixed number of workers. PriorityClass with preemption (E) helps with scheduling priority but is not strictly required for GPU utilization or fault tolerance.",
+    "concepts_tested": [
+      "GPU resource management",
+      "Pod topology spread constraints",
+      "NVIDIA device plugin",
+      "Distributed training workloads",
+      "Kubernetes scheduling for ML"
+    ]
+  },
+  "created_at": "2026-09-01T01:32:16.219889",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

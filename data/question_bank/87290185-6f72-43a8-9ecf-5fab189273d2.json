@@ -1,0 +1,33 @@
+{
+  "question": {
+    "id": "87290185-6f72-43a8-9ecf-5fab189273d2",
+    "question_type": "true_false",
+    "topic": "System Design for ML Systems",
+    "difficulty": "medium",
+    "question": "Using a model server that loads the model into memory once and reuses it across multiple inference requests eliminates the need for any batching of requests to achieve high throughput.",
+    "options": [
+      {
+        "id": "true",
+        "text": "True"
+      },
+      {
+        "id": "false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "false"
+    ],
+    "explanation": "Even when a model resides in memory, batching multiple inference requests can still improve throughput by better utilizing hardware parallelism (e.g., GPU/TPU cores), reducing per‑request overhead, and amortizing memory access costs. Without batching, each request may incur suboptimal utilization, especially under high load, so batching remains a useful technique for achieving high throughput.",
+    "concepts_tested": [
+      "model serving",
+      "inference batching",
+      "throughput",
+      "latency"
+    ]
+  },
+  "created_at": "2026-09-01T14:47:20.802454",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

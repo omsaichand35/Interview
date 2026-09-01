@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "98b80255-bc7b-44b0-b519-b72093578a1a",
+    "question_type": "true_false",
+    "topic": "SQL & Data Handling",
+    "difficulty": "medium",
+    "question": "Unlike GROUP BY, window functions in SQL allow you to retain individual row details while computing aggregates over a defined window of rows.",
+    "options": [
+      {
+        "id": "a",
+        "text": "True"
+      },
+      {
+        "id": "b",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "a"
+    ],
+    "explanation": "Window functions (e.g., SUM() OVER, ROW_NUMBER() OVER) compute aggregates or rankings across a set of rows related to the current row, while preserving each row in the result set. GROUP BY, by contrast, collapses rows into a single summary row per group. This distinction is critical for feature engineering tasks like computing rolling statistics or rank-based features without losing row-level granularity.",
+    "concepts_tested": [
+      "Window functions vs GROUP BY",
+      "SQL for feature engineering",
+      "Row-level granularity preservation"
+    ]
+  },
+  "created_at": "2026-09-01T09:02:05.289347",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

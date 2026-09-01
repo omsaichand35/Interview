@@ -1,0 +1,41 @@
+{
+  "question": {
+    "id": "ac2fcc8e-f07e-4a52-924e-15f7253d7699",
+    "question_type": "mcq",
+    "topic": "SQL",
+    "difficulty": "medium",
+    "question": "You have a table `transactions` with columns: `user_id`, `transaction_date`, `amount`. You need to compute, for each transaction, the rolling 3-transaction average amount per user (including the current transaction), ordered by date. Which query correctly achieves this?",
+    "options": [
+      {
+        "id": "A",
+        "text": "SELECT user_id, transaction_date, amount, AVG(amount) OVER (PARTITION BY user_id ORDER BY transaction_date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS rolling_avg FROM transactions;"
+      },
+      {
+        "id": "B",
+        "text": "SELECT user_id, transaction_date, amount, AVG(amount) OVER (PARTITION BY user_id ORDER BY transaction_date RANGE BETWEEN 2 PRECEDING AND CURRENT ROW) AS rolling_avg FROM transactions;"
+      },
+      {
+        "id": "C",
+        "text": "SELECT user_id, transaction_date, amount, AVG(amount) OVER (PARTITION BY user_id ORDER BY transaction_date ROWS BETWEEN 3 PRECEDING AND CURRENT ROW) AS rolling_avg FROM transactions;"
+      },
+      {
+        "id": "D",
+        "text": "SELECT user_id, transaction_date, amount, AVG(amount) OVER (ORDER BY transaction_date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS rolling_avg FROM transactions;"
+      }
+    ],
+    "correct_options": [
+      "A"
+    ],
+    "explanation": "Option A correctly uses ROWS BETWEEN 2 PRECEDING AND CURRENT ROW to include the current row and the 2 preceding rows (3 total). Option B incorrectly uses RANGE which operates on value ranges, not row counts. Option C uses 3 PRECEDING which would include 4 rows total. Option D misses the PARTITION BY user_id clause, so it would compute a global rolling average across all users.",
+    "concepts_tested": [
+      "Window functions",
+      "Frame clauses (ROWS vs RANGE)",
+      "PARTITION BY",
+      "Rolling averages"
+    ]
+  },
+  "created_at": "2026-09-01T01:30:37.352161",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

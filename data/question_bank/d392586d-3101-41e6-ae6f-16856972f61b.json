@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "d392586d-3101-41e6-ae6f-16856972f61b",
+    "question_type": "mcq",
+    "topic": "Machine Learning Fundamentals",
+    "difficulty": "hard",
+    "question": "For a binary classification hypothesis class H with VC dimension d, which of the following gives the asymptotic order of the number of training examples m required to guarantee, with probability at least 1−δ, that the true error of the empirical risk minimizer is at most ε?",
+    "options": [
+      {
+        "id": "opt_a",
+        "text": "O((d + log(1/δ))/ε)"
+      },
+      {
+        "id": "opt_b",
+        "text": "O((d log(1/ε) + log(1/δ))/ε^2)"
+      },
+      {
+        "id": "opt_c",
+        "text": "O((d + log(1/δ))/ε^2)"
+      },
+      {
+        "id": "opt_d",
+        "text": "O((d log(1/ε) + log(1/δ))/ε)"
+      }
+    ],
+    "correct_options": [
+      "opt_b"
+    ],
+    "explanation": "According to VC theory, the sample complexity for agnostic PAC learning scales as O((d log(1/ε) + log(1/δ))/ε^2). This bound captures the dependence on the hypothesis class complexity (VC dimension d), the desired accuracy ε, and the confidence δ. The other options either miss the squared ε in the denominator or the log(1/ε) factor, making them incorrect.",
+    "concepts_tested": [
+      "VC dimension",
+      "sample complexity",
+      "generalization bounds"
+    ]
+  },
+  "created_at": "2026-09-01T14:49:53.969178",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}
