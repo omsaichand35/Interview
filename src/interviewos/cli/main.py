@@ -223,6 +223,32 @@ def build_parser() -> argparse.ArgumentParser:
         help="Path to the directory containing candidate evaluation results.",
     )
 
+    mentor_parser = subparsers.add_parser(
+        "mentor",
+        help="Launch the AI Learning Mentor & Tutor.",
+    )
+
+    mentor_parser.add_argument(
+        "--resume",
+        type=Path,
+        required=True,
+        help="Path to the candidate's resume PDF.",
+    )
+
+    mentor_parser.add_argument(
+        "--job",
+        type=Path,
+        required=True,
+        help="Path to the job description PDF.",
+    )
+
+    mentor_parser.add_argument(
+        "--knowledge",
+        type=Path,
+        required=False,
+        help="Path to a custom knowledge directory.",
+    )
+
     return parser
 
 
@@ -332,7 +358,15 @@ def main() -> None:
         application.run_ranking(results_dir=args.results)
         return
 
-    # Fallback to mentor if command is "mentor" or not specified
+    if args.command == "mentor":
+        application = InterviewOSApplication(
+            resume_path=args.resume,
+            job_path=args.job,
+        )
+        application.run(knowledge_directory=args.knowledge)
+        return
+
+    # Fallback to mentor if command is not specified
     if not args.resume or not args.job:
         parser.error("The following arguments are required for mentor mode: --resume, --job")
 
