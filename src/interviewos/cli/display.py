@@ -1,3 +1,12 @@
+"""
+InterviewOS Rich Display Formatter for Mentor, Analysis, and Plans
+"""
+from rich.console import Console
+from rich.panel import Panel
+from rich.table import Table
+from rich.tree import Tree
+from rich.box import ROUNDED, SIMPLE, DOUBLE_EDGE
+
 from interviewos.models import (
     JobProfile,
     ResumeProfile,
@@ -5,140 +14,141 @@ from interviewos.models import (
 )
 from interviewos.models.plan import PreparationPlan, TopicNode
 
+console = Console()
+
 
 def print_header(title: str) -> None:
-    """Print a CLI section header."""
-
-    print()
-    print("=" * 70)
-    print(title)
-    print("=" * 70)
-    print()
+    """Print a styled section banner."""
+    console.print(f"\n[bold cyan]─── {title} ──────────────────────────────────────[/bold cyan]\n")
 
 
 def print_resume(profile: ResumeProfile) -> None:
-    """Display the analyzed resume."""
-
-    print_header("RESUME ANALYSIS")
-
-    print(f"Candidate: {profile.candidate_name}")
-
-    if profile.summary:
-        print(f"\nSummary:\n{profile.summary}")
-
-    print("\nSkills:")
+    """Display analyzed resume with Rich Panel and Table."""
+    table = Table(box=ROUNDED, border_style="green", show_header=True, header_style="bold green")
+    table.add_column("Skill Name", style="white")
+    table.add_column("Proficiency", justify="center", style="bold cyan")
 
     for skill in profile.skills:
-        print(
-            f"  • {skill.name} "
-            f"[{skill.level.value}]"
-        )
+        table.add_row(skill.name, skill.level.value.capitalize())
+
+    content = f"[bold white]Candidate:[/bold white] [bold green]{profile.candidate_name or 'N/A'}[/bold green]\n"
+    if profile.summary:
+        content += f"\n[dim italic]{profile.summary}[/dim italic]\n"
+
+    panel = Panel(
+        table,
+        title="[bold green]📄 RESUME ANALYSIS[/bold green]",
+        subtitle=f"Candidate: [bold]{profile.candidate_name or 'N/A'}[/bold] • {len(profile.skills)} skills extracted",
+        border_style="green",
+        box=ROUNDED,
+        padding=(1, 2)
+    )
+    console.print()
+    console.print(panel)
 
 
 def print_job(profile: JobProfile) -> None:
-    """Display the analyzed job description."""
-
-    print_header("JOB ANALYSIS")
-
-    print(f"Role: {profile.title}")
-
-    print("\nRequired skills:")
+    """Display analyzed job description with Rich Panel and Table."""
+    table = Table(box=ROUNDED, border_style="cyan", show_header=True, header_style="bold cyan")
+    table.add_column("Skill / Requirement", style="white")
+    table.add_column("Expected Depth", justify="center", style="bold yellow")
+    table.add_column("Requirement Type", justify="center", style="dim")
 
     for skill in profile.required_skills:
-        print(
-            f"  • {skill.name} "
-            f"[{skill.expected_level.value}]"
-        )
+        table.add_row(skill.name, skill.expected_level.value.capitalize(), "[bold red]Required[/bold red]")
 
     if profile.preferred_skills:
-        print("\nPreferred skills:")
-
         for skill in profile.preferred_skills:
-            print(
-                f"  • {skill.name} "
-                f"[{skill.expected_level.value}]"
-            )
+            table.add_row(skill.name, skill.expected_level.value.capitalize(), "[dim cyan]Preferred[/dim cyan]")
+
+    panel = Panel(
+        table,
+        title="[bold cyan]💼 JOB DESCRIPTION ANALYSIS[/bold cyan]",
+        subtitle=f"Target Role: [bold yellow]{profile.title}[/bold yellow]",
+        border_style="cyan",
+        box=ROUNDED,
+        padding=(1, 2)
+    )
+    console.print()
+    console.print(panel)
 
 
-def print_skill_gaps(
-    report: SkillGapReport,
-) -> None:
-    """Display candidate skill gaps."""
-
-    print_header("SKILL GAP ANALYSIS")
+def print_skill_gaps(report: SkillGapReport) -> None:
+    """Display candidate skill gaps & strengths."""
+    table = Table(box=ROUNDED, border_style="yellow", show_header=True, header_style="bold yellow")
+    table.add_column("Competency / Skill Area", style="white")
+    table.add_column("Status", justify="center")
+    table.add_column("Priority", justify="center", style="bold")
 
     if report.strengths:
-        print("Strengths:")
-
         for skill in report.strengths:
-            print(
-                f"  + {skill.name}"
-            )
+            table.add_row(skill.name, "[bold green]✔ Strength[/bold green]", "[dim]Low[/dim]")
 
     if report.missing_skills:
-        print("\nMissing skills:")
-
         for skill in report.missing_skills:
-            print(
-                f"  - {skill.name}"
-            )
+            table.add_row(skill.name, "[bold red]✖ Missing[/bold red]", "[bold red]High[/bold red]")
 
     if report.gaps:
-        print("\nGaps:")
-
         for gap in report.gaps:
-            print(
-                f"  • {gap.skill}"
-                f" | gap={gap.gap_score:.2f}"
-                f" | priority={gap.priority}"
-            )
+            table.add_row(gap.skill, f"[yellow]▲ Gap ({gap.gap_score:.1f})[/yellow]", f"[bold yellow]{gap.priority}[/bold yellow]")
+
+    panel = Panel(
+        table,
+        title="[bold yellow]🎯 TARGET SKILL GAP ANALYSIS[/bold yellow]",
+        border_style="yellow",
+        box=ROUNDED,
+        padding=(1, 2)
+    )
+    console.print()
+    console.print(panel)
 
 
-def print_learning_plan(
-    plan: PreparationPlan,
-) -> None:
-    """Display the generated preparation plan."""
+def print_learning_plan(plan: PreparationPlan) -> None:
+    """Display personalized preparation roadmap as a tree."""
+    tree = Tree(f"[bold cyan]🎯 Goal: {plan.goal}[/bold cyan] [bold green]({plan.overall_mastery}% Mastery)[/bold green]")
 
-    print_header("PREPARATION PLAN")
-
-    print(f"Goal: {plan.goal}")
-    print(f"Overall Mastery: {plan.overall_mastery}%")
-
-    print("\nTopics:")
-
-    def print_node(node: TopicNode, indent: int = 0) -> None:
-        prefix = "  " * indent
-        connector = "|--" if indent > 0 else ""
-        print(f"{prefix}{connector} {node.title} [{node.mastery_score}%] (Priority: {node.priority.value}, State: {node.state.value})")
+    def add_nodes(parent_tree: Tree, node: TopicNode):
+        score_color = "green" if node.mastery_score >= 70 else "yellow" if node.mastery_score >= 40 else "red"
+        node_branch = parent_tree.add(
+            f"[bold white]{node.title}[/bold white] "
+            f"[{score_color}]({node.mastery_score}% mastery)[/{score_color}] "
+            f"[dim]• Priority: {node.priority.value}[/dim]"
+        )
         for child in node.subtopics:
-            print_node(child, indent + 1)
+            add_nodes(node_branch, child)
 
     for topic in plan.topics:
-        print_node(topic)
+        add_nodes(tree, topic)
+
+    panel = Panel(
+        tree,
+        title="[bold magenta]📚 ADAPTIVE LEARNING ROADMAP[/bold magenta]",
+        border_style="magenta",
+        box=ROUNDED,
+        padding=(1, 2)
+    )
+    console.print()
+    console.print(panel)
 
 
 def print_help() -> None:
-    """Display mentor commands."""
+    """Display interactive mentor commands."""
+    table = Table(box=SIMPLE, show_header=True, header_style="bold cyan")
+    table.add_column("Command", style="bold yellow")
+    table.add_column("Description", style="white")
 
-    print(
-        """
-Mentor commands:
+    table.add_row("/help", "Show available mentor commands")
+    table.add_row("/state", "Show your current learning & mastery state")
+    table.add_row("/practice <topic>", "Generate a tailored interactive practice question")
+    table.add_row("/review", "Targeted review on your weakest topic")
+    table.add_row("/quit", "Conclude mentorship session and save progress")
 
-  /help
-      Show this help.
-
-  /state
-      Show your current learning state.
-
-  /practice <topic>
-      Generate a practice question.
-
-  /review
-      Review a weak topic.
-
-  /quit
-      Exit the mentor.
-
-Anything else is treated as a normal mentor message.
-"""
+    panel = Panel(
+        table,
+        title="[bold cyan]💡 Mentor Interactive Commands[/bold cyan]",
+        subtitle="[dim]You can also type any question naturally to discuss with the AI Mentor.[/dim]",
+        border_style="cyan",
+        box=ROUNDED
     )
+    console.print()
+    console.print(panel)
