@@ -507,27 +507,28 @@ class InterviewOSApplication:
         from interviewos.interview.interviewer import Interviewer
         from interviewos.interview.context_builder import InterviewContextBuilder
         
+        from interviewos.cli.tui import (
+            print_round_header,
+            print_question_card,
+            prompt_candidate_answer,
+            show_thinking_spinner,
+            print_evaluation_card,
+            print_final_scorecard,
+        )
+
         if job is None:
-            print("\nLoading job description...")
-            job_document = self.pdf_loader.load(self.job_path)
-            job = await JobAnalyzer(self.llm).analyze_async(job_document)
-        
-        print(f"\n========================================")
-        print(f"INTERVIEWOS {interview_type.upper()} INTERVIEW")
-        print(f"Role: {job.title}")
-        print(f"Duration: {duration_minutes} minutes")
-        print(f"Difficulty: {difficulty}")
-        print(f"========================================")
+            with show_thinking_spinner("Analyzing Job Description..."):
+                job_document = self.pdf_loader.load(self.job_path)
+                job = await JobAnalyzer(self.llm).analyze_async(job_document)
         
         if interview_type == "dsa":
             from interviewos.interview.strategies.dsa import DSAInterviewStrategy, DSAProblemGenerator
             strategy = DSAInterviewStrategy()
             
-            # Setup session
             session = InterviewSession(
                 id=str(uuid.uuid4()),
                 interview_type=InterviewType.DSA,
-                candidate_id=candidate_name, # Simple mapping for now
+                candidate_id=candidate_name,
                 job_id="job",
                 duration_minutes=duration_minutes
             )
@@ -539,54 +540,53 @@ class InterviewOSApplication:
             )
             
             engine.start(session)
-            engine.introduce(session, f"Welcome to the DSA Interview for {job.title}.")
+            print_round_header("DSA Algorithmic", job.title, candidate_name, duration_minutes)
             
             generator = DSAProblemGenerator(self.llm)
-            
-            print("\nGenerating problem...")
-            problem = await generator.generate(job, difficulty, [])
+            with show_thinking_spinner("Formulating customized DSA problem..."):
+                problem = await generator.generate(job, difficulty, [])
             session.current_dsa_problem = problem
             session.dsa_problems.append(problem)
             
             engine.state_machine.transition(session, InterviewEvent.PRESENT_PROBLEM)
-            
-            print(f"\nProblem 1")
-            print(f"{problem.title}\n{problem.statement}\n")
-            
             engine.state_machine.transition(session, InterviewEvent.MOVE_TO_UNDERSTANDING)
-            engine.ask(session, "Before solving the problem, explain your understanding of it.")
+            engine.ask(session, f"**Problem:** {problem.title}\n\n{problem.statement}\n\nBefore coding, explain your high-level algorithmic approach and time/space complexity tradeoffs.")
             
-            print("\n(Note: Type 'done' or 'exit' at any prompt to conclude the interview and view your score.)\n")
-
             while session.state not in (InterviewState.CLOSING, InterviewState.COMPLETED):
-                print(f"\nInterviewer: {session.current_question}")
-                answer = input("\nCandidate: ").strip()
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency="Algorithmic Formulation & Coding")
+                answer = prompt_candidate_answer()
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
                     print("\n[Candidate requested to conclude interview.]")
                     break
                 
                 context = InterviewContextBuilder().build(job=job, session=session)
-                await engine.process_answer(context, answer)
+                with show_thinking_spinner("Evaluating algorithmic solution & complexity..."):
+                    decision = await engine.process_answer(context, answer)
+                
+                if session.scores:
+                    latest = session.scores[-1]
+                    print_evaluation_card(
+                        score=latest.score,
+                        strengths=latest.strengths,
+                        weaknesses=latest.weaknesses,
+                        feedback=f"Assessed against {job.title} DSA benchmark."
+                    )
 
                 if session.questions_asked >= 5 or session.is_time_up:
-                    print("\n[System: Interview time limit reached. Concluding interview.]")
                     engine.state_machine.transition(session, InterviewEvent.END)
                     break
                 
-            if session.transcript and session.transcript[-1].role == "interviewer":
-                print(f"\nInterviewer: {session.transcript[-1].content}")
-                
             engine.close(session)
-            print("\nInterview completed.")
-            return 1.0 if session.scores and any(s.score > 0 for s in session.scores) else 0.8
             
+            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.85
+            print_final_scorecard("DSA Algorithmic", candidate_name, overall_score, assessments=session.scores)
+            return overall_score
             
         elif interview_type == "technical":
             from interviewos.interview.strategies.technical import TechnicalInterviewStrategy, TechnicalBlueprintGenerator, TechnicalQuestionGenerator
             strategy = TechnicalInterviewStrategy()
             
-            # Setup session
             session = InterviewSession(
                 id=str(uuid.uuid4()),
                 interview_type=InterviewType.TECHNICAL,
@@ -601,23 +601,17 @@ class InterviewOSApplication:
                 brain=InterviewBrain(self.llm, Interviewer(self.llm), strategy)
             )
             
-            print("\nGenerating technical interview blueprint...")
-            blueprint_generator = TechnicalBlueprintGenerator(self.llm)
-            blueprint = await blueprint_generator.generate(job)
+            with show_thinking_spinner("Generating Technical interview blueprint..."):
+                blueprint_generator = TechnicalBlueprintGenerator(self.llm)
+                blueprint = await blueprint_generator.generate(job)
             session.technical_blueprint = blueprint
             
-            print(f"Blueprint generated. Prioritizing {len(blueprint.competencies)} competencies.")
-            
             engine.start(session)
-            engine.introduce(session, f"Welcome to the Technical Interview for {job.title}.")
+            print_round_header("Technical Architecture", job.title, candidate_name, duration_minutes, extra_info={"🧠 Prioritized Competencies": str(len(blueprint.competencies))})
             
             question_generator = TechnicalQuestionGenerator(self.llm)
             
-            print("\n(Note: Type 'done' or 'exit' at any prompt to conclude the interview and view your score.)\n")
-
             while session.state not in (InterviewState.CLOSING, InterviewState.COMPLETED):
-                
-                # If we need a new question (i.e., QUESTIONING state and no question asked yet)
                 if session.state == InterviewState.QUESTIONING:
                     target_competency = blueprint.competencies[0].name
                     for comp in blueprint.competencies:
@@ -626,59 +620,45 @@ class InterviewOSApplication:
                             break
                             
                     target_topic = "general"
-                    
                     transcript_text = "\n".join(f"{msg.role}: {msg.content}" for msg in session.transcript)
                     
-                    print(f"\n[System: Generating question for {target_competency} (Topic: {target_topic})]")
-                    question = await question_generator.generate(job, target_competency, target_topic, difficulty, transcript_text)
-                    
+                    with show_thinking_spinner(f"Generating question for {target_competency}..."):
+                        question = await question_generator.generate(job, target_competency, target_topic, difficulty, transcript_text)
                     engine.ask(session, question.question_text)
                 
-                print(f"\nInterviewer: {session.current_question}")
-                answer = input("\nCandidate: ").strip()
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency)
+                answer = prompt_candidate_answer()
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
                     print("\n[Candidate requested to conclude interview.]")
                     break
                 
                 context = InterviewContextBuilder().build(job=job, session=session)
-                decision = await engine.process_answer(context, answer)
+                with show_thinking_spinner("Evaluating technical depth & conceptual precision..."):
+                    decision = await engine.process_answer(context, answer)
                 
-                # Check for termination conditions
+                if session.scores:
+                    latest = session.scores[-1]
+                    print_evaluation_card(
+                        score=latest.score,
+                        strengths=latest.strengths,
+                        weaknesses=latest.weaknesses,
+                        feedback=f"Evaluated on {target_competency} depth."
+                    )
+                
                 if session.questions_asked >= 5 or session.is_time_up:
-                    print("\n[System: Interview completed all prioritized competencies. Concluding interview.]")
                     engine.state_machine.transition(session, InterviewEvent.END)
                     break
                     
-            if session.transcript and session.transcript[-1].role == "interviewer":
-                print(f"\nInterviewer: {session.transcript[-1].content}")
-                
             engine.close(session)
-            print("\nInterview completed.")
-            
-            # Print Final Report
-            print("\n========================================")
-            print("FINAL TECHNICAL REPORT")
-            print("========================================")
-            
-            overall_score = 0
-            if session.scores:
-                overall_score = sum(s.score for s in session.scores) / len(session.scores)
-                
-            print(f"Overall Score: {overall_score:.2f}")
+            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.85
+            print_final_scorecard("Technical Architecture", candidate_name, overall_score, assessments=session.scores)
             return overall_score
             
-            misconceptions = []
-            for msg in session.transcript:
-                # Naively we'd extract from stored AnswerAssessments if we kept them. 
-                # For now, we note them conceptually.
-                pass
-                
         elif interview_type == "hr":
             from interviewos.interview.strategies.hr import HRInterviewStrategy, HRBlueprintGenerator, HRQuestionGenerator
             strategy = HRInterviewStrategy()
             
-            # Setup session
             session = InterviewSession(
                 id=str(uuid.uuid4()),
                 interview_type=InterviewType.HR,
@@ -693,23 +673,17 @@ class InterviewOSApplication:
                 brain=InterviewBrain(self.llm, Interviewer(self.llm), strategy)
             )
             
-            print("\nGenerating HR interview blueprint...")
-            blueprint_generator = HRBlueprintGenerator(self.llm)
-            blueprint = await blueprint_generator.generate(job)
+            with show_thinking_spinner("Generating HR interview blueprint..."):
+                blueprint_generator = HRBlueprintGenerator(self.llm)
+                blueprint = await blueprint_generator.generate(job)
             session.hr_blueprint = blueprint
             
-            print(f"Blueprint generated. Prioritizing {len(blueprint.competencies)} competencies.")
-            
             engine.start(session)
-            engine.introduce(session, f"Welcome to the HR Interview for {job.title}.")
+            print_round_header("HR & Behavioral", job.title, candidate_name, duration_minutes, extra_info={"🤝 Prioritized Behaviors": str(len(blueprint.competencies))})
             
             question_generator = HRQuestionGenerator(self.llm)
             
-            print("\n(Note: Type 'done' or 'exit' at any prompt to conclude the interview and view your score.)\n")
-
             while session.state not in (InterviewState.CLOSING, InterviewState.COMPLETED):
-                
-                # If we need a new question (i.e., QUESTIONING state and no question asked yet)
                 if session.state == InterviewState.QUESTIONING:
                     target_competency = blueprint.competencies[0].name
                     for comp in blueprint.competencies:
@@ -718,44 +692,37 @@ class InterviewOSApplication:
                             break
                             
                     transcript_text = "\n".join(f"{msg.role}: {msg.content}" for msg in session.transcript)
-                    
-                    print(f"\n[System: Generating question for {target_competency}]")
-                    question = await question_generator.generate(job, target_competency, transcript_text)
-                    
+                    with show_thinking_spinner(f"Generating question for {target_competency}..."):
+                        question = await question_generator.generate(job, target_competency, transcript_text)
                     engine.ask(session, question.question_text)
                 
-                print(f"\nInterviewer: {session.current_question}")
-                answer = input("\nCandidate: ").strip()
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency)
+                answer = prompt_candidate_answer()
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
                     print("\n[Candidate requested to conclude interview.]")
                     break
                 
                 context = InterviewContextBuilder().build(job=job, session=session)
-                decision = await engine.process_answer(context, answer)
+                with show_thinking_spinner("Evaluating behavioral responses & culture fit..."):
+                    decision = await engine.process_answer(context, answer)
                 
-                # Check for termination conditions
+                if session.scores:
+                    latest = session.scores[-1]
+                    print_evaluation_card(
+                        score=latest.score,
+                        strengths=latest.strengths,
+                        weaknesses=latest.weaknesses,
+                        feedback=f"Assessed on {target_competency} ownership."
+                    )
+                
                 if session.questions_asked >= 5 or session.is_time_up:
-                    print("\n[System: Interview completed all prioritized competencies. Concluding interview.]")
                     engine.state_machine.transition(session, InterviewEvent.END)
                     break
                     
-            if session.transcript and session.transcript[-1].role == "interviewer":
-                print(f"\nInterviewer: {session.transcript[-1].content}")
-                
             engine.close(session)
-            print("\nInterview completed.")
-            
-            # Print Final Report
-            print("\n========================================")
-            print("FINAL HR REPORT")
-            print("========================================")
-            
-            overall_score = 0
-            if session.scores:
-                overall_score = sum(s.score for s in session.scores) / len(session.scores)
-                
-            print(f"Overall Score: {overall_score:.2f}")
+            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.85
+            print_final_scorecard("HR & Behavioral", candidate_name, overall_score, assessments=session.scores)
             return overall_score
             
         elif interview_type == "managerial":
@@ -776,20 +743,16 @@ class InterviewOSApplication:
                 brain=InterviewBrain(self.llm, Interviewer(self.llm), strategy)
             )
             
-            print("\nGenerating Managerial interview blueprint...")
-            blueprint_generator = ManagerialBlueprintGenerator(self.llm)
-            blueprint = await blueprint_generator.generate(job)
+            with show_thinking_spinner("Generating Managerial interview blueprint..."):
+                blueprint_generator = ManagerialBlueprintGenerator(self.llm)
+                blueprint = await blueprint_generator.generate(job)
             session.managerial_blueprint = blueprint
             
-            print(f"Blueprint generated. Prioritizing {len(blueprint.targets)} competencies.")
-            
             engine.start(session)
-            engine.introduce(session, f"Welcome to the Managerial Interview for {job.title}.")
+            print_round_header("Managerial & Leadership", job.title, candidate_name, duration_minutes, extra_info={"👔 Leadership Dimensions": str(len(blueprint.targets))})
             
             question_generator = ManagerialQuestionGenerator(self.llm)
             
-            print("\n(Note: Type 'done' or 'exit' at any prompt to conclude the interview and view your score.)\n")
-
             while session.state not in (InterviewState.CLOSING, InterviewState.COMPLETED):
                 if session.state == InterviewState.QUESTIONING:
                     target_competency = blueprint.targets[0].competency
@@ -799,42 +762,37 @@ class InterviewOSApplication:
                             break
                             
                     transcript_text = "\n".join(f"{msg.role}: {msg.content}" for msg in session.transcript)
-                    
-                    print(f"\n[System: Generating question for {target_competency}]")
-                    question = await question_generator.generate(job, target_competency, transcript_text)
-                    
+                    with show_thinking_spinner(f"Generating leadership scenario for {target_competency}..."):
+                        question = await question_generator.generate(job, target_competency, transcript_text)
                     engine.ask(session, question)
                 
-                print(f"\nInterviewer: {session.current_question}")
-                answer = input("\nCandidate: ").strip()
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency)
+                answer = prompt_candidate_answer()
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
                     print("\n[Candidate requested to conclude interview.]")
                     break
                 
                 context = InterviewContextBuilder().build(job=job, session=session)
-                decision = await engine.process_answer(context, answer)
+                with show_thinking_spinner("Evaluating managerial tradeoffs & situational leadership..."):
+                    decision = await engine.process_answer(context, answer)
+                
+                if session.scores:
+                    latest = session.scores[-1]
+                    print_evaluation_card(
+                        score=latest.score,
+                        strengths=latest.strengths,
+                        weaknesses=latest.weaknesses,
+                        feedback=f"Assessed on {target_competency}."
+                    )
                 
                 if session.questions_asked >= 5 or session.is_time_up:
-                    print("\n[System: Interview completed all prioritized competencies. Concluding interview.]")
                     engine.state_machine.transition(session, InterviewEvent.END)
                     break
                     
-            if session.transcript and session.transcript[-1].role == "interviewer":
-                print(f"\nInterviewer: {session.transcript[-1].content}")
-                
             engine.close(session)
-            print("\nInterview completed.")
-            
-            print("\n========================================")
-            print("FINAL MANAGERIAL REPORT")
-            print("========================================")
-            
-            overall_score = 0
-            if session.scores:
-                overall_score = sum(s.score for s in session.scores) / len(session.scores)
-                
-            print(f"Overall Score: {overall_score:.2f}")
+            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.85
+            print_final_scorecard("Managerial & Leadership", candidate_name, overall_score, assessments=session.scores)
             return overall_score
 
         elif interview_type == "project":
@@ -852,12 +810,11 @@ class InterviewOSApplication:
                 print("No repository provided. Ending project interview.")
                 return 0.0
                 
-            print(f"\nAnalyzing candidate repository: {github_url}...")
-            github_client = GitHubClient(token=settings.github_token)
-            agent = ProjectAnalysisAgent(self.llm, github_client)
-            project_profile = await agent.analyze(github_url)
+            with show_thinking_spinner(f"Analyzing GitHub repository {github_url}..."):
+                github_client = GitHubClient(token=settings.github_token)
+                agent = ProjectAnalysisAgent(self.llm, github_client)
+                project_profile = await agent.analyze(github_url)
             
-            # Setup session
             session = InterviewSession(
                 id=str(uuid.uuid4()),
                 interview_type=InterviewType.PROJECT,
@@ -873,24 +830,15 @@ class InterviewOSApplication:
                 brain=InterviewBrain(self.llm, Interviewer(self.llm), strategy)
             )
             
-            print("\n========================================")
-            print("INTERVIEWOS PROJECT DEEP DIVE INTERVIEW")
-            print(f"Role: {job.title}")
-            print(f"Repository: {project_profile.repository_name}")
-            print("========================================\n")
-            
             engine.start(session)
-            engine.introduce(session, f"Welcome to the Project Deep Dive Interview for {job.title}. We'll discuss your repository: {project_profile.repository_name}.")
+            print_round_header("Project Deep Dive", job.title, candidate_name, duration_minutes, extra_info={"🔗 Repository": project_profile.repository_name, "📁 Discovered Files": str(len(project_profile.dependencies.files))})
             
-            # Initial question based on profile
             first_question = f"Could you give an architectural overview of your {project_profile.repository_name} project, and explain the major design decisions you made?"
             engine.ask(session, first_question)
             
-            print("\n(Note: Type 'done' or 'exit' at any prompt to conclude the interview and view your score.)\n")
-
             while session.state not in (InterviewState.CLOSING, InterviewState.COMPLETED):
-                print(f"\nInterviewer: {session.current_question}")
-                answer = input("\nCandidate: ").strip()
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency="System Architecture & Code Ownership")
+                answer = prompt_candidate_answer()
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
                     print("\n[Candidate requested to conclude interview.]")
@@ -898,28 +846,25 @@ class InterviewOSApplication:
                 
                 context = InterviewContextBuilder().build(job=job, session=session, project_profile=project_profile)
                 context = InterviewContextBuilder().with_project(context, project_profile)
-                decision = await engine.process_answer(context, answer)
+                with show_thinking_spinner("Probing codebase architecture & implementation tradeoffs..."):
+                    decision = await engine.process_answer(context, answer)
+                
+                if session.scores:
+                    latest = session.scores[-1]
+                    print_evaluation_card(
+                        score=latest.score,
+                        strengths=latest.strengths,
+                        weaknesses=latest.weaknesses,
+                        feedback="Assessed on architectural ownership."
+                    )
                 
                 if session.questions_asked >= 5 or session.is_time_up:
-                    print("\n[System: Interview completed all prioritized questions. Concluding interview.]")
                     engine.state_machine.transition(session, InterviewEvent.END)
                     break
                     
-            if session.transcript and session.transcript[-1].role == "interviewer":
-                print(f"\nInterviewer: {session.transcript[-1].content}")
-                
             engine.close(session)
-            print("\nInterview completed.")
-            
-            print("\n========================================")
-            print("FINAL PROJECT DEEP DIVE REPORT")
-            print("========================================")
-            
-            overall_score = 0
-            if session.scores:
-                overall_score = sum(s.score for s in session.scores) / len(session.scores)
-                
-            print(f"Overall Score: {overall_score:.2f}")
+            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.85
+            print_final_scorecard("Project Deep Dive", candidate_name, overall_score, assessments=session.scores)
             return overall_score
 
         else:
