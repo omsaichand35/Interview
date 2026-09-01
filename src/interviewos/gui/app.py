@@ -49,6 +49,12 @@ class InterviewOSDesktopApp(ctk.CTk):
         self._setup_ui()
         self._load_or_create_initial_session()
 
+        # Bring window to foreground on launch
+        self.lift()
+        self.attributes("-topmost", True)
+        self.after(400, lambda: self.attributes("-topmost", False))
+        self.focus_force()
+
     def _setup_ui(self):
         # 2-Column Grid Layout (Sidebar: 300px, Main Area: 1fr)
         self.grid_columnconfigure(0, weight=0, minsize=300)
