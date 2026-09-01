@@ -1061,8 +1061,3 @@ class InterviewOSApplication:
             
             print(f"{rank_col} {cand_col} {score_col} {status_str}")
         print("========================================\n")
-
-    def run_gui(self) -> None:
-        """Launch the InterviewOS CustomTkinter Desktop GUI."""
-        from interviewos.gui.app import launch_gui
-        launch_gui()

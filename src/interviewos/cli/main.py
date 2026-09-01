@@ -223,11 +223,6 @@ def build_parser() -> argparse.ArgumentParser:
         help="Path to the directory containing candidate evaluation results.",
     )
 
-    gui_parser = subparsers.add_parser(
-        "gui",
-        help="Launch the InterviewOS CustomTkinter Desktop GUI.",
-    )
-
     return parser
 
 
@@ -335,11 +330,6 @@ def main() -> None:
         )
         
         application.run_ranking(results_dir=args.results)
-        return
-
-    if args.command == "gui":
-        from interviewos.gui.app import launch_gui
-        launch_gui()
         return
 
     # Fallback to mentor if command is "mentor" or not specified
