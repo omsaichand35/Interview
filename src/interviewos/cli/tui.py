@@ -72,28 +72,24 @@ def print_question_card(
     question_text: str,
     prompt_id: Optional[str] = None,
     competency: Optional[str] = None,
-    topic: Optional[str] = None
+    topic: Optional[str] = None,
+    timer_str: Optional[str] = None
 ) -> None:
     """Render an interviewer question inside a styled panel."""
-    header_parts = [f"[bold cyan]🤖 AI Interviewer[/bold cyan]"]
+    header_parts = []
     if competency:
-        header_parts.append(f"[bold magenta]• Competency: {competency}[/bold magenta]")
-    if topic and topic != "general":
-        header_parts.append(f"[dim yellow]• Topic: {topic}[/dim yellow]")
+        header_parts.append(f"[bold magenta]• {competency}[/bold magenta]")
+    if timer_str:
+        header_parts.append(f"[bold yellow]• {timer_str}[/bold yellow]")
     if prompt_id:
         header_parts.append(f"[dim cyan]({prompt_id})[/dim cyan]")
 
-    header = " ".join(header_parts)
-    
-    progress_str = f"Q{question_idx}/{total_questions}"
-    
-    # Format code blocks if present
-    content = question_text
+    header = " ".join(header_parts) if header_parts else ""
     
     panel = Panel(
-        f"{content}",
-        title=f"[bold green] Question {question_idx} of {total_questions} [/bold green]",
-        subtitle=f"[dim]Type answer below • Shift+Enter in GUI • Enter to submit[/dim]",
+        f"{question_text}",
+        title=f"[bold green] Question {question_idx} of {total_questions} [/bold green] {header}",
+        subtitle=f"[dim]Type answer below and press Enter • Type 'done' to finish early[/dim]",
         border_style="blue",
         box=ROUNDED,
         padding=(1, 2)

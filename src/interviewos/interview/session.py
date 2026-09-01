@@ -110,6 +110,31 @@ class InterviewSession(BaseModel):
         return (now - self.started_at).total_seconds() / 60.0
 
     @property
+    def time_elapsed_seconds(self) -> int:
+        if not self.started_at:
+            return 0
+        now = self.completed_at or datetime.now()
+        return max(0, int((now - self.started_at).total_seconds()))
+
+    @property
+    def time_remaining_seconds(self) -> int:
+        if not self.duration_minutes:
+            return 0
+        total_seconds = self.duration_minutes * 60
+        remaining = total_seconds - self.time_elapsed_seconds
+        return max(0, remaining)
+
+    @property
+    def timer_display(self) -> str:
+        elapsed_m, elapsed_s = divmod(self.time_elapsed_seconds, 60)
+        if not self.duration_minutes:
+            return f"⏱ {elapsed_m:02d}:{elapsed_s:02d}"
+        
+        rem_m, rem_s = divmod(self.time_remaining_seconds, 60)
+        tot_m = self.duration_minutes
+        return f"⏱ {rem_m:02d}:{rem_s:02d} left ({elapsed_m:02d}:{elapsed_s:02d} / {tot_m:02d}:00)"
+
+    @property
     def is_time_up(self) -> bool:
         if not self.duration_minutes:
             return False

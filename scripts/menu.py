@@ -143,7 +143,7 @@ def main():
         menu_table.add_row("[bold cyan]5[/bold cyan]", "[bold white]Online Assessment (OA)[/bold white]", "Timed 5-question test with automated rubric scoring")
         menu_table.add_row("[bold cyan]6[/bold cyan]", "[bold white]AI Learning Mentor & Tutor[/bold white]", "Skill gap roadmap, topic practice & adaptive learning agent")
         menu_table.add_row("[bold cyan]7[/bold cyan]", "[bold white]GitHub Repository Analyzer[/bold white]", "Standalone code hierarchy scanner, dependencies & AST agent")
-        menu_table.add_row("[bold cyan]8[/bold cyan]", "[bold white]Run Full Pytest Test Suite[/bold white]", "Execute all 45 automated unit & integration test suites")
+        menu_table.add_row("[bold cyan]8[/bold cyan]", "[bold white]Full Hiring Pipeline (End-to-End)[/bold white]", "Autonomous multi-round evaluation across OA, Tech, Project & HR")
         menu_table.add_row("[bold yellow]C[/bold yellow]", "[bold yellow]Change Profile / JD / Resume[/bold yellow]", "Update your candidate name, email, target JD or resume")
         menu_table.add_row("[bold red]0[/bold red]", "[bold red]Exit Launcher[/bold red]", "Exit InterviewOS Terminal Environment")
 
@@ -250,7 +250,21 @@ def main():
             input("\nPress Enter to return to menu...")
 
         elif choice == "8":
-            cmd = ["pytest", "tests/", "-v"]
+            console.print()
+            github_url = Prompt.ask(
+                "[bold cyan]Enter Candidate GitHub Repository URL for Pipeline[/bold cyan]",
+                default=profile.last_github_url
+            ).strip()
+            profile.last_github_url = github_url
+            profile.save()
+
+            cmd = [
+                sys.executable, "-m", "interviewos.cli", "hiring",
+                "--job", profile.job_path,
+                "--resume", profile.resume_path,
+                "--name", profile.candidate_name,
+                "--email", profile.candidate_email
+            ]
             subprocess.run(cmd)
             input("\nPress Enter to return to menu...")
 

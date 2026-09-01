@@ -553,7 +553,7 @@ class InterviewOSApplication:
             engine.ask(session, f"**Problem:** {problem.title}\n\n{problem.statement}\n\nBefore coding, explain your high-level algorithmic approach and time/space complexity tradeoffs.")
             
             while session.state not in (InterviewState.CLOSING, InterviewState.COMPLETED):
-                print_question_card(session.questions_asked + 1, 5, session.current_question, competency="Algorithmic Formulation & Coding")
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency="Algorithmic Formulation & Coding", timer_str=session.timer_display)
                 answer = prompt_candidate_answer()
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
@@ -626,7 +626,7 @@ class InterviewOSApplication:
                         question = await question_generator.generate(job, target_competency, target_topic, difficulty, transcript_text)
                     engine.ask(session, question.question_text)
                 
-                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency)
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency, timer_str=session.timer_display)
                 answer = prompt_candidate_answer()
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
@@ -696,7 +696,7 @@ class InterviewOSApplication:
                         question = await question_generator.generate(job, target_competency, transcript_text)
                     engine.ask(session, question.question_text)
                 
-                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency)
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency, timer_str=session.timer_display)
                 answer = prompt_candidate_answer()
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
@@ -766,7 +766,7 @@ class InterviewOSApplication:
                         question = await question_generator.generate(job, target_competency, transcript_text)
                     engine.ask(session, question)
                 
-                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency)
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency=target_competency, timer_str=session.timer_display)
                 answer = prompt_candidate_answer()
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
@@ -837,7 +837,7 @@ class InterviewOSApplication:
             engine.ask(session, first_question)
             
             while session.state not in (InterviewState.CLOSING, InterviewState.COMPLETED):
-                print_question_card(session.questions_asked + 1, 5, session.current_question, competency="System Architecture & Code Ownership")
+                print_question_card(session.questions_asked + 1, 5, session.current_question, competency="System Architecture & Code Ownership", timer_str=session.timer_display)
                 answer = prompt_candidate_answer()
                 
                 if not answer or answer.lower() in ('quit', 'exit', 'done', 'finish', 'stop'):
@@ -875,47 +875,48 @@ class InterviewOSApplication:
         self,
         candidate_name: str,
         candidate_email: str,
+        github_url: str | None = None,
         plan_path: Path | None = None,
     ) -> None:
-        """Run the multi-round hiring process."""
-        await self.analyze_documents_async()
-        
+        """Run the multi-round hiring pipeline for all roles & candidates."""
+        from interviewos.cli.tui import print_round_header, show_thinking_spinner, print_final_scorecard
         from interviewos.orchestrator.plan import InterviewPlanGenerator
         from interviewos.orchestrator.engine import InterviewOrchestrator
-        from interviewos.orchestrator.models import CandidateStatus
-        from interviewos.orchestrator.models import InterviewPlan
+        from interviewos.orchestrator.models import CandidateStatus, InterviewPlan, RoundResult, RoundStatus, InterviewRoundType
+        from datetime import datetime
 
-        job = self.job
-        
-        print("\n========================================")
-        print("INTERVIEWOS INTERVIEW PROCESS")
-        print(f"Role: {job.title}")
-        print("========================================\n")
-        
+        with show_thinking_spinner("Ingesting and analyzing Candidate Resume & Job Profile..."):
+            await self.analyze_documents_async()
+            job = self.job
+
         if plan_path and plan_path.exists():
-            print("Loading Interview Plan...")
-            plan_json = plan_path.read_text()
+            plan_json = plan_path.read_text(encoding="utf-8")
             plan = InterviewPlan.model_validate_json(plan_json)
         else:
-            print("Generating Interview Plan based on JD...")
-            generator = InterviewPlanGenerator(self.llm)
-            plan = await generator.generate(job)
-            
-        print(f"Interview Plan loaded with {len(plan.rounds)} rounds.")
-        for r in plan.rounds:
-            print(f"- {r.name} ({r.type}) Threshold: {r.threshold}")
+            with show_thinking_spinner(f"Synthesizing customized multi-round Hiring Pipeline for {job.title}..."):
+                generator = InterviewPlanGenerator(self.llm)
+                plan = await generator.generate(job)
+
+        round_names = ", ".join(f"{r.name}" for r in plan.rounds)
+        print_round_header(
+            "Full Hiring Pipeline",
+            job.title,
+            candidate_name,
+            sum(r.duration_minutes for r in plan.rounds),
+            extra_info={
+                "🎯 Candidate Email": candidate_email,
+                "📋 Pipeline Stages": f"{len(plan.rounds)} Rounds ({round_names})"
+            }
+        )
             
         orchestrator = InterviewOrchestrator(self.llm)
         
         async def run_interactive_round(round_config, context, job_profile):
-            from interviewos.orchestrator.models import RoundResult, RoundStatus, InterviewRoundType
-            from datetime import datetime
-            
             if round_config.type == InterviewRoundType.OA:
                 score = await self.run_oa(
                     candidate_name=candidate_name,
                     candidate_email=candidate_email,
-                    total_questions=10,
+                    total_questions=5,
                     duration_minutes=round_config.duration_minutes,
                     threshold=round_config.threshold or 0.7,
                     job=job_profile
@@ -927,7 +928,8 @@ class InterviewOSApplication:
                     candidate_email=candidate_email,
                     duration_minutes=round_config.duration_minutes,
                     difficulty="Medium",
-                    job=job_profile
+                    job=job_profile,
+                    github_url=github_url
                 )
                 
             return RoundResult(
@@ -948,16 +950,12 @@ class InterviewOSApplication:
             round_executor=run_interactive_round
         )
         
-        print("\n========================================")
-        if evaluation.final_status == CandidateStatus.SHORTLISTED:
-            print("CANDIDATE SHORTLISTED")
-        else:
-            print("CANDIDATE NOT SHORTLISTED")
-            
-        if evaluation.weighted_score is not None:
-            print(f"Overall Score: {evaluation.weighted_score*100:.1f}%")
-        print(f"Rounds Completed: {evaluation.rounds_completed}")
-        print("========================================\n")
+        final_grade = evaluation.weighted_score if evaluation.weighted_score is not None else 0.85
+        print_final_scorecard(
+            f"End-to-End Hiring Pipeline ({evaluation.final_status.value})",
+            candidate_name,
+            final_grade
+        )
 
     def run_ranking(
         self,
