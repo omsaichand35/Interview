@@ -4,5 +4,8 @@
   "job_path": "C:\\Users\\omsai\\Downloads\\Evertz Internship JD 2026-2027.pdf",
   "resume_path": "C:\\Users\\omsai\\Downloads\\Omsaichand (1).pdf",
   "last_github_url": "0",
-  "voice_mode": false
+  "voice_mode": true,
+  "difficulty": "Medium",
+  "oa_questions": 5,
+  "oa_duration": 20
 }

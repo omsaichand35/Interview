@@ -614,6 +614,7 @@ class InterviewOSApplication:
             print_round_header("Technical Architecture", job.title, candidate_name, duration_minutes, extra_info={"🧠 Prioritized Competencies": str(len(blueprint.competencies))})
             
             question_generator = TechnicalQuestionGenerator(self.llm)
+            target_competency = blueprint.competencies[0].name if blueprint.competencies else "Technical Architecture"
             
             while session.state not in (InterviewState.CLOSING, InterviewState.COMPLETED):
                 if session.state == InterviewState.QUESTIONING:
@@ -686,6 +687,7 @@ class InterviewOSApplication:
             print_round_header("HR & Behavioral", job.title, candidate_name, duration_minutes, extra_info={"🤝 Prioritized Behaviors": str(len(blueprint.competencies))})
             
             question_generator = HRQuestionGenerator(self.llm)
+            target_competency = blueprint.competencies[0].name if blueprint.competencies else "Behavioral & Culture Fit"
             
             while session.state not in (InterviewState.CLOSING, InterviewState.COMPLETED):
                 if session.state == InterviewState.QUESTIONING:
@@ -756,6 +758,7 @@ class InterviewOSApplication:
             print_round_header("Managerial & Leadership", job.title, candidate_name, duration_minutes, extra_info={"👔 Leadership Dimensions": str(len(blueprint.targets))})
             
             question_generator = ManagerialQuestionGenerator(self.llm)
+            target_competency = blueprint.targets[0].competency if blueprint.targets else "Leadership & Management"
             
             while session.state not in (InterviewState.CLOSING, InterviewState.COMPLETED):
                 if session.state == InterviewState.QUESTIONING:
