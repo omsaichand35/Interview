@@ -112,19 +112,23 @@ def prompt_candidate_answer(voice_mode: bool = False) -> str:
     if voice_mode:
         try:
             from interviewos.voice import get_voice_engine
-            spoken = get_voice_engine().listen(timeout=8, phrase_time_limit=45)
+            spoken = get_voice_engine().listen(timeout=10, phrase_time_limit=45)
             if spoken:
                 console.print(f"[bold green]Candidate [Spoken Voice] ❯ [/bold green][white]{spoken}[/white]")
-                confirm = Prompt.ask("[dim]Press Enter to submit spoken answer, or type to override[/dim]", default=spoken)
-                return confirm.strip()
+                confirm = Prompt.ask("[dim]Press Enter to submit spoken answer, or type text to edit[/dim]", default=spoken)
+                if confirm.strip():
+                    return confirm.strip()
         except Exception:
             pass
 
-    try:
-        ans = Prompt.ask("[bold green]Candidate [You] ❯[/bold green]")
-        return ans.strip()
-    except (KeyboardInterrupt, EOFError):
-        return "exit"
+    while True:
+        try:
+            ans = Prompt.ask("[bold green]Candidate [You] ❯[/bold green]").strip()
+            if ans:
+                return ans
+            console.print("[dim yellow]Please type your answer, or type 'done' to conclude this round.[/dim yellow]")
+        except (KeyboardInterrupt, EOFError):
+            return "exit"
 
 @contextmanager
 def show_thinking_spinner(message: str = "🤖 AI Interviewer is evaluating response..."):
@@ -191,7 +195,10 @@ def print_final_scorecard(
     """Display final interview scorecard summary table."""
     score_pct = int(overall_score * 100) if overall_score <= 1.0 else int(overall_score)
     
-    if score_pct >= 80:
+    if not assessments or score_pct == 0:
+        decision_badge = "[bold white on red]  ROUND INCOMPLETE (NO ANSWERS EVALUATED)  [/bold white on red]"
+        border_style = "red"
+    elif score_pct >= 80:
         decision_badge = "[bold white on green]  RECOMMEND TO ADVANCE (STRONG HIRE)  [/bold white on green]"
         border_style = "green"
     elif score_pct >= 65:
@@ -209,15 +216,12 @@ def print_final_scorecard(
 
     if assessments:
         for idx, item in enumerate(assessments, 1):
-            sc = getattr(item, "score", 0.8)
+            sc = getattr(item, "score", 0.0)
             sc_pct = int(sc * 100) if sc <= 1.0 else int(sc)
-            st = getattr(item, "feedback", "Evaluated against benchmark")
             tag = "[green]Pass[/green]" if sc_pct >= 65 else "[red]Review[/red]"
             table.add_row(str(idx), getattr(item, "competency", f"Question {idx}"), f"{sc_pct}%", tag)
     else:
-        table.add_row("1", "Technical & Conceptual Depth", f"{score_pct}%", "[green]Pass[/green]")
-        table.add_row("2", "Problem Formulation & Correctness", f"{score_pct}%", "[green]Pass[/green]")
-        table.add_row("3", "Communication & Tradeoffs", f"{score_pct}%", "[green]Pass[/green]")
+        table.add_row("-", f"{round_name} Session", "0%", "[red]Incomplete[/red]")
 
     scorecard_panel = Panel(
         table,

@@ -583,7 +583,7 @@ class InterviewOSApplication:
                 
             engine.close(session)
             
-            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.85
+            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.0
             print_final_scorecard("DSA Algorithmic", candidate_name, overall_score, assessments=session.scores)
             return overall_score
             
@@ -657,7 +657,7 @@ class InterviewOSApplication:
                     break
                     
             engine.close(session)
-            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.85
+            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.0
             print_final_scorecard("Technical Architecture", candidate_name, overall_score, assessments=session.scores)
             return overall_score
             
@@ -729,7 +729,7 @@ class InterviewOSApplication:
                     break
                     
             engine.close(session)
-            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.85
+            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.0
             print_final_scorecard("HR & Behavioral", candidate_name, overall_score, assessments=session.scores)
             return overall_score
             
@@ -801,7 +801,7 @@ class InterviewOSApplication:
                     break
                     
             engine.close(session)
-            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.85
+            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.0
             print_final_scorecard("Managerial & Leadership", candidate_name, overall_score, assessments=session.scores)
             return overall_score
 
@@ -873,7 +873,7 @@ class InterviewOSApplication:
                     break
                     
             engine.close(session)
-            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.85
+            overall_score = sum(s.score for s in session.scores) / len(session.scores) if session.scores else 0.0
             print_final_scorecard("Project Deep Dive", candidate_name, overall_score, assessments=session.scores)
             return overall_score
 

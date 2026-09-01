@@ -2,9 +2,17 @@
 InterviewOS Voice Engine
 Provides bidirectional Text-to-Speech (TTS) and Speech-to-Text (STT) capabilities.
 """
+import os
 import re
+import sys
 import threading
 from typing import Optional
+
+try:
+    import win32com.client
+    HAS_WIN32COM = True
+except ImportError:
+    HAS_WIN32COM = False
 
 try:
     import pyttsx3
@@ -46,33 +54,22 @@ class VoiceEngine:
         self.volume = volume
         self._engine = None
         self._recognizer = None
+        self._win_speaker = None
         self._is_speaking = False
-
-    def _get_tts_engine(self):
-        if self._engine is None and HAS_PYTTSX3:
-            try:
-                self._engine = pyttsx3.init()
-                self._engine.setProperty("rate", self.rate)
-                self._engine.setProperty("volume", self.volume)
-                # Select a clean natural voice if available
-                voices = self._engine.getProperty("voices")
-                if voices:
-                    self._engine.setProperty("voice", voices[0].id)
-            except Exception:
-                self._engine = None
-        return self._engine
 
     def _get_recognizer(self):
         if self._recognizer is None and HAS_SR:
             self._recognizer = sr.Recognizer()
-            self._recognizer.energy_threshold = 300
+            self._recognizer.energy_threshold = 280
             self._recognizer.dynamic_energy_threshold = True
+            self._recognizer.pause_threshold = 0.8
+            self._recognizer.phrase_threshold = 0.3
         return self._recognizer
 
     def speak(self, text: str, block: bool = False) -> None:
         """
         Synthesize and speak text via Text-to-Speech (TTS).
-        By default runs in background thread so UI is not blocked.
+        Uses native Windows SAPI asynchronously or pyttsx3.
         """
         clean_text = _clean_text_for_speech(text)
         if not clean_text:
@@ -80,14 +77,30 @@ class VoiceEngine:
 
         def _do_speak():
             try:
-                engine = self._get_tts_engine()
-                if engine:
-                    self._is_speaking = True
+                # Primary Windows Native SAPI
+                if os.name == "nt" and HAS_WIN32COM:
+                    import pythoncom
+                    pythoncom.CoInitialize()
+                    speaker = win32com.client.Dispatch("SAPI.SpVoice")
+                    speaker.Volume = int(self.volume * 100)
+                    speaker.Rate = 1 # Normal conversational pace
+                    # 0 = synchronous within this worker thread
+                    speaker.Speak(clean_text, 0)
+                    pythoncom.CoUninitialize()
+                    return
+            except Exception:
+                pass
+
+            # Fallback to pyttsx3
+            try:
+                if HAS_PYTTSX3:
+                    engine = pyttsx3.init()
+                    engine.setProperty("rate", self.rate)
+                    engine.setProperty("volume", self.volume)
                     engine.say(clean_text)
                     engine.runAndWait()
-                    self._is_speaking = False
             except Exception:
-                self._is_speaking = False
+                pass
 
         if block:
             _do_speak()
@@ -95,7 +108,7 @@ class VoiceEngine:
             t = threading.Thread(target=_do_speak, daemon=True)
             t.start()
 
-    def listen(self, timeout: int = 8, phrase_time_limit: int = 40) -> Optional[str]:
+    def listen(self, timeout: int = 10, phrase_time_limit: int = 45) -> Optional[str]:
         """
         Record candidate audio from microphone and transcribe via Speech-to-Text (STT).
         Returns transcribed string or None on timeout/error.
@@ -109,9 +122,9 @@ class VoiceEngine:
 
         try:
             with sr.Microphone() as source:
-                console.print("[dim cyan]🎙 Calibrating microphone for ambient noise...[/dim cyan]")
-                recognizer.adjust_for_ambient_noise(source, duration=0.8)
-                console.print("[bold green]🎙 [Listening] Speak your answer now... (or press Ctrl+C to type)[/bold green]")
+                console.print("[dim cyan]🎙 Calibrating microphone for room acoustics...[/dim cyan]")
+                recognizer.adjust_for_ambient_noise(source, duration=0.5)
+                console.print("[bold green]🎙 [Listening] Speak your answer now... (or press Ctrl+C to switch to typing)[/bold green]")
                 audio = recognizer.listen(source, timeout=timeout, phrase_time_limit=phrase_time_limit)
 
             with console.status("[bold cyan]🔄 Transcribing voice audio to text...[/bold cyan]", spinner="dots"):
@@ -119,13 +132,13 @@ class VoiceEngine:
                 return text.strip()
 
         except sr.WaitTimeoutError:
-            console.print("[dim yellow]⚠ No speech detected within timeout period.[/dim yellow]")
+            console.print("[dim yellow]⚠ No speech detected (switching to keyboard typing).[/dim yellow]")
             return None
         except sr.UnknownValueError:
-            console.print("[dim yellow]⚠ Could not decipher audio cleanly.[/dim yellow]")
+            console.print("[dim yellow]⚠ Speech audio unclear (switching to keyboard typing).[/dim yellow]")
             return None
         except Exception as e:
-            console.print(f"[dim yellow]⚠ Voice input unavailable: {e}[/dim yellow]")
+            console.print(f"[dim yellow]⚠ Microphone input note: {e}[/dim yellow]")
             return None
 
 
