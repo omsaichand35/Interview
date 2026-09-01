@@ -83,8 +83,8 @@ class UserProfile:
 
         self.candidate_name = Prompt.ask("[bold cyan]Enter Candidate Full Name[/bold cyan]", default=self.candidate_name).strip()
         self.candidate_email = Prompt.ask("[bold cyan]Enter Candidate Email[/bold cyan]", default=self.candidate_email).strip()
-        self.job_path = Prompt.ask("[bold cyan]Enter Job Description PDF path[/bold cyan]", default=self.job_path).strip()
-        self.resume_path = Prompt.ask("[bold cyan]Enter Resume PDF path[/bold cyan]", default=self.resume_path).strip()
+        self.job_path = Prompt.ask("[bold cyan]Enter Job Description PDF path[/bold cyan]", default=self.job_path).strip().strip('"\'')
+        self.resume_path = Prompt.ask("[bold cyan]Enter Resume PDF path[/bold cyan]", default=self.resume_path).strip().strip('"\'')
         self.save()
         console.print("\n[bold green]✔ Profile initialized successfully![/bold green]\n")
 
@@ -102,8 +102,8 @@ class UserProfile:
 
         self.candidate_name = Prompt.ask("[bold cyan]Candidate Full Name[/bold cyan]", default=self.candidate_name).strip()
         self.candidate_email = Prompt.ask("[bold cyan]Candidate Email[/bold cyan]", default=self.candidate_email).strip()
-        self.job_path = Prompt.ask("[bold cyan]Job Description PDF path[/bold cyan]", default=self.job_path).strip()
-        self.resume_path = Prompt.ask("[bold cyan]Resume PDF path[/bold cyan]", default=self.resume_path).strip()
+        self.job_path = Prompt.ask("[bold cyan]Job Description PDF path[/bold cyan]", default=self.job_path).strip().strip('"\'')
+        self.resume_path = Prompt.ask("[bold cyan]Resume PDF path[/bold cyan]", default=self.resume_path).strip().strip('"\'')
         self.save()
         console.print("\n[bold green]✔ Profile & Context updated successfully![/bold green]")
         input("\nPress Enter to return to menu...")

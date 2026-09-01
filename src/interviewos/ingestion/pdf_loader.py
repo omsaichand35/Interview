@@ -21,7 +21,9 @@ class PDFLoader(DocumentLoader):
         Extract text from a PDF and return a normalized Document.
         """
 
-        path = Path(path)
+        # Strip literal surrounding quotes if present (e.g. Windows "Copy as path")
+        clean_path_str = str(path).strip().strip('"\'')
+        path = Path(clean_path_str)
 
         if not path.exists():
             from interviewos.config.paths import get_project_paths
