@@ -24,11 +24,10 @@ def create_llm_client() -> LLMClient:
             )
 
         # NVIDIA NIM uses an OpenAI-compatible API.
-        base_url = None
-        if provider == "nvidia":
-            base_url = (
-                "https://integrate.api.nvidia.com/v1"
-            )
+        base_url = getattr(settings, "llm_base_url", None)
+        if provider == "nvidia" and not base_url:
+            base_url = "https://integrate.api.nvidia.com/v1"
+
 
         return LLMClient(
             provider=OpenAIProvider(

@@ -14,6 +14,7 @@ from rich.box import ROUNDED, HEAVY, SIMPLE
 from interviewos.models import (
     AssessmentQuestion,
     CandidateAnswer,
+    AssessmentSessionStatus,
 )
 from .oa import OAEngine
 
@@ -74,8 +75,8 @@ class TerminalOARunner:
 
             timer_display = f"⏱ {rem_m:02d}:{rem_s:02d} left ({elapsed_m:02d}:{elapsed_s:02d} / {self.duration_minutes:02d}:00)"
 
-            if remaining <= 0:
-                console.print("\n[bold red]⏱ TIME UP! Automatically submitting assessment...[/bold red]\n")
+            if remaining <= 0 or self.engine.session_manager.is_expired(session_id):
+                console.print("\n[bold red]⏱ TIME UP! Assessment time has expired. Automatically submitting assessment...[/bold red]\n")
                 break
 
             question = self.engine.question_bank.get(question_id)
@@ -98,17 +99,24 @@ class TerminalOARunner:
                 console.print("\n[dim]Candidate concluded assessment early.[/dim]")
                 break
 
-            self.engine.session_manager.answer(
-                session_id,
-                answer,
-            )
+            try:
+                self.engine.session_manager.answer(
+                    session_id,
+                    answer,
+                )
+            except TimeoutError:
+                console.print("\n[bold red]⏱ TIME UP! Assessment time has expired. Automatically submitting assessment...[/bold red]\n")
+                break
 
         with console.status("[bold cyan]📊 Scoring assessment against benchmark...[/bold cyan]", spinner="dots"):
-            self.engine.session_manager.submit(session_id)
+            curr_session = self.engine.session_manager.get(session_id)
+            if curr_session.status == AssessmentSessionStatus.IN_PROGRESS:
+                self.engine.session_manager.submit(session_id)
             result = self.engine.evaluate_session(session_id)
 
         self._display_result(result)
         return result
+
 
     def _display_question(
         self,
@@ -163,6 +171,8 @@ class TerminalOARunner:
             if raw.lower() in ('done', 'exit', 'quit', 'finish', 'submit'):
                 return None
 
+            selected = [c.upper() for c in raw.replace(",", " ").split() if c.strip()]
+
             if len(selected) != 1:
                 console.print("[dim yellow]Please choose exactly one option (e.g. A).[/dim yellow]")
                 continue
@@ -176,6 +186,7 @@ class TerminalOARunner:
                 question_id=question.id,
                 selected_options=[mapping[chosen_letter]],
             )
+
 
     def _display_result(
         self,

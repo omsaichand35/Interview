@@ -24,7 +24,9 @@ Do not invent:
 - technologies
 - years of experience
 
-Return ONLY valid JSON matching the requested schema.
+Return ONLY a JSON object containing the extracted resume data. Do not return
+JSON Schema metadata such as `$defs`, `properties`, or `required`. Do not use
+empty lists when the resume contains matching information.
 
 For skill proficiency:
 - Use beginner when evidence is limited.
@@ -51,7 +53,7 @@ Evidence must be concise and grounded in the resume.
             return self.llm.sync_generate_structured(
                 prompt=self._build_prompt(document),
                 system_prompt=self.SYSTEM_PROMPT,
-                model=ResumeProfile
+                model=ResumeProfile,
             )
         except Exception as exc:
             if isinstance(exc, AnalysisError):
@@ -70,7 +72,7 @@ Evidence must be concise and grounded in the resume.
             return await self.llm.generate_structured(
                 prompt=self._build_prompt(document),
                 system_prompt=self.SYSTEM_PROMPT,
-                model=ResumeProfile
+                model=ResumeProfile,
             )
         except Exception as exc:
             if isinstance(exc, AnalysisError):
@@ -81,9 +83,23 @@ Evidence must be concise and grounded in the resume.
         return f"""
 Analyze the following resume.
 
-Return a JSON object matching this structure:
+Return a JSON object matching this structure. Extract every supported skill,
+experience, project, education item, certification, and achievement from the
+resume. Use an empty list only when that section is absent:
 
-{ResumeProfile.model_json_schema()}
+{{
+    "candidate_name": "Full Name or null",
+    "summary": "Summary or null",
+    "skills": [
+        {{"name": "Python", "level": "advanced", "years_experience": null, "evidence": ["Evidence from resume"]}}
+    ],
+    "education": [],
+    "experience": [],
+    "projects": [],
+    "certifications": [],
+    "achievements": [],
+    "raw_text": null
+}}
 
 Resume:
 

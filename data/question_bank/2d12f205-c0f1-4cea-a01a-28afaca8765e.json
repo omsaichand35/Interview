@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "2d12f205-c0f1-4cea-a01a-28afaca8765e",
+    "question_type": "mcq",
+    "topic": "Databases and SQL",
+    "difficulty": "medium",
+    "question": "What is the primary purpose of the FOREIGN KEY constraint in a database schema?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "To improve query performance by reducing the number of joins"
+      },
+      {
+        "id": "opt_2",
+        "text": "To enforce referential integrity by linking related tables"
+      },
+      {
+        "id": "opt_3",
+        "text": "To create an index on a table column"
+      },
+      {
+        "id": "opt_4",
+        "text": "To restrict data modifications to specific users"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "The FOREIGN KEY constraint ensures that the values in a column or set of columns match the values in the specified column or set of columns in the related table. This helps maintain data consistency and prevent referential integrity violations.",
+    "concepts_tested": [
+      "Database Design",
+      "Data Integrity",
+      "SQL Constraints"
+    ]
+  },
+  "created_at": "2026-09-03T14:51:39.272925",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

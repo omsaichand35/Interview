@@ -81,15 +81,43 @@ Job description analysis:
 {job_text}
 </job>
 {custom_topics_section}
-Total questions:
-{total_questions}
+Total questions: {total_questions}
+Duration: {duration_minutes} minutes
 
-Duration:
-{duration_minutes} minutes
+Return a JSON object matching this exact structure:
 
-Return an object matching:
-
-{AssessmentBlueprint.model_json_schema()}
+{{
+    "role": "Senior Backend Engineer",
+    "duration_minutes": 30,
+    "total_questions": 20,
+    "question_types": ["mcq", "multiple_select"],
+    "topics": [
+        {{
+            "name": "System Design",
+            "weight": 0.3,
+            "question_count": 6,
+            "difficulty": "hard"
+        }},
+        {{
+            "name": "Python",
+            "weight": 0.25,
+            "question_count": 5,
+            "difficulty": "medium"
+        }},
+        {{
+            "name": "SQL Databases",
+            "weight": 0.25,
+            "question_count": 5,
+            "difficulty": "medium"
+        }},
+        {{
+            "name": "API Design",
+            "weight": 0.2,
+            "question_count": 4,
+            "difficulty": "medium"
+        }}
+    ]
+}}
 """
 
         return await self.llm.generate_structured(

@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "c652fcfa-93d0-46a9-bd95-8b6d8ebd0c88",
+    "question_type": "mcq",
+    "topic": "Scripting ability",
+    "difficulty": "easy",
+    "question": "What is the primary purpose of a shebang line at the top of a bash script?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "To specify the programming language used in the script"
+      },
+      {
+        "id": "opt_2",
+        "text": "To indicate the script is written in a Windows-specific format"
+      },
+      {
+        "id": "opt_3",
+        "text": "To specify the interpreter that should run the script"
+      },
+      {
+        "id": "opt_4",
+        "text": "To add a comment to the script"
+      }
+    ],
+    "correct_options": [
+      "opt_3"
+    ],
+    "explanation": "The shebang line, typically beginning with #!, specifies the interpreter that should run the script, allowing the system to execute it correctly.",
+    "concepts_tested": [
+      "Bash Scripting",
+      "Shebang Line",
+      "Interpreter Specification"
+    ]
+  },
+  "created_at": "2026-09-03T14:52:25.970545",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

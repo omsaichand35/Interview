@@ -200,7 +200,6 @@ def main():
         menu_table.add_row("[bold cyan]5[/bold cyan]", "[bold white]Online Assessment (OA)[/bold white]", f"Timed test with automated scoring ({profile.oa_questions} Qs, {profile.oa_duration} mins)")
         menu_table.add_row("[bold cyan]6[/bold cyan]", "[bold white]AI Learning Mentor & Tutor[/bold white]", "Skill gap roadmap, topic practice & adaptive learning agent")
         menu_table.add_row("[bold cyan]7[/bold cyan]", "[bold white]GitHub Repository Analyzer[/bold white]", "Standalone code hierarchy scanner, dependencies & AST agent")
-        menu_table.add_row("[bold cyan]8[/bold cyan]", "[bold white]Full Hiring Pipeline (End-to-End)[/bold white]", "Autonomous multi-round evaluation across OA, Tech, Project & HR")
         menu_table.add_row("[bold yellow]D[/bold yellow]", "[bold yellow]Change Difficulty & OA Settings[/bold yellow]", f"Difficulty: {profile.difficulty} • OA: {profile.oa_questions} Qs / {profile.oa_duration}m")
         menu_table.add_row("[bold magenta]V[/bold magenta]", "[bold magenta]Toggle Voice Mode (TTS/STT)[/bold magenta]", f"Currently: {'[green]ON (Live Interviews)[/green]' if profile.voice_mode else '[red]OFF (Text-only)[/red]'}")
         menu_table.add_row("[bold yellow]C[/bold yellow]", "[bold yellow]Change Profile / JD / Resume[/bold yellow]", "Update your candidate name, email, target JD or resume")
@@ -209,7 +208,7 @@ def main():
         console.print(menu_table)
         console.print()
 
-        choice = Prompt.ask("[bold green]Select Option (0-8, D, V, or C)[/bold green]", default="1").strip()
+        choice = Prompt.ask("[bold green]Select Option (0-7, D, V, or C)[/bold green]", default="1").strip()
         
         if choice == "0":
             console.print("\n[bold cyan]Exiting InterviewOS Launcher. Good luck with your preparation![/bold cyan]\n")
@@ -349,25 +348,6 @@ def main():
             cmd = [
                 sys.executable, "-m", "interviewos.cli", "project-analyze",
                 "--github", github_url
-            ]
-            subprocess.run(cmd)
-            input("\nPress Enter to return to menu...")
-
-        elif choice == "8":
-            console.print()
-            github_url = Prompt.ask(
-                "[bold cyan]Enter Candidate GitHub Repository URL for Pipeline[/bold cyan]",
-                default=profile.last_github_url
-            ).strip()
-            profile.last_github_url = github_url
-            profile.save()
-
-            cmd = [
-                sys.executable, "-m", "interviewos.cli", "hiring",
-                "--job", profile.job_path,
-                "--resume", profile.resume_path,
-                "--name", profile.candidate_name,
-                "--email", profile.candidate_email
             ]
             subprocess.run(cmd)
             input("\nPress Enter to return to menu...")

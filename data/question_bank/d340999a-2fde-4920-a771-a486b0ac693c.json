@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "d340999a-2fde-4920-a771-a486b0ac693c",
+    "question_type": "true_false",
+    "topic": "DevOps tools (Git, CI/CD, Docker)",
+    "difficulty": "medium",
+    "question": "Which of the following statements correctly describes the use of Docker volumes in a CI/CD pipeline?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "Docker volumes are automatically deleted when a container stops, making them unsuitable for persisting build artifacts between CI stages."
+      },
+      {
+        "id": "opt2",
+        "text": "Using Docker volumes allows sharing data between the host filesystem and containers, enabling caching of dependencies like Maven or npm packages across pipeline steps."
+      },
+      {
+        "id": "opt3",
+        "text": "Docker volumes can only be mounted read‑only, preventing any modification of cached data during the build process."
+      },
+      {
+        "id": "opt4",
+        "text": "In a CI/CD environment, Docker volumes must be created inside the container image and cannot be referenced from the host."
+      }
+    ],
+    "correct_options": [
+      "opt2"
+    ],
+    "explanation": "Option B correctly states that Docker volumes provide a mechanism to share data between the host and containers, which is commonly used to cache dependencies and reuse them across CI/CD stages. Option A is false because volumes persist beyond container lifecycle unless explicitly removed. Option C is false because volumes can be mounted read‑write or read‑only. Option D is false because volumes are typically created on the host (or a named volume) and mounted into containers, not baked into the image.",
+    "concepts_tested": [
+      "Docker volumes",
+      "CI/CD caching",
+      "Container persistence"
+    ]
+  },
+  "created_at": "2026-09-02T12:14:11.435519",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

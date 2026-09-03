@@ -74,14 +74,9 @@ Be particularly careful with technical concepts.
         prompt = f"""
 Evaluate the candidate's answer.
 
-Topic:
-{topic}
-
-Question:
-{question}
-
-Candidate answer:
-{candidate_answer}
+Topic: {topic}
+Question: {question}
+Candidate answer: {candidate_answer}
 
 Reference knowledge:
 
@@ -95,16 +90,19 @@ Current learner state:
 {state_text}
 </learner_state>
 
-Return a JSON object matching this schema:
+Return a JSON object matching this exact structure:
 
-{EvaluationResult.model_json_schema()}
+{{
+    "topic": "{topic}",
+    "score": 0.75,
+    "correct": true,
+    "strengths": ["Good understanding of key concepts", "Provided relevant example"],
+    "weaknesses": ["Did not mention performance tradeoffs", "Could explain implementation better"],
+    "feedback": "Your answer demonstrates solid understanding of the core concept. You correctly identified the main mechanism. To improve, consider discussing the performance implications and potential edge cases.",
+    "recommended_action": "move_to_related_topic"
+}}
 
-Important:
-
-Evaluate the answer itself.
-
-Do not assume the candidate knows something merely because
-their resume or learner state says they studied it.
+IMPORTANT: Return ONLY valid JSON, no markdown or schema metadata.
 """
 
         return self.llm.sync_generate_structured(

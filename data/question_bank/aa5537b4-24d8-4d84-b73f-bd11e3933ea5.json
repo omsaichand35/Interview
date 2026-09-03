@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "aa5537b4-24d8-4d84-b73f-bd11e3933ea5",
+    "question_type": "mcq",
+    "topic": "Linux",
+    "difficulty": "hard",
+    "question": "A Linux system is configured to use a tmpfs file system for its /dev/shm directory. What is the primary advantage of using tmpfs in this scenario?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "It provides a persistent storage solution for volatile data"
+      },
+      {
+        "id": "opt_2",
+        "text": "It allows for efficient use of disk space"
+      },
+      {
+        "id": "opt_3",
+        "text": "It enables the system to reclaim memory occupied by /dev/shm when it is not needed"
+      },
+      {
+        "id": "opt_4",
+        "text": "It provides a secure way to store sensitive data"
+      }
+    ],
+    "correct_options": [
+      "opt_3"
+    ],
+    "explanation": "tmpfs is a file system that stores data in RAM, allowing the system to reclaim memory occupied by /dev/shm when it is not needed, which is particularly useful for volatile data such as shared memory.",
+    "concepts_tested": [
+      "tmpfs",
+      "Linux File Systems",
+      "Memory Management"
+    ]
+  },
+  "created_at": "2026-09-03T16:16:43.289558",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "57853a55-8373-4e25-a050-e17509c7d83f",
+    "question_type": "mcq",
+    "topic": "Networking fundamentals",
+    "difficulty": "medium",
+    "question": "A network switch is used to which of the following?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "Connect multiple networks to a single router"
+      },
+      {
+        "id": "opt_2",
+        "text": "Connect devices within the same network to each other"
+      },
+      {
+        "id": "opt_3",
+        "text": "Route traffic between different subnets"
+      },
+      {
+        "id": "opt_4",
+        "text": "Act as a firewall for network security"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "Network switches are used to connect devices within the same network to each other, allowing for efficient and fast data transfer.",
+    "concepts_tested": [
+      "Network Switches",
+      "Network Topology",
+      "LAN"
+    ]
+  },
+  "created_at": "2026-09-03T14:51:11.470185",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

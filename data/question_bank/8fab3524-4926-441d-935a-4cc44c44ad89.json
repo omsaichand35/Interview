@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "8fab3524-4926-441d-935a-4cc44c44ad89",
+    "question_type": "multiple_select",
+    "topic": "Networking fundamentals",
+    "difficulty": "medium",
+    "question": "What is the primary function of a router in a computer network?",
+    "options": [
+      {
+        "id": "A",
+        "text": "To connect multiple devices to a single network"
+      },
+      {
+        "id": "B",
+        "text": "To connect a single device to multiple networks"
+      },
+      {
+        "id": "C",
+        "text": "To filter and forward data packets between networks"
+      },
+      {
+        "id": "D",
+        "text": "To convert analog signals to digital signals"
+      }
+    ],
+    "correct_options": [
+      "C"
+    ],
+    "explanation": "Routers connect multiple networks together and forward data packets between them. They use IP addresses to determine where to send data packets.",
+    "concepts_tested": [
+      "Network fundamentals",
+      "Router functions"
+    ]
+  },
+  "created_at": "2026-09-02T21:36:03.842283",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

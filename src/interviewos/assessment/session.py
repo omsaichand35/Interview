@@ -166,9 +166,12 @@ class AssessmentSessionManager:
             session.status
             != AssessmentSessionStatus.IN_PROGRESS
         ):
+            if session.status == AssessmentSessionStatus.SUBMITTED:
+                return session
             raise ValueError(
                 "Assessment is not currently active."
             )
+
 
         session.status = (
             AssessmentSessionStatus.SUBMITTED

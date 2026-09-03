@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "ecc8cfc6-7526-4b1c-ad0f-ca73fd211f3c",
+    "question_type": "mcq",
+    "topic": "Linux/Unix",
+    "difficulty": "medium",
+    "question": "A process is running with a priority of 20. How will the Linux scheduler handle this process compared to a process with a priority of 10?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "The process with priority 20 will always run before the process with priority 10"
+      },
+      {
+        "id": "opt_2",
+        "text": "The process with priority 20 will run before the process with priority 10, but only when the system is under heavy load"
+      },
+      {
+        "id": "opt_3",
+        "text": "The process with priority 20 will run before the process with priority 10, but only when both processes are competing for the same CPU core"
+      },
+      {
+        "id": "opt_4",
+        "text": "The process with priority 20 will run after the process with priority 10"
+      }
+    ],
+    "correct_options": [
+      "opt_1"
+    ],
+    "explanation": "In Linux, higher priority processes are scheduled before lower priority processes. This ensures that critical tasks are completed promptly, even in the presence of other processes competing for resources.",
+    "concepts_tested": [
+      "Linux Scheduling",
+      "Process Priority",
+      "CPU Resource Management"
+    ]
+  },
+  "created_at": "2026-09-03T14:49:42.784448",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "7acc8b11-0bb0-416c-9add-08107e33b9c5",
+    "question_type": "true_false",
+    "topic": "Problem-solving/analytical skills",
+    "difficulty": "medium",
+    "question": "If a process has a bottleneck that utilizes 80% of its capacity, increasing the input rate beyond the bottleneck's capacity will improve overall throughput.",
+    "options": [
+      {
+        "id": "opt_true",
+        "text": "True"
+      },
+      {
+        "id": "opt_false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "opt_false"
+    ],
+    "explanation": "Increasing the input rate beyond a bottleneck's capacity does not improve throughput; the bottleneck limits the maximum output rate. Extra input will cause queuing, increased latency, or packet loss, but throughput will remain capped at the bottleneck's capacity.",
+    "concepts_tested": [
+      "bottleneck analysis",
+      "throughput",
+      "capacity utilization"
+    ]
+  },
+  "created_at": "2026-09-02T11:58:24.511047",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

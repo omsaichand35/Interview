@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "1fb29208-0b2b-4a9b-be1b-e7f157736f3e",
+    "question_type": "mcq",
+    "topic": "Networking fundamentals",
+    "difficulty": "medium",
+    "question": "What is the primary function of a router in a network?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "To connect multiple networks together and route traffic between them"
+      },
+      {
+        "id": "opt_2",
+        "text": "To provide a firewall for network security"
+      },
+      {
+        "id": "opt_3",
+        "text": "To act as a network switch"
+      },
+      {
+        "id": "opt_4",
+        "text": "To assign IP addresses to devices"
+      }
+    ],
+    "correct_options": [
+      "opt_1"
+    ],
+    "explanation": "A router is a networking device that connects multiple networks together and routes traffic between them, enabling communication between devices on different networks.",
+    "concepts_tested": [
+      "Network Topology",
+      "Routing Protocols",
+      "Network Devices"
+    ]
+  },
+  "created_at": "2026-09-03T16:17:17.490330",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

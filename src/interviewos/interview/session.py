@@ -34,6 +34,17 @@ class InterviewScore(BaseModel):
 
     feedback: str = ""
 
+    expected_answer: str = ""
+
+    strengths: list[str] = Field(
+        default_factory=list,
+    )
+
+    weaknesses: list[str] = Field(
+        default_factory=list,
+    )
+
+
 
 class InterviewSession(BaseModel):
     """State of one interview attempt."""
@@ -178,14 +189,36 @@ class DSAProblem(BaseModel):
     """A Data Structures and Algorithms problem."""
 
     problem_id: str = Field(default_factory=lambda: str(uuid4()))
-    title: str
-    statement: str
-    difficulty: str
+    title: str = Field(default="DSA Problem")
+    statement: str = Field(default="")
+    difficulty: str = Field(default="medium")
     topics: list[str] = Field(default_factory=list)
     constraints: list[str] = Field(default_factory=list)
     examples: list[dict[str, str]] = Field(default_factory=list)  # [{'input': '...', 'output': '...'}]
-    expected_complexity: str
-    hidden_solution_information: str
+    expected_complexity: str = Field(default="O(N)")
+    hidden_solution_information: str = Field(default="")
+
+    @field_validator("statement", mode="before")
+    @classmethod
+    def normalize_statement(cls, v):
+        if isinstance(v, dict):
+            return v.get("description") or v.get("statement") or v.get("problem") or str(v)
+        return str(v) if v else ""
+
+    @field_validator("title", mode="before")
+    @classmethod
+    def normalize_title(cls, v):
+        if isinstance(v, dict):
+            return v.get("name") or v.get("title") or "DSA Problem"
+        return str(v) if v else "DSA Problem"
+
+    @field_validator("hidden_solution_information", mode="before")
+    @classmethod
+    def normalize_solution(cls, v):
+        if isinstance(v, dict):
+            return v.get("solution") or v.get("overview") or v.get("explanation") or str(v)
+        return str(v) if v else ""
+
 
 class DepthLevel(StrEnum):
     FOUNDATIONAL = "foundational"
@@ -220,6 +253,8 @@ class AnswerAssessment(BaseModel):
     )
 
     feedback: str = ""
+
+    expected_answer: str = ""
     
     # DSA Specific Fields
     problem_understanding_score: float | None = Field(default=None, ge=0.0, le=1.0)
@@ -326,7 +361,7 @@ class InterviewDecision(BaseModel):
 
     assessment: AnswerAssessment
 
-    action: InterviewAction
+    action: InterviewAction = InterviewAction.MOVE_ON
 
     next_competency: str | None = None
 
@@ -334,7 +369,7 @@ class InterviewDecision(BaseModel):
 
     reasoning: str = ""
 
-    difficulty_change: DifficultyChange
+    difficulty_change: DifficultyChange = DifficultyChange.SAME
 
     question_evidence: list[
         InterviewQuestionEvidence
@@ -344,10 +379,73 @@ class InterviewDecision(BaseModel):
 
     @field_validator("question_evidence", mode="before")
     @classmethod
-    def normalize_question_evidence(cls, v):
-        if v is None:
+    def normalize_question_evidence(cls, value):
+        """Accept plain text and MCP text blocks as evidence items."""
+        if value is None:
             return []
+        if isinstance(value, dict):
+            value = [value]
+        if not isinstance(value, list):
+            value = [value]
+
+        normalized = []
+        for item in value:
+            if isinstance(item, str):
+                normalized.append({"evidence": item, "reason": ""})
+                continue
+
+            if isinstance(item, dict):
+                text = item.get("text")
+                if item.get("type") == "text" and isinstance(text, str):
+                    normalized.append({"evidence": text, "reason": ""})
+                    continue
+
+                if "evidence" in item and "reason" not in item:
+                    item = {**item, "reason": ""}
+
+            normalized.append(item)
+
+        return normalized
+
+    @field_validator("action", mode="before")
+    @classmethod
+    def normalize_action(cls, v):
+        if v is None:
+            return InterviewAction.MOVE_ON
+        if isinstance(v, str):
+            v_clean = v.lower().strip()
+            if "follow_up" in v_clean or "followup" in v_clean:
+                return InterviewAction.ASK_FOLLOW_UP
+            if "deep_dive" in v_clean or "deepdive" in v_clean:
+                return InterviewAction.DEEP_DIVE
+            if "end" in v_clean or "close" in v_clean:
+                return InterviewAction.END_INTERVIEW
+            if "move" in v_clean or "next" in v_clean:
+                return InterviewAction.MOVE_ON
+            try:
+                return InterviewAction(v_clean)
+            except ValueError:
+                return InterviewAction.MOVE_ON
+        return v
+
+    @field_validator("difficulty_change", mode="before")
+    @classmethod
+    def normalize_difficulty_change(cls, v):
+        if v is None:
+            return DifficultyChange.SAME
+        if isinstance(v, str):
+            v_clean = v.lower().strip()
+            if "inc" in v_clean or "up" in v_clean or "high" in v_clean:
+                return DifficultyChange.INCREASE
+            if "dec" in v_clean or "down" in v_clean or "low" in v_clean:
+                return DifficultyChange.DECREASE
+            if "same" in v_clean or "maintain" in v_clean or "keep" in v_clean:
+                return DifficultyChange.SAME
+            try:
+                return DifficultyChange(v_clean)
+            except ValueError:
+                return DifficultyChange.SAME
         return v
 
 InterviewSession.model_rebuild()
-
+

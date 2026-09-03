@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "0fe6ebef-3387-4061-a046-52b4703faac3",
+    "question_type": "mcq",
+    "topic": "Databases and SQL",
+    "difficulty": "medium",
+    "question": "What is the primary purpose of an index in a database?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "To reduce the size of the database"
+      },
+      {
+        "id": "opt_2",
+        "text": "To improve data security"
+      },
+      {
+        "id": "opt_3",
+        "text": "To speed up data retrieval by providing a quick lookup of data"
+      },
+      {
+        "id": "opt_4",
+        "text": "To enforce data consistency"
+      }
+    ],
+    "correct_options": [
+      "opt_3"
+    ],
+    "explanation": "Database indexes are data structures that improve the speed of data retrieval operations by allowing the database to locate data more efficiently. They provide a quick lookup of data, making it easier to retrieve specific records.",
+    "concepts_tested": [
+      "Database Design",
+      "Indexing",
+      "Query Optimization"
+    ]
+  },
+  "created_at": "2026-09-03T14:51:52.959291",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

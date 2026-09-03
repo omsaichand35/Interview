@@ -25,7 +25,8 @@ Distinguish between:
 Do not invent requirements that are not reasonably supported
 by the job description.
 
-Return ONLY valid JSON matching the requested schema.
+Return ONLY a JSON object containing the extracted job data. Do not return JSON
+Schema metadata such as `$defs`, `properties`, or `required`.
 
 For skill importance:
 - 1.0 means extremely important.
@@ -67,37 +68,64 @@ For skill level, use:
         """
 
         if not document.content.strip():
-            raise AnalysisError(
-                "Cannot analyze an empty job description."
-            )
+            raise AnalysisError("Cannot analyze an empty job description.")
 
         try:
             return await self.llm.generate_structured(
                 prompt=self._build_prompt(document),
                 system_prompt=self.SYSTEM_PROMPT,
-                model=JobProfile
+                model=JobProfile,
             )
 
         except Exception as exc:
             if isinstance(exc, AnalysisError):
                 raise
 
-            raise AnalysisError(
-                "Failed to analyze job description."
-            ) from exc
+            raise AnalysisError("Failed to analyze job description.") from exc
 
     def _build_prompt(self, document: Document) -> str:
         if not document.content.strip():
-            raise AnalysisError(
-                "Cannot analyze an empty job description."
-            )
+            raise AnalysisError("Cannot analyze an empty job description.")
 
         return f"""
-Analyze the following job description.
+Analyze the following job description and extract structured job profile data.
 
-Return a JSON object matching this structure:
+IMPORTANT RULES:
+1. The `title` field must be the actual job title from the document (e.g., "Senior Python Developer"), NEVER the string "JobProfile"
+2. qualifications, interview_topics are lists of PLAIN STRINGS, NOT objects
+3. responsibilities is a list of objects with "description" and "skills" fields
+4. Extract every supported skill with evidence from the job description
+5. Do not invent information not present in the job description
 
-{JobProfile.model_json_schema()}
+Return ONLY a valid JSON object matching this EXACT structure:
+
+{{
+    "title": "Senior Backend Engineer",
+    "company": null,
+    "location": null,
+    "employment_type": null,
+    "summary": null,
+    "required_skills": [
+        {{"name": "Python", "required": true, "expected_level": "advanced", "importance": 1.0, "evidence": ["Requires 5+ years Python"]}}
+    ],
+    "preferred_skills": [
+        {{"name": "Docker", "required": false, "expected_level": "intermediate", "importance": 0.75, "evidence": ["Nice to have Docker experience"]}}
+    ],
+    "responsibilities": [
+        {{"description": "Design and maintain scalable backend systems", "skills": ["System Design", "Python", "Databases"]}}
+    ],
+    "qualifications": [
+        "Bachelor's degree in Computer Science or related field",
+        "5+ years backend development experience"
+    ],
+    "interview_topics": [
+        "System Design",
+        "Python",
+        "SQL Databases",
+        "API Design"
+    ],
+    "raw_text": null
+}}
 
 Job description:
 

@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "e5da1a84-298e-4677-b00d-f8c4d487927d",
+    "question_type": "mcq",
+    "topic": "Databases and SQL",
+    "difficulty": "medium",
+    "question": "What is the primary benefit of using an Index in a Database?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "Improves data security by encrypting sensitive information"
+      },
+      {
+        "id": "opt_2",
+        "text": "Enhances data consistency by reducing concurrency issues"
+      },
+      {
+        "id": "opt_3",
+        "text": "Speeds up query execution by allowing direct access to data"
+      },
+      {
+        "id": "opt_4",
+        "text": "Increases storage capacity by compressing data"
+      }
+    ],
+    "correct_options": [
+      "opt_3"
+    ],
+    "explanation": "Indexing allows the database to quickly locate specific data, resulting in faster query execution times. This is particularly useful for large datasets or frequently accessed data.",
+    "concepts_tested": [
+      "Database Optimization",
+      "Indexing",
+      "Query Performance"
+    ]
+  },
+  "created_at": "2026-09-03T14:51:41.421428",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

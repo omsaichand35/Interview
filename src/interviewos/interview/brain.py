@@ -1,16 +1,9 @@
-from interviewos.llm import (
-    LLMClient,
-)
-from interviewos.models import JobProfile
-from . import context
+from interviewos.llm import LLMClient
 
-from .interviewer import Interviewer
-from .session import (
-    InterviewDecision,
-    InterviewSession,
-)
-from .strategy import InterviewStrategy
 from .context import InterviewContext
+from .interviewer import Interviewer
+from .session import InterviewDecision
+from .strategy import InterviewStrategy
 
 
 class InterviewBrain:
@@ -123,16 +116,15 @@ Return ONLY the requested structured output.
         self.strategy = strategy
 
     async def evaluate_answer(
-            self,
-            context: InterviewContext,
+        self,
+        context: InterviewContext,
     ) -> InterviewDecision:
         """Evaluate the latest candidate answer."""
 
         session = context.session
 
         transcript = "\n".join(
-            f"{message.role}: {message.content}"
-            for message in session.transcript
+            f"{message.role}: {message.content}" for message in session.transcript
         )
 
         prompt = f"""
@@ -162,14 +154,37 @@ Return ONLY the requested structured output.
     8. Generate the next question when appropriate.
     9. Avoid repeating questions.
     10. Stay relevant to the job description.
+    11. Provide a concise ideal answer that directly addresses the current question.
+        This must be a substantive 2-5 sentence answer, not advice about how to answer.
+        For project questions, ground it in the repository evidence and name relevant
+        components, validation steps, error handling, tradeoffs, or ownership details.
 
-    Return ONLY this structured output:
+        Return ONLY a JSON object representing the decision. Use this shape and do
+        not return a JSON Schema document or schema metadata:
 
-    {InterviewDecision.model_json_schema()}
+        {{
+            "assessment": {{
+                "score": 0.0,
+                "strengths": [],
+                "weaknesses": [],
+                "missing_concepts": [],
+                "feedback": "The answer should be evaluated against the core concepts required by the question.",
+                "expected_answer": "For this specific question, explain the concrete architecture or implementation, why the design was chosen, and the relevant tradeoffs or failure cases."
+            }},
+            "action": "move_on",
+            "next_competency": null,
+            "next_question": null,
+            "reasoning": "",
+            "difficulty_change": "same",
+            "question_evidence": []
+        }}
+
+        Replace the example values with the actual evaluation. The expected_answer
+        field is required: write the answer a strong candidate should have given to
+        the CURRENT QUESTION. Do not describe an ideal answer or give instructions.
+        Write the substantive answer itself. Never copy the example sentence above.
     """
 
         return await self.llm.generate_structured(
-            prompt=prompt,
-            system_prompt=self.SYSTEM_PROMPT,
-            model=InterviewDecision
+            prompt=prompt, system_prompt=self.SYSTEM_PROMPT, model=InterviewDecision
         )

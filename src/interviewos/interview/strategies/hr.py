@@ -43,11 +43,40 @@ class HRBlueprintGenerator:
 Generate an HR Interview Blueprint for a {job.title}.
 The JD emphasizes: {job.summary}
 
-Identify the core behavioral competencies (e.g. Communication, Teamwork, Conflict Resolution, Ownership) to evaluate.
-Determine priorities (HIGH, MEDIUM, LOW) based on the JD. 
+Identify the core behavioral competencies to evaluate and determine priorities based on the JD.
 
-Return ONLY structured JSON matching this schema:
-{HRInterviewBlueprint.model_json_schema()}
+Return a JSON object matching this exact structure:
+
+{{
+    "role": "{job.title}",
+    "competencies": [
+        {{
+            "name": "Communication",
+            "importance": 0.9,
+            "description": "Ability to communicate clearly and effectively with team members and stakeholders",
+            "evidence_requirements": ["Gives clear explanations", "Listens actively", "Provides constructive feedback"]
+        }},
+        {{
+            "name": "Teamwork",
+            "importance": 0.85,
+            "description": "Ability to work collaboratively and contribute to team goals",
+            "evidence_requirements": ["Shares responsibility", "Supports teammates", "Resolves conflicts"]
+        }},
+        {{
+            "name": "Ownership",
+            "importance": 0.8,
+            "description": "Takes initiative and takes responsibility for outcomes",
+            "evidence_requirements": ["Owns mistakes", "Follows through on commitments", "Proactively solves problems"]
+        }}
+    ],
+    "priority": {{
+        "Communication": "HIGH",
+        "Teamwork": "HIGH",
+        "Ownership": "MEDIUM"
+    }}
+}}
+
+IMPORTANT: Return ONLY valid JSON, no markdown or schema metadata.
 """
         return await self.llm.generate_structured(prompt=prompt,
             system_prompt="You are an expert HR interviewer designing an interview blueprint based on a job description.", model=HRInterviewBlueprint)

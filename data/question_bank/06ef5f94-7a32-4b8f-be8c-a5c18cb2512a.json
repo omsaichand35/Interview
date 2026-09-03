@@ -1,0 +1,41 @@
+{
+  "question": {
+    "id": "06ef5f94-7a32-4b8f-be8c-a5c18cb2512a",
+    "question_type": "mcq",
+    "topic": "APIs and troubleshooting integration",
+    "difficulty": "medium",
+    "question": "When integrating a REST API that returns paginated results, which approach is most appropriate for diagnosing missing data issues?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "Check the HTTP status code and response body for error messages, then verify query parameters like limit and offset."
+      },
+      {
+        "id": "opt2",
+        "text": "Increase the timeout setting on the client library to allow longer response times."
+      },
+      {
+        "id": "opt3",
+        "text": "Assume the API is down and restart the server."
+      },
+      {
+        "id": "opt4",
+        "text": "Ignore pagination and request all records at once."
+      }
+    ],
+    "correct_options": [
+      "opt1"
+    ],
+    "explanation": "Missing data in paginated APIs often stems from incorrect query parameters (e.g., wrong offset or limit) or unhandled error responses. Verifying the status code and body helps identify client or server errors, while inspecting limit/offset ensures the correct page is requested.",
+    "concepts_tested": [
+      "API pagination",
+      "HTTP status codes",
+      "Query parameter validation",
+      "Integration troubleshooting"
+    ]
+  },
+  "created_at": "2026-09-02T12:13:50.671377",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

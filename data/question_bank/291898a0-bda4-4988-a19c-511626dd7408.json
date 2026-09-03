@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "291898a0-bda4-4988-a19c-511626dd7408",
+    "question_type": "true_false",
+    "topic": "Databases and SQL",
+    "difficulty": "medium",
+    "question": "In SQL, when using ORDER BY without specifying NULLS FIRST or NULLS LAST, NULL values are always considered higher than any non-NULL value in ascending order.",
+    "options": [
+      {
+        "id": "A",
+        "text": "True"
+      },
+      {
+        "id": "B",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "The SQL standard does not define a universal ordering for NULL values in ORDER BY; the placement of NULLs is implementation-specific unless NULLS FIRST or NULLS LAST is explicitly used. Some databases (e.g., PostgreSQL) treat NULLs as higher than non-NULL values in ascending order, while others (e.g., MySQL) treat them as lower. Therefore, the statement is not universally true.",
+    "concepts_tested": [
+      "SQL ORDER BY",
+      "NULL handling",
+      "sorting semantics"
+    ]
+  },
+  "created_at": "2026-09-02T13:48:12.280401",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

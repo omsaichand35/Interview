@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 
-from openai import AsyncOpenAI
+from openai import AsyncOpenAI, RateLimitError
 
-from interviewos.core.exceptions import LLMError
+from interviewos.core.exceptions import LLMError, LLMRateLimitError
 
 
 class LLMProvider(ABC):
@@ -80,7 +80,16 @@ class OpenAIProvider(LLMProvider):
         except LLMError:
             raise
 
-        except Exception as exc:
-            raise LLMError(
+        except RateLimitError as exc:
+            raise LLMRateLimitError(
                 f"OpenAI request failed: {exc}"
             ) from exc
+
+        except Exception as exc:
+            if "429" in str(exc) or "rate limit" in str(exc).lower():
+                raise LLMRateLimitError(
+                    f"OpenAI request failed: {exc}"
+                ) from exc
+            raise LLMError(
+                f"OpenAI request failed: {exc}"
+            ) from exc

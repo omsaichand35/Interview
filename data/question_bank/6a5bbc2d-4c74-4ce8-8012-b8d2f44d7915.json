@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "6a5bbc2d-4c74-4ce8-8012-b8d2f44d7915",
+    "question_type": "true_false",
+    "topic": "Databases and SQL",
+    "difficulty": "easy",
+    "question": "In SQL, the SELECT statement can retrieve data from multiple tables using JOIN clauses.",
+    "options": [
+      {
+        "id": "A",
+        "text": "True"
+      },
+      {
+        "id": "B",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "A"
+    ],
+    "explanation": "The SELECT statement can indeed retrieve data from multiple tables by using JOIN clauses such as INNER JOIN, LEFT JOIN, RIGHT JOIN, or FULL OUTER JOIN. This allows combining rows from two or more tables based on related columns, which is a core feature of SQL for querying relational databases.",
+    "concepts_tested": [
+      "SQL SELECT statement",
+      "JOIN clauses",
+      "Multi-table queries"
+    ]
+  },
+  "created_at": "2026-09-02T12:11:23.003648",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "ac56177a-c0b3-4dbb-8a3d-f3166d1917bc",
+    "question_type": "mcq",
+    "topic": "Application servers",
+    "difficulty": "medium",
+    "question": "What is the primary function of a load balancer in an application server cluster?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "Ensures all requests are processed synchronously"
+      },
+      {
+        "id": "opt_2",
+        "text": "Distributes incoming network traffic across multiple servers to improve responsiveness"
+      },
+      {
+        "id": "opt_3",
+        "text": "Provides automatic data encryption for all incoming requests"
+      },
+      {
+        "id": "opt_4",
+        "text": "Eliminates the need for databases in the application"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "Load balancers distribute incoming network traffic across multiple servers to improve responsiveness and prevent any single server from becoming a bottleneck. This ensures that no single point of failure can bring down the entire application.",
+    "concepts_tested": [
+      "Application Servers",
+      "Load Balancing",
+      "Scalability"
+    ]
+  },
+  "created_at": "2026-09-03T14:52:14.137991",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

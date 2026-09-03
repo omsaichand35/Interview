@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "e742549f-2f1d-40c5-928e-ef537504192d",
+    "question_type": "mcq",
+    "topic": "Linux/Unix",
+    "difficulty": "medium",
+    "question": "What is the purpose of the 'cron' table in the Linux system?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is used to schedule system maintenance tasks."
+      },
+      {
+        "id": "b",
+        "text": "It is used to manage system users and groups."
+      },
+      {
+        "id": "c",
+        "text": "It is used to manage system services."
+      },
+      {
+        "id": "d",
+        "text": "It is used to manage system boot parameters."
+      }
+    ],
+    "correct_options": [
+      "a"
+    ],
+    "explanation": "The 'cron' table is used to schedule system maintenance tasks, such as backups and log rotation.",
+    "concepts_tested": [
+      "Linux system administration",
+      "cron table"
+    ]
+  },
+  "created_at": "2026-09-02T22:40:11.841499",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

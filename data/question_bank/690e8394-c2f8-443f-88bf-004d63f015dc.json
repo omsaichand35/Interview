@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "690e8394-c2f8-443f-88bf-004d63f015dc",
+    "question_type": "mcq",
+    "topic": "Databases and SQL",
+    "difficulty": "medium",
+    "question": "A database designer is deciding between a clustered index and a non-clustered index. Which of the following is a key difference between these two index types?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "A clustered index is always a primary key"
+      },
+      {
+        "id": "opt_2",
+        "text": "A non-clustered index stores the index keys in a separate B-tree"
+      },
+      {
+        "id": "opt_3",
+        "text": "A clustered index is more efficient for range queries"
+      },
+      {
+        "id": "opt_4",
+        "text": "A non-clustered index is always created on a single column"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "A non-clustered index stores the index keys in a separate B-tree, allowing for faster query performance. In contrast, a clustered index reorders the physical records on disk according to the index key.",
+    "concepts_tested": [
+      "Database Indexing",
+      "Clustered Indexes",
+      "Non-Clustered Indexes"
+    ]
+  },
+  "created_at": "2026-09-03T14:51:55.807151",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "b48f76b9-04fa-469b-ba1a-1456605bc094",
+    "question_type": "multiple_select",
+    "topic": "Windows environments",
+    "difficulty": "easy",
+    "question": "Which Windows utility provides a comprehensive view of the system's hardware, software components, and environment variables?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "Task Manager"
+      },
+      {
+        "id": "opt2",
+        "text": "System Information"
+      },
+      {
+        "id": "opt3",
+        "text": "Device Manager"
+      },
+      {
+        "id": "opt4",
+        "text": "Command Prompt"
+      }
+    ],
+    "correct_options": [
+      "opt2"
+    ],
+    "explanation": "The System Information utility (msinfo32.exe) displays detailed information about the computer's hardware configuration, software components, and system environment, making it the appropriate tool for viewing a comprehensive system overview.",
+    "concepts_tested": [
+      "Windows utilities",
+      "System Information"
+    ]
+  },
+  "created_at": "2026-09-02T12:12:15.093962",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

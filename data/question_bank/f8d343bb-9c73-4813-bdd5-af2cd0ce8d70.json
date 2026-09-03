@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "f8d343bb-9c73-4813-bdd5-af2cd0ce8d70",
+    "question_type": "mcq",
+    "topic": "Linux/Unix",
+    "difficulty": "medium",
+    "question": "A process is stuck in the 'D' state on a Linux system. What action can be taken to determine why it is not terminating?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "Check the system logs for error messages"
+      },
+      {
+        "id": "opt_2",
+        "text": "Use the 'ps' command with the '-o' option to get detailed information about the process"
+      },
+      {
+        "id": "opt_3",
+        "text": "Use the 'kill' command with the '-9' option to terminate the process forcibly"
+      },
+      {
+        "id": "opt_4",
+        "text": "Use the 'renice' command to adjust the process's priority"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "The 'D' state indicates that the process is waiting in the disk I/O wait queue. Using the 'ps' command with the '-o' option can provide detailed information about the process, including its state and resource usage, which can help determine why it is not terminating.",
+    "concepts_tested": [
+      "Process Management",
+      "Linux System Administration"
+    ]
+  },
+  "created_at": "2026-09-03T14:50:30.936136",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

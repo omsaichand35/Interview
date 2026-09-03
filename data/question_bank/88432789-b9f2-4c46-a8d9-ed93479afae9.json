@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "88432789-b9f2-4c46-a8d9-ed93479afae9",
+    "question_type": "mcq",
+    "topic": "Application servers",
+    "difficulty": "medium",
+    "question": "What is the primary benefit of using a message queue in distributed systems?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "Decouples producers and consumers, enabling asynchronous communication"
+      },
+      {
+        "id": "opt_2",
+        "text": "Ensures all requests are processed synchronously"
+      },
+      {
+        "id": "opt_3",
+        "text": "Eliminates the need for databases"
+      },
+      {
+        "id": "opt_4",
+        "text": "Provides automatic data compression"
+      }
+    ],
+    "correct_options": [
+      "opt_1"
+    ],
+    "explanation": "Message queues decouple service components, allowing producers to send messages without waiting for consumers to process them immediately. This enables asynchronous communication and better scalability.",
+    "concepts_tested": [
+      "Distributed Systems",
+      "Asynchronous Processing",
+      "Message Queues"
+    ]
+  },
+  "created_at": "2026-09-03T14:52:04.763886",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

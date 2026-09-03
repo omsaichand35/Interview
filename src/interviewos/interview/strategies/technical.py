@@ -55,12 +55,40 @@ The JD emphasizes: {job.summary}
 Required skills: {', '.join(s.name for s in job.required_skills)}
 Preferred skills: {', '.join(s.name for s in job.preferred_skills)}
 
-Identify the core technical competencies (e.g. Python, PyTorch, Machine Learning) and the specific sub-topics to evaluate.
-Do not include non-technical competencies like communication or teamwork.
-Assign priorities (HIGH, MEDIUM, LOW) to each competency.
+Identify the core technical competencies and assign priorities.
 
-Return ONLY structured JSON matching this schema:
-{TechnicalInterviewBlueprint.model_json_schema()}
+Return a JSON object matching this exact structure:
+
+{{
+    "role": "{job.title}",
+    "competencies": [
+        {{
+            "name": "Python",
+            "importance": 0.95,
+            "required": true,
+            "topics": ["Data Structures", "OOP", "Algorithms", "File I/O"]
+        }},
+        {{
+            "name": "System Design",
+            "importance": 0.9,
+            "required": true,
+            "topics": ["Scalability", "Databases", "Caching", "API Design"]
+        }},
+        {{
+            "name": "SQL Databases",
+            "importance": 0.8,
+            "required": true,
+            "topics": ["Query Optimization", "Indexing", "Transactions", "Joins"]
+        }}
+    ],
+    "priority": {{
+        "Python": "HIGH",
+        "System Design": "HIGH",
+        "SQL Databases": "MEDIUM"
+    }}
+}}
+
+IMPORTANT: Return ONLY valid JSON, no markdown or schema metadata.
 """
         return await self.llm.generate_structured(prompt=prompt,
             system_prompt="You are an expert technical interviewer designing an interview blueprint based on a job description.", model=TechnicalInterviewBlueprint)

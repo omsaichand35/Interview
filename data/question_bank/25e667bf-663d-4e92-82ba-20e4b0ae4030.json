@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "25e667bf-663d-4e92-82ba-20e4b0ae4030",
+    "question_type": "mcq",
+    "topic": "Application servers (Tomcat, Nginx, Apache)",
+    "difficulty": "medium",
+    "question": "In a typical Java web application deployment where Nginx is configured as a reverse proxy in front of Apache Tomcat, which component is primarily responsible for serving static resources such as images, CSS, and JavaScript files?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "Apache Tomcat"
+      },
+      {
+        "id": "opt2",
+        "text": "Nginx"
+      },
+      {
+        "id": "opt3",
+        "text": "Apache HTTP Server"
+      },
+      {
+        "id": "opt4",
+        "text": "Both Tomcat and Nginx share the task equally"
+      }
+    ],
+    "correct_options": [
+      "opt2"
+    ],
+    "explanation": "Nginx excels at serving static content efficiently and can offload this work from Tomcat, which is focused on executing Java servlets and JSPs. In a reverse‑proxy setup, Nginx handles requests for static files directly, while forwarding dynamic requests to Tomcat.",
+    "concepts_tested": [
+      "static content serving",
+      "reverse proxy",
+      "role of web server vs application server"
+    ]
+  },
+  "created_at": "2026-09-02T12:10:34.987995",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

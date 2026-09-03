@@ -43,11 +43,8 @@ Return ONLY valid JSON.
         prompt = f"""
 Generate one practice question.
 
-Topic:
-{topic}
-
-Difficulty:
-{difficulty}
+Topic: {topic}
+Difficulty: {difficulty}
 
 Learner state:
 
@@ -59,9 +56,16 @@ Relevant knowledge:
 {context}
 </knowledge>
 
-Return a JSON object matching:
+Return a JSON object matching this exact structure:
 
-{PracticeQuestion.model_json_schema()}
+{{
+    "question": "Explain the difference between depth-first search and breadth-first search. When would you use one over the other?",
+    "topic": "{topic}",
+    "difficulty": "{difficulty}",
+    "expected_concepts": ["Graph traversal", "Time complexity", "Space complexity", "Use case selection"]
+}}
+
+IMPORTANT: Return ONLY valid JSON, no markdown or schema metadata.
 """
 
         return self.llm.sync_generate_structured(prompt=prompt,

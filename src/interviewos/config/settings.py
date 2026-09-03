@@ -37,8 +37,13 @@ class Settings(BaseSettings):
     )
 
     llm_model: str = Field(
-        default="nvidia/nemotron-3-super-120b-a12b",
+        default="nvidia/nemotron-3.5-lightning-30b-a3b",
         validation_alias="LLM_MODEL"
+    )
+
+    llm_base_url: str | None = Field(
+        default=None,
+        validation_alias="LLM_BASE_URL"
     )
 
     llm_timeout: float | None = Field(
@@ -50,6 +55,7 @@ class Settings(BaseSettings):
         default=None,
         validation_alias="LLM_API_KEY"
     )
+
 
     github_token: str | None = Field(
         default=None,

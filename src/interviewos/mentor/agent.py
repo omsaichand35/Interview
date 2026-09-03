@@ -74,9 +74,7 @@ Return ONLY valid JSON.
         prompt = f"""
 Determine the appropriate next action for the mentor.
 
-Candidate message:
-
-{message}
+Candidate message: {message}
 
 Learner state:
 
@@ -90,9 +88,19 @@ Learning plan:
 {plan_text}
 </learning_plan>
 
-Return a JSON object matching:
+Return a JSON object matching this exact structure:
 
-{MentorDecision.model_json_schema()}
+{{
+    "action": "practice",
+    "topic": "Binary Search Trees",
+    "reasoning": "The candidate needs more practice with tree algorithms before moving to graph algorithms",
+    "difficulty": "medium",
+    "retrieval_query": "BST insertion, deletion, and traversal examples"
+}}
+
+Possible actions: teach, practice, evaluate, review, move_forward, clarify
+
+IMPORTANT: Return ONLY valid JSON, no markdown or schema metadata.
 """
 
         return self.llm.sync_generate_structured(prompt=prompt,

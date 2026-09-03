@@ -1,0 +1,41 @@
+{
+  "question": {
+    "id": "9346f669-c0f6-4e8e-95c3-c9d26d4539f0",
+    "question_type": "mcq",
+    "topic": "Linux/Unix",
+    "difficulty": "medium",
+    "question": "In a typical Linux filesystem, which of the following statements about hard links is correct?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "Hard links can span across different filesystems."
+      },
+      {
+        "id": "opt2",
+        "text": "Hard links have the same inode number as the original file."
+      },
+      {
+        "id": "opt3",
+        "text": "Deleting the original file removes the hard link."
+      },
+      {
+        "id": "opt4",
+        "text": "Hard links can point to directories."
+      }
+    ],
+    "correct_options": [
+      "opt2"
+    ],
+    "explanation": "Hard links are additional directory entries that reference the same inode as the original file, so they share the inode number. They cannot cross filesystem boundaries, deleting the original file only reduces the link count (data remains until all links are gone), and hard links to directories are prohibited to prevent filesystem loops.",
+    "concepts_tested": [
+      "hard links",
+      "inode",
+      "filesystem",
+      "link count"
+    ]
+  },
+  "created_at": "2026-09-02T17:04:03.191801",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

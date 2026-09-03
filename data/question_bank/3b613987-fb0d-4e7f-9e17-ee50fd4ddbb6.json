@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "3b613987-fb0d-4e7f-9e17-ee50fd4ddbb6",
+    "question_type": "true_false",
+    "topic": "Networking fundamentals (TCP/IP, DNS, firewalls, routing)",
+    "difficulty": "medium",
+    "question": "A stateless firewall can examine the application-layer data (e.g., HTTP payload) to make filtering decisions.",
+    "options": [
+      {
+        "id": "A",
+        "text": "True"
+      },
+      {
+        "id": "B",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "Stateless firewalls make filtering decisions based solely on packet header information (such as source/destination IP addresses, ports, and protocol). They do not maintain connection state and cannot inspect application-layer payloads; that capability requires stateful or next-generation firewalls with deep packet inspection.",
+    "concepts_tested": [
+      "firewall types",
+      "stateful vs stateless inspection",
+      "packet filtering"
+    ]
+  },
+  "created_at": "2026-09-02T13:47:35.407094",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

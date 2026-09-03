@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "1fea5173-ff34-4ba0-b54b-65f0cf8729a4",
+    "question_type": "true_false",
+    "topic": "Linux/Unix",
+    "difficulty": "medium",
+    "question": "A hard link to a file can span across different filesystems.",
+    "options": [
+      {
+        "id": "opt_true",
+        "text": "True"
+      },
+      {
+        "id": "opt_false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "opt_false"
+    ],
+    "explanation": "Hard links point to the same inode as the original file. Since inodes are unique within a filesystem, a hard link cannot refer to a file on a different filesystem. To link across filesystems, a symbolic link must be used.",
+    "concepts_tested": [
+      "file system",
+      "hard links",
+      "inodes"
+    ]
+  },
+  "created_at": "2026-09-02T11:58:20.739907",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

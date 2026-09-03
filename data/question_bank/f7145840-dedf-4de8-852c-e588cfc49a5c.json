@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "f7145840-dedf-4de8-852c-e588cfc49a5c",
+    "question_type": "mcq",
+    "topic": "Networking fundamentals",
+    "difficulty": "medium",
+    "question": "A network switch is configured with VLANs to improve what aspect of network performance?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "Network security by isolating sensitive data"
+      },
+      {
+        "id": "opt_2",
+        "text": "Network scalability by reducing broadcast domains"
+      },
+      {
+        "id": "opt_3",
+        "text": "Network reliability by increasing redundancy"
+      },
+      {
+        "id": "opt_4",
+        "text": "Network throughput by increasing bandwidth"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "VLANs (Virtual Local Area Networks) help to improve network scalability by reducing broadcast domains, which in turn reduces network congestion and improves overall network performance.",
+    "concepts_tested": [
+      "VLANs",
+      "Network Scalability",
+      "Broadcast Domains"
+    ]
+  },
+  "created_at": "2026-09-03T16:17:25.478372",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

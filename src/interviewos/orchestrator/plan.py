@@ -37,11 +37,63 @@ class InterviewPlanGenerator:
 Generate a multi-round Interview Plan for a {job.title}.
 The JD emphasizes: {job.summary}
 
-Create a sequence of rounds (e.g., OA, Technical, DSA, HR).
-Provide sensible thresholds between 0.0 and 1.0.
+Return a JSON object matching this exact structure:
 
-Return ONLY structured JSON matching this schema:
-{InterviewPlan.model_json_schema()}
+{{
+    "plan_id": "plan_1",
+    "role": "{job.title}",
+    "rounds": [
+        {{
+            "round_id": "oa_1",
+            "type": "oa",
+            "name": "Online Assessment",
+            "order": 1,
+            "enabled": true,
+            "threshold": 0.6,
+            "required": true,
+            "duration_minutes": 90,
+            "configuration": {{"questions": 20, "difficulty": "medium"}}
+        }},
+        {{
+            "round_id": "tech_1",
+            "type": "technical",
+            "name": "Technical Round 1",
+            "order": 2,
+            "enabled": true,
+            "threshold": 0.65,
+            "required": true,
+            "duration_minutes": 60,
+            "configuration": {{"focus_areas": ["System Design", "Python"]}}
+        }},
+        {{
+            "round_id": "dsa_1",
+            "type": "dsa",
+            "name": "DSA Round",
+            "order": 3,
+            "enabled": true,
+            "threshold": 0.6,
+            "required": true,
+            "duration_minutes": 45,
+            "configuration": {{"problems": 2, "difficulty": "medium"}}
+        }},
+        {{
+            "round_id": "hr_1",
+            "type": "hr",
+            "name": "HR & Behavioral",
+            "order": 4,
+            "enabled": true,
+            "threshold": null,
+            "required": false,
+            "duration_minutes": 30,
+            "configuration": {{}}
+        }}
+    ],
+    "created_at": "2024-01-01T00:00:00",
+    "configuration": {{}},
+    "final_threshold": 0.65
+}}
+
+IMPORTANT: Return ONLY valid JSON, no markdown or schema metadata.
 """
         plan = await self.llm.generate_structured(prompt=prompt,
             system_prompt="You are an expert technical recruiter designing interview processes.", model=InterviewPlan)

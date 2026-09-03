@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "2eddf881-ebe6-4eb0-9ab1-1c1d02b15e18",
+    "question_type": "mcq",
+    "topic": "Linux/Unix",
+    "difficulty": "medium",
+    "question": "What is the primary purpose of the 'ps' command in a Linux/Unix system?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "To list running processes and their details"
+      },
+      {
+        "id": "opt_2",
+        "text": "To terminate a running process"
+      },
+      {
+        "id": "opt_3",
+        "text": "To schedule a new process"
+      },
+      {
+        "id": "opt_4",
+        "text": "To view system logs"
+      }
+    ],
+    "correct_options": [
+      "opt_1"
+    ],
+    "explanation": "The 'ps' command is used to display information about running processes and their details, such as process IDs, memory usage, and CPU usage. This information can be useful for system administrators to monitor and manage system resources.",
+    "concepts_tested": [
+      "Process Management",
+      "System Administration",
+      "Linux/Unix Commands"
+    ]
+  },
+  "created_at": "2026-09-03T14:50:40.045893",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

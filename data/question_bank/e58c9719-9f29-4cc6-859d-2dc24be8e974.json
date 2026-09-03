@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "e58c9719-9f29-4cc6-859d-2dc24be8e974",
+    "question_type": "mcq",
+    "topic": "Linux/Unix",
+    "difficulty": "medium",
+    "question": "What is the primary purpose of the /etc/passwd file in a Linux system?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "Stores system configuration files"
+      },
+      {
+        "id": "opt_2",
+        "text": "Maps usernames to user IDs"
+      },
+      {
+        "id": "opt_3",
+        "text": "Contains network interface settings"
+      },
+      {
+        "id": "opt_4",
+        "text": "Stores kernel module information"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "The /etc/passwd file contains essential information about system users, including their usernames, passwords (hashed), user IDs, and group IDs. It is a critical file for user authentication and system management.",
+    "concepts_tested": [
+      "Linux File Systems",
+      "User Authentication",
+      "System Configuration"
+    ]
+  },
+  "created_at": "2026-09-03T14:50:50.640269",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

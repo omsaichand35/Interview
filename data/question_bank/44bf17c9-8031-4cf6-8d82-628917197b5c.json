@@ -1,0 +1,32 @@
+{
+  "question": {
+    "id": "44bf17c9-8031-4cf6-8d82-628917197b5c",
+    "question_type": "true_false",
+    "topic": "Methodical debugging/troubleshooting approach",
+    "difficulty": "medium",
+    "question": "A methodical debugging approach starts with reproducing the problem reliably before forming hypotheses about its cause.",
+    "options": [
+      {
+        "id": "T",
+        "text": "True"
+      },
+      {
+        "id": "F",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "T"
+    ],
+    "explanation": "In a methodical debugging process, the first step is to reliably reproduce the issue. Only after consistent reproduction can you formulate hypotheses, isolate variables, and test fixes systematically.",
+    "concepts_tested": [
+      "reproducibility",
+      "hypothesis formation",
+      "systematic troubleshooting"
+    ]
+  },
+  "created_at": "2026-09-02T12:11:22.128745",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

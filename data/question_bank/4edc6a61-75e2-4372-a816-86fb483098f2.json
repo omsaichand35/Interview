@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "4edc6a61-75e2-4372-a816-86fb483098f2",
+    "question_type": "mcq",
+    "topic": "Linux",
+    "difficulty": "hard",
+    "question": "A process in Linux is stuck in an infinite loop, consuming all available CPU resources. Which of the following commands can be used to kill the process?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "kill -9 <PID>"
+      },
+      {
+        "id": "opt_2",
+        "text": "killall <process_name>"
+      },
+      {
+        "id": "opt_3",
+        "text": "pkill <process_name>"
+      },
+      {
+        "id": "opt_4",
+        "text": "renice <PID> -n 19"
+      }
+    ],
+    "correct_options": [
+      "opt_1"
+    ],
+    "explanation": "The kill -9 command sends a SIGKILL signal to the process, immediately terminating it. This is the most forceful way to kill a process, and it should be used with caution.",
+    "concepts_tested": [
+      "Process Management",
+      "Linux System Calls"
+    ]
+  },
+  "created_at": "2026-09-03T16:16:43.694865",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

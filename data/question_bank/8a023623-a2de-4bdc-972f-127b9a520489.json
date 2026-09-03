@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "8a023623-a2de-4bdc-972f-127b9a520489",
+    "question_type": "mcq",
+    "topic": "Linux",
+    "difficulty": "hard",
+    "question": "A Linux system is configured to use a specific network interface for a particular network protocol. However, the system is also configured to use a different network interface for the same protocol via a routing rule. What is the primary effect of this configuration on system performance?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "Improved network throughput due to load balancing"
+      },
+      {
+        "id": "opt_2",
+        "text": "Reduced system performance due to increased routing overhead"
+      },
+      {
+        "id": "opt_3",
+        "text": "No significant impact on system performance"
+      },
+      {
+        "id": "opt_4",
+        "text": "Increased risk of network congestion"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "When a Linux system is configured to use multiple network interfaces for the same protocol, it can lead to increased routing overhead, which can negatively impact system performance. This is because the system needs to handle multiple routing decisions, which can slow down network traffic.",
+    "concepts_tested": [
+      "Linux Networking",
+      "Routing Rules",
+      "System Performance"
+    ]
+  },
+  "created_at": "2026-09-03T16:16:53.104381",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "d4e0476d-a873-4fc0-b539-0c563f58969e",
+    "question_type": "mcq",
+    "topic": "Databases",
+    "difficulty": "medium",
+    "question": "What is the primary benefit of using a foreign key in a database schema?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "Improves data security by limiting access to sensitive information"
+      },
+      {
+        "id": "opt_2",
+        "text": "Ensures data consistency and referential integrity across related tables"
+      },
+      {
+        "id": "opt_3",
+        "text": "Increases storage capacity by reducing data duplication"
+      },
+      {
+        "id": "opt_4",
+        "text": "Enhances query performance by reducing the number of joins"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "Foreign keys establish relationships between tables, enforcing data consistency and referential integrity. This ensures that related data remains accurate and up-to-date across the database.",
+    "concepts_tested": [
+      "Database Design",
+      "Data Integrity",
+      "Foreign Keys"
+    ]
+  },
+  "created_at": "2026-09-03T16:17:57.016176",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

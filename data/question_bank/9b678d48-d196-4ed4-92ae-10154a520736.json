@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "9b678d48-d196-4ed4-92ae-10154a520736",
+    "question_type": "mcq",
+    "topic": "Scripting ability",
+    "difficulty": "easy",
+    "question": "What is the primary function of the 'echo' command in a Bash script?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "To read and execute a file"
+      },
+      {
+        "id": "opt_2",
+        "text": "To print its arguments to the console"
+      },
+      {
+        "id": "opt_3",
+        "text": "To prompt the user for input"
+      },
+      {
+        "id": "opt_4",
+        "text": "To exit the script immediately"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "The 'echo' command is used to output its arguments to the console, allowing for simple printing of text within a Bash script.",
+    "concepts_tested": [
+      "Bash Scripting",
+      "Basic Commands"
+    ]
+  },
+  "created_at": "2026-09-03T14:52:25.855866",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

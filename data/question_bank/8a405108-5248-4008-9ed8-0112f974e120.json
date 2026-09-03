@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "8a405108-5248-4008-9ed8-0112f974e120",
+    "question_type": "mcq",
+    "topic": "Linux",
+    "difficulty": "hard",
+    "question": "A Linux system is experiencing high CPU usage due to a runaway process. Which of the following commands would you use to kill the process and its child processes?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "kill -9 <PID>"
+      },
+      {
+        "id": "opt_2",
+        "text": "pkill -9 <process_name>"
+      },
+      {
+        "id": "opt_3",
+        "text": "kill -15 <PID> && kill -9 <PID>"
+      },
+      {
+        "id": "opt_4",
+        "text": "kill -15 <PID> && pkill -9 <process_name>"
+      }
+    ],
+    "correct_options": [
+      "opt_3"
+    ],
+    "explanation": "Using 'kill -15 <PID>' sends a SIGTERM signal to the process, giving it a chance to clean up before exiting. Then, using 'kill -9 <PID>' forces the process to exit immediately. This approach ensures that the process and its child processes are terminated.",
+    "concepts_tested": [
+      "Process Management",
+      "Signal Handling",
+      "Linux Commands"
+    ]
+  },
+  "created_at": "2026-09-03T16:17:10.701658",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

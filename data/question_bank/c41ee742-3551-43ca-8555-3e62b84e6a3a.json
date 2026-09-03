@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "c41ee742-3551-43ca-8555-3e62b84e6a3a",
+    "question_type": "multiple_select",
+    "topic": "Cloud platforms (AWS)",
+    "difficulty": "medium",
+    "question": "Which of the following statements about Amazon S3 storage classes is correct?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "S3 Standard-Infrequent Access (S3 Standard-IA) is designed for data accessed less than once per month and offers lower storage cost than S3 Standard but higher retrieval cost."
+      },
+      {
+        "id": "opt2",
+        "text": "S3 Glacier Deep Archive provides the lowest storage cost but requires a minimum storage duration of 30 days."
+      },
+      {
+        "id": "opt3",
+        "text": "S3 Intelligent-Tiering automatically moves objects between two access tiers based on changing access patterns, but does not support S3 Glacier Flexible Retrieval."
+      },
+      {
+        "id": "opt4",
+        "text": "S3 One Zone-Infrequent Access (S3 One Zone-IA) stores data across multiple Availability Zones for increased durability."
+      }
+    ],
+    "correct_options": [
+      "opt1"
+    ],
+    "explanation": "Option A correctly describes S3 Standard-IA: it targets infrequent access (less than once per month), has lower storage fees than S3 Standard, and incurs higher retrieval charges. Option B is incorrect because S3 Glacier Deep Archive has a minimum storage duration of 180 days, not 30 days. Option C is incorrect because S3 Intelligent-Tiering does support archive access tiers (including Glacier Flexible Retrieval and Deep Archive). Option D is incorrect because S3 One Zone-IA stores data in a single Availability Zone, reducing durability compared to multi‑AZ classes.",
+    "concepts_tested": [
+      "Amazon S3 storage classes",
+      "data retrieval costs",
+      "storage duration requirements"
+    ]
+  },
+  "created_at": "2026-09-02T12:12:58.032006",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

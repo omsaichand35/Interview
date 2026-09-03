@@ -60,13 +60,16 @@ class VoiceEngine:
     def _get_recognizer(self):
         if self._recognizer is None and HAS_SR:
             self._recognizer = sr.Recognizer()
-            self._recognizer.energy_threshold = 280
+            self._recognizer.energy_threshold = 300
             self._recognizer.dynamic_energy_threshold = True
-            self._recognizer.pause_threshold = 0.8
+            self._recognizer.dynamic_energy_adjustment_damping = 0.15
+            self._recognizer.dynamic_energy_ratio = 1.5
+            self._recognizer.pause_threshold = 2.5  # Allows 2.5s pause for natural thinking
             self._recognizer.phrase_threshold = 0.3
+            self._recognizer.non_speaking_duration = 0.8
         return self._recognizer
 
-    def speak(self, text: str, block: bool = False) -> None:
+    def speak(self, text: str, block: bool = True) -> None:
         """
         Synthesize and speak text via Text-to-Speech (TTS).
         Uses native Windows SAPI asynchronously or pyttsx3.
@@ -99,6 +102,10 @@ class VoiceEngine:
                     engine.setProperty("volume", self.volume)
                     engine.say(clean_text)
                     engine.runAndWait()
+                    try:
+                        engine.stop()
+                    except Exception:
+                        pass
             except Exception:
                 pass
 
@@ -108,7 +115,8 @@ class VoiceEngine:
             t = threading.Thread(target=_do_speak, daemon=True)
             t.start()
 
-    def listen(self, timeout: int = 10, phrase_time_limit: int = 45) -> Optional[str]:
+
+    def listen(self, timeout: int = 15, phrase_time_limit: int = 90) -> Optional[str]:
         """
         Record candidate audio from microphone and transcribe via Speech-to-Text (STT).
         Returns transcribed string or None on timeout/error.

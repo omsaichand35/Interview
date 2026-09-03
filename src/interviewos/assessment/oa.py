@@ -30,6 +30,7 @@ class OAEngine:
             semantic_validator: SemanticQuestionValidator,
             question_bank: QuestionBank,
             session_manager: AssessmentSessionManager,
+            concurrency_limit: int = 2,
     ) -> None:
 
         self.question_generator = question_generator
@@ -39,6 +40,8 @@ class OAEngine:
         self.semantic_validator = semantic_validator
         self.question_bank = question_bank
         self.session_manager = session_manager
+        self.concurrency_limit = concurrency_limit
+
     async def _generate_single_question(
             self,
             topic,
@@ -93,7 +96,17 @@ class OAEngine:
             ]
 
         type_index = 0
+        semaphore = asyncio.Semaphore(self.concurrency_limit)
         tasks = []
+
+        async def _worker(topic, job, question_type, max_attempts):
+            async with semaphore:
+                return await self._generate_single_question(
+                    topic=topic,
+                    job=job,
+                    question_type=question_type,
+                    max_attempts=max_attempts,
+                )
 
         for topic in blueprint.topics:
             for _ in range(topic.question_count):
@@ -101,7 +114,7 @@ class OAEngine:
                     type_index % len(question_types)
                 ]
                 tasks.append(
-                    self._generate_single_question(
+                    _worker(
                         topic=topic,
                         job=job,
                         question_type=question_type,
@@ -112,6 +125,7 @@ class OAEngine:
 
         questions = await asyncio.gather(*tasks)
         return list(questions)
+
 
     def evaluate(
         self,

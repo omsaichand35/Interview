@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "c7af3cc0-441d-4de0-b643-4fdb186db8aa",
+    "question_type": "mcq",
+    "topic": "Bash/PowerShell scripting",
+    "difficulty": "easy",
+    "question": "Which command is used to print the value of a variable named VAR in a Bash script?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "echo $VAR"
+      },
+      {
+        "id": "opt2",
+        "text": "print VAR"
+      },
+      {
+        "id": "opt3",
+        "text": "console.log VAR"
+      },
+      {
+        "id": "opt4",
+        "text": "printf VAR"
+      }
+    ],
+    "correct_options": [
+      "opt1"
+    ],
+    "explanation": "In Bash, variables are referenced with a leading $ sign, and the echo command outputs their value to the terminal.",
+    "concepts_tested": [
+      "variable expansion",
+      "echo command"
+    ]
+  },
+  "created_at": "2026-09-02T12:12:27.203647",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

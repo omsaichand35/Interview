@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "80122a0f-5460-41f2-8de9-8e0112cf8468",
+    "question_type": "mcq",
+    "topic": "Scripting ability",
+    "difficulty": "easy",
+    "question": "What is the purpose of a 'shebang' line at the top of a Bash script?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "It specifies the programming language used in the script"
+      },
+      {
+        "id": "opt_2",
+        "text": "It sets the execution permission of the script"
+      },
+      {
+        "id": "opt_3",
+        "text": "It tells the system which interpreter to use to run the script"
+      },
+      {
+        "id": "opt_4",
+        "text": "It adds a comment to the script"
+      }
+    ],
+    "correct_options": [
+      "opt_3"
+    ],
+    "explanation": "The 'shebang' line, also known as the hashbang, specifies the interpreter that should be used to run the script. It is usually the first line of the script and starts with #!",
+    "concepts_tested": [
+      "Bash Scripting",
+      "Interpreters",
+      "Script Execution"
+    ]
+  },
+  "created_at": "2026-09-03T14:52:21.237251",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

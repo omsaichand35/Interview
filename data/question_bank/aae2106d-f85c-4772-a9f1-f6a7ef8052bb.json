@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "aae2106d-f85c-4772-a9f1-f6a7ef8052bb",
+    "question_type": "mcq",
+    "topic": "Linux/Unix",
+    "difficulty": "medium",
+    "question": "What is the effect of setting the sticky bit (t) on a directory in Linux?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "Allows any user to create files but only the file owner can delete or rename them."
+      },
+      {
+        "id": "opt2",
+        "text": "Allows members of the group to execute files in the directory."
+      },
+      {
+        "id": "opt3",
+        "text": "Sets the setuid bit on executable files within the directory."
+      },
+      {
+        "id": "opt4",
+        "text": "Prevents any user from creating new files in the directory."
+      }
+    ],
+    "correct_options": [
+      "opt1"
+    ],
+    "explanation": "The sticky bit on a directory ensures that although any user can create files inside it, only the file's owner (or root) can delete or rename those files. This is commonly used on shared directories like /tmp.",
+    "concepts_tested": [
+      "Linux file permissions",
+      "sticky bit"
+    ]
+  },
+  "created_at": "2026-09-02T11:58:24.662040",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "fa4a20c2-c6fd-4e8c-8d47-9f1b7e997799",
+    "question_type": "mcq",
+    "topic": "Networking fundamentals",
+    "difficulty": "medium",
+    "question": "A network administrator is tasked with configuring a router to optimize traffic flow between two subnets. Which of the following routing protocols is most suitable for this scenario?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "OSPF (Open Shortest Path First)"
+      },
+      {
+        "id": "opt_2",
+        "text": "EIGRP (Enhanced Interior Gateway Routing Protocol)"
+      },
+      {
+        "id": "opt_3",
+        "text": "RIP (Routing Information Protocol)"
+      },
+      {
+        "id": "opt_4",
+        "text": "Static Routing"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "EIGRP is an interior gateway protocol that is suitable for optimizing traffic flow between subnets. It uses a complex algorithm to calculate the best path and can handle large networks with varying levels of traffic.",
+    "concepts_tested": [
+      "Routing Protocols",
+      "Network Optimization",
+      "Subnet Configuration"
+    ]
+  },
+  "created_at": "2026-09-03T14:51:27.116655",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

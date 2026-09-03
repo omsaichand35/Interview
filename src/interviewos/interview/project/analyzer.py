@@ -85,17 +85,10 @@ Return only structured output.
         prompt = f"""
 Repository:
 
-Name:
-{repository.name}
-
-URL:
-{repository.url}
-
-Description:
-{repository.description}
-
-Languages:
-{repository.languages}
+Name: {repository.name}
+URL: {repository.url}
+Description: {repository.description}
+Languages: {repository.languages}
 
 README:
 
@@ -105,11 +98,43 @@ Repository files:
 
 {file_list}
 
-Analyze the repository.
+Analyze the repository and return a JSON object matching this exact structure:
 
-Return:
+{{
+    "repository_name": "{repository.name}",
+    "repository_url": "{repository.url}",
+    "summary": "A machine learning pipeline for image classification using PyTorch with REST API backend",
+    "languages": ["Python", "JavaScript"],
+    "frameworks": ["PyTorch", "Flask", "React"],
+    "libraries": ["NumPy", "Pandas", "Scikit-learn", "OpenCV"],
+    "architecture": ["MVC", "REST API", "Neural Network Pipeline"],
+    "technologies": ["Docker", "PostgreSQL", "Redis", "AWS S3"],
+    "important_files": ["models/classifier.py", "api/server.py", "preprocessing/pipeline.py"],
+    "testing_approach": "pytest with unit tests and integration tests",
+    "deployment_approach": "Docker containerization with AWS deployment",
+    "database_usage": "PostgreSQL for metadata and caching with Redis",
+    "external_services": ["AWS S3 for model storage", "third-party API for data augmentation"],
+    "architectural_decisions": [
+        "Used PyTorch instead of TensorFlow for flexibility",
+        "REST API for easy integration with frontend",
+        "Redis caching for prediction results"
+    ],
+    "potential_interview_topics": [
+        "Neural network architecture design decisions",
+        "Performance optimization techniques",
+        "API design and scalability",
+        "Data pipeline and preprocessing",
+        "Deployment and DevOps considerations"
+    ],
+    "evidence": [],
+    "unresolved_areas": ["Details about training pipeline configuration"],
+    "analysis_completeness": "COMPLETE"
+}}
 
-{ProjectProfile.model_json_schema()}
+IMPORTANT: 
+- Only include technologies/frameworks actually visible in the repository
+- Cite file paths as evidence
+- Return ONLY valid JSON, no markdown or schema metadata
 """
 
         return await self.llm.generate_structured(

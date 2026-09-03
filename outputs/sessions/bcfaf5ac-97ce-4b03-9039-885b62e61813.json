@@ -1,0 +1,19 @@
+{
+  "id": "bcfaf5ac-97ce-4b03-9039-885b62e61813",
+  "candidate_id": "3ba87e6a-4692-4427-8c6d-3f3edc8dd2d3",
+  "role": "Evertz Student Engineer Internship 2026-27",
+  "assessment_id": "6fb483ca-4467-4b75-8ec1-d92c0143b06e",
+  "question_ids": [
+    "db825207-403e-4057-8b4e-ccdb8f541707",
+    "3b613987-fb0d-4e7f-9e17-ee50fd4ddbb6",
+    "0cc84c20-2767-408d-936a-2c0e1013bab3",
+    "00349b4c-d87f-479e-9095-2217f327e566",
+    "291898a0-bda4-4988-a19c-511626dd7408"
+  ],
+  "answers": [],
+  "status": "submitted",
+  "duration_minutes": 5,
+  "started_at": "2026-09-02T13:48:12.280401",
+  "submitted_at": "2026-09-02T14:14:12.690586",
+  "result": null
+}

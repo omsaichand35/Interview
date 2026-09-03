@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "b97eb446-81f1-4a0f-b9e3-0503543dd448",
+    "question_type": "mcq",
+    "topic": "Databases",
+    "difficulty": "medium",
+    "question": "What is the primary benefit of indexing a table in a relational database?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "Improves data security"
+      },
+      {
+        "id": "opt_2",
+        "text": "Enhances data consistency"
+      },
+      {
+        "id": "opt_3",
+        "text": "Speeds up query execution by reducing the number of rows to be scanned"
+      },
+      {
+        "id": "opt_4",
+        "text": "Increases storage capacity"
+      }
+    ],
+    "correct_options": [
+      "opt_3"
+    ],
+    "explanation": "Indexing a table in a relational database allows the database to quickly locate data, resulting in faster query execution times. This is because indexes provide a shortcut for the database to find specific data, reducing the number of rows that need to be scanned.",
+    "concepts_tested": [
+      "Database Optimization",
+      "Indexing",
+      "Query Performance"
+    ]
+  },
+  "created_at": "2026-09-03T16:17:41.451753",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

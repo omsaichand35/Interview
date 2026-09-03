@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "06151bb7-2335-48f0-99e9-24549f6e6560",
+    "question_type": "mcq",
+    "topic": "Communication and collaboration skills",
+    "difficulty": "easy",
+    "question": "Which of the following is the most effective way to ensure clear communication in a team meeting?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "Speak as quickly as possible to cover more topics"
+      },
+      {
+        "id": "opt2",
+        "text": "Use technical jargon to demonstrate expertise"
+      },
+      {
+        "id": "opt3",
+        "text": "Summarize key points and confirm understanding"
+      },
+      {
+        "id": "opt4",
+        "text": "Avoid asking questions to keep the meeting short"
+      }
+    ],
+    "correct_options": [
+      "opt3"
+    ],
+    "explanation": "Summarizing key points and confirming understanding helps ensure that all team members are on the same page and reduces miscommunication.",
+    "concepts_tested": [
+      "active listening",
+      "clear communication",
+      "team collaboration"
+    ]
+  },
+  "created_at": "2026-09-02T12:11:48.076128",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

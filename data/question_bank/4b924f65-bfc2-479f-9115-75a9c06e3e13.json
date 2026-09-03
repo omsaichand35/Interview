@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "4b924f65-bfc2-479f-9115-75a9c06e3e13",
+    "question_type": "mcq",
+    "topic": "Scripting ability",
+    "difficulty": "easy",
+    "question": "What is the primary purpose of the 'shebang' line in a script?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "It specifies the programming language used in the script"
+      },
+      {
+        "id": "opt_2",
+        "text": "It defines the script's name and location"
+      },
+      {
+        "id": "opt_3",
+        "text": "It tells the system which interpreter to use to run the script"
+      },
+      {
+        "id": "opt_4",
+        "text": "It sets the script's execution permissions"
+      }
+    ],
+    "correct_options": [
+      "opt_3"
+    ],
+    "explanation": "The 'shebang' line, also known as the hashbang, specifies the interpreter that should be used to run the script. This allows the system to determine the correct interpreter and run the script accordingly.",
+    "concepts_tested": [
+      "Scripting Fundamentals",
+      "Interpreter Identification"
+    ]
+  },
+  "created_at": "2026-09-03T16:18:06.847118",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

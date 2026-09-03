@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "2b7952e7-58a9-4446-bf7c-e0a81bb092ca",
+    "question_type": "mcq",
+    "topic": "Scripting ability",
+    "difficulty": "easy",
+    "question": "What is the primary function of the 'echo' command in a bash script?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "To redirect output to a file"
+      },
+      {
+        "id": "opt_2",
+        "text": "To repeat the last command entered"
+      },
+      {
+        "id": "opt_3",
+        "text": "To display system information"
+      },
+      {
+        "id": "opt_4",
+        "text": "To create a new variable"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "The 'echo' command in a bash script is primarily used to repeat the last command entered, allowing the user to verify the command before executing it. This can be useful for debugging purposes.",
+    "concepts_tested": [
+      "bash scripting",
+      "command line interface"
+    ]
+  },
+  "created_at": "2026-09-03T16:18:12.582511",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

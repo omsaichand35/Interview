@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "b9b90a1b-9d86-4b28-9691-b508ae8fa7e1",
+    "question_type": "mcq",
+    "topic": "Scripting ability in Python and/or JavaScript",
+    "difficulty": "easy",
+    "question": "Which of the following statements correctly creates a list in Python?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "my_list = [1, 2, 3]"
+      },
+      {
+        "id": "opt2",
+        "text": "my_list = (1, 2, 3)"
+      },
+      {
+        "id": "opt3",
+        "text": "my_list = {1, 2, 3}"
+      },
+      {
+        "id": "opt4",
+        "text": "my_list = <1, 2, 3>"
+      }
+    ],
+    "correct_options": [
+      "opt1"
+    ],
+    "explanation": "In Python, square brackets [] denote a list literal. Parentheses () create a tuple, curly braces {} create a set (or dict with key:value), and angle brackets <> are not valid for creating a list.",
+    "concepts_tested": [
+      "Python list syntax",
+      "basic data structure literals"
+    ]
+  },
+  "created_at": "2026-09-02T12:11:08.472989",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

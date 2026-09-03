@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "1859c22a-cb82-4062-a43a-5638e5fea8e9",
+    "question_type": "mcq",
+    "topic": "Linux",
+    "difficulty": "hard",
+    "question": "A Linux system administrator wants to create a new user account with a home directory that is not owned by the user. What is the primary purpose of using the '-m' option with the 'useradd' command?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "To create a system user account"
+      },
+      {
+        "id": "opt_2",
+        "text": "To create a user account with a home directory owned by the user"
+      },
+      {
+        "id": "opt_3",
+        "text": "To create a user account with a home directory not owned by the user"
+      },
+      {
+        "id": "opt_4",
+        "text": "To create a user account with a specific shell"
+      }
+    ],
+    "correct_options": [
+      "opt_3"
+    ],
+    "explanation": "The '-m' option with the 'useradd' command creates the home directory for the new user and sets its ownership to the user, but if the '-m' option is used with the '-N' option, it will not create the home directory owned by the user. The primary purpose of using the '-m' option with the 'useradd' command is to create a user account with a home directory that is not owned by the user.",
+    "concepts_tested": [
+      "Linux User Management",
+      "Useradd Command",
+      "Home Directory Ownership"
+    ]
+  },
+  "created_at": "2026-09-03T16:17:07.865705",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "fa3a8c26-65b9-44ba-850a-495720b6e896",
+    "question_type": "mcq",
+    "topic": "Linux",
+    "difficulty": "hard",
+    "question": "A Linux system is experiencing a high CPU usage issue due to a runaway process. Which of the following commands would allow you to attach to the process and run a new command within the context of the process?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "ps -ef | grep process_id"
+      },
+      {
+        "id": "opt_2",
+        "text": "kill -9 process_id"
+      },
+      {
+        "id": "opt_3",
+        "text": "gdb process_id"
+      },
+      {
+        "id": "opt_4",
+        "text": "strace -p process_id"
+      }
+    ],
+    "correct_options": [
+      "opt_3"
+    ],
+    "explanation": "The gdb command allows you to attach to a running process and run new commands within the context of the process. This can be useful for debugging or analyzing the process's behavior. The other options do not allow you to attach to and run commands within the process.",
+    "concepts_tested": [
+      "Linux System Administration",
+      "Process Management",
+      "Debugging"
+    ]
+  },
+  "created_at": "2026-09-03T16:16:59.057752",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

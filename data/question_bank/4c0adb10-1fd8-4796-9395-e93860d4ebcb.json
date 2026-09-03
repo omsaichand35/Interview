@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "4c0adb10-1fd8-4796-9395-e93860d4ebcb",
+    "question_type": "mcq",
+    "topic": "Application servers",
+    "difficulty": "medium",
+    "question": "When configuring load balancing in an application server, what is the primary purpose of session persistence?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "To distribute incoming requests across multiple servers"
+      },
+      {
+        "id": "opt_2",
+        "text": "To ensure that all requests from a user are handled by the same server"
+      },
+      {
+        "id": "opt_3",
+        "text": "To reduce the load on individual servers"
+      },
+      {
+        "id": "opt_4",
+        "text": "To improve server scalability"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "Session persistence ensures that all requests from a user are handled by the same server, maintaining the user's session state. This is crucial for applications that rely on session-based data, such as e-commerce sites or banking platforms.",
+    "concepts_tested": [
+      "Load Balancing",
+      "Session Persistence",
+      "Application Servers"
+    ]
+  },
+  "created_at": "2026-09-03T14:52:16.973554",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

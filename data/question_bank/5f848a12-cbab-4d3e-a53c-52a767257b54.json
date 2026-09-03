@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "5f848a12-cbab-4d3e-a53c-52a767257b54",
+    "question_type": "mcq",
+    "topic": "Linux",
+    "difficulty": "medium",
+    "question": "What is the purpose of the `umount` command in Linux?",
+    "options": [
+      {
+        "id": "A",
+        "text": "To mount a new file system"
+      },
+      {
+        "id": "B",
+        "text": "To unmount a file system"
+      },
+      {
+        "id": "C",
+        "text": "To format a file system"
+      },
+      {
+        "id": "D",
+        "text": "To create a new file"
+      }
+    ],
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "The `umount` command is used to unmount a file system, which means to detach it from the file system tree.",
+    "concepts_tested": [
+      "file systems",
+      "mounting and unmounting"
+    ]
+  },
+  "created_at": "2026-09-03T14:39:43.710782",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

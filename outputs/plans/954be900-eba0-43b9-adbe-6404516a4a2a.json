@@ -1,0 +1,155 @@
+{
+  "id": "954be900-eba0-43b9-adbe-6404516a4a2a",
+  "candidate_name": "Omsaichand Boppudi",
+  "goal": "Prepare for a Software Engineer position",
+  "overall_mastery": 38.89,
+  "topics": [
+    {
+      "id": "11bfa725-370d-4ed4-b10d-0cf1733e85d8",
+      "title": "Programming Fundamentals",
+      "mastery_score": 60.0,
+      "state": "not_started",
+      "priority": "medium",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "2204a35e-3c06-4d92-aad0-e50157a769a1",
+          "title": "Data Structures",
+          "mastery_score": 70.0,
+          "state": "not_started",
+          "priority": "medium",
+          "prerequisites": [],
+          "subtopics": [
+            {
+              "id": "22ff4908-f5d3-4a4f-a7b4-7d2bec0e3f42",
+              "title": "Arrays",
+              "mastery_score": 80.0,
+              "state": "not_started",
+              "priority": "medium",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            },
+            {
+              "id": "28e72a26-2094-48c9-a02e-1270f7b8728c",
+              "title": "Linked Lists",
+              "mastery_score": 60.0,
+              "state": "not_started",
+              "priority": "medium",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            }
+          ],
+          "assessment_history": []
+        },
+        {
+          "id": "4947a07d-8c65-4486-81f5-5adb8d031fb4",
+          "title": "Algorithms",
+          "mastery_score": 50.0,
+          "state": "not_started",
+          "priority": "high",
+          "prerequisites": [],
+          "subtopics": [
+            {
+              "id": "3b042e05-360f-4bb7-aa6f-17166ae9ed4e",
+              "title": "Sorting",
+              "mastery_score": 60.0,
+              "state": "not_started",
+              "priority": "medium",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            },
+            {
+              "id": "510a6da6-4554-433b-86f2-e5fb19ac0ebc",
+              "title": "Searching",
+              "mastery_score": 40.0,
+              "state": "not_started",
+              "priority": "high",
+              "prerequisites": [],
+              "subtopics": [],
+              "assessment_history": []
+            }
+          ],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "1e597f82-fac5-4396-aaf2-330810e0a9cc",
+      "title": "Python",
+      "mastery_score": 36.67,
+      "state": "not_started",
+      "priority": "high",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "ac7233b3-ab99-4710-8707-7399e042f110",
+          "title": "Basic Syntax",
+          "mastery_score": 60.0,
+          "state": "not_started",
+          "priority": "medium",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "e7a41f18-892a-4e90-8846-14d327c23980",
+          "title": "Object-Oriented Programming",
+          "mastery_score": 30.0,
+          "state": "not_started",
+          "priority": "high",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "3771d79c-9f3f-4bde-81c3-9876f2359ccd",
+          "title": "File Input/Output",
+          "mastery_score": 20.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "7d38a90e-172d-4b82-b907-eee3e65d0ba9",
+      "title": "Machine Learning",
+      "mastery_score": 20.0,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "9a3e8e88-e1b8-4868-b3c1-37c88fe55631",
+          "title": "Supervised Learning",
+          "mastery_score": 30.0,
+          "state": "not_started",
+          "priority": "high",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "ac6a3eea-7dad-4714-b2ce-1fdf4f7ef6a5",
+          "title": "Unsupervised Learning",
+          "mastery_score": 10.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    }
+  ],
+  "last_updated": "2026-09-03T13:43:09.724372",
+  "recommended_next_topic_id": "ac6a3eea-7dad-4714-b2ce-1fdf4f7ef6a5"
+}

@@ -574,7 +574,9 @@ class InterviewOSApplication:
                         score=latest.score,
                         strengths=latest.strengths,
                         weaknesses=latest.weaknesses,
-                        feedback=f"Assessed against {job.title} DSA benchmark."
+                        expected_answer=latest.expected_answer,
+                        feedback=f"Assessed against {job.title} DSA benchmark.",
+                        voice_mode=voice_mode,
                     )
 
                 if session.questions_asked >= 5 or session.is_time_up:
@@ -649,7 +651,9 @@ class InterviewOSApplication:
                         score=latest.score,
                         strengths=latest.strengths,
                         weaknesses=latest.weaknesses,
-                        feedback=f"Evaluated on {target_competency} depth."
+                        expected_answer=latest.expected_answer,
+                        feedback=f"Evaluated on {target_competency} depth.",
+                        voice_mode=voice_mode,
                     )
                 
                 if session.questions_asked >= 5 or session.is_time_up:
@@ -721,7 +725,9 @@ class InterviewOSApplication:
                         score=latest.score,
                         strengths=latest.strengths,
                         weaknesses=latest.weaknesses,
-                        feedback=f"Assessed on {target_competency} ownership."
+                        expected_answer=latest.expected_answer,
+                        feedback=f"Assessed on {target_competency} ownership.",
+                        voice_mode=voice_mode,
                     )
                 
                 if session.questions_asked >= 5 or session.is_time_up:
@@ -793,7 +799,9 @@ class InterviewOSApplication:
                         score=latest.score,
                         strengths=latest.strengths,
                         weaknesses=latest.weaknesses,
-                        feedback=f"Assessed on {target_competency}."
+                        expected_answer=latest.expected_answer,
+                        feedback=f"Assessed on {target_competency}.",
+                        voice_mode=voice_mode,
                     )
                 
                 if session.questions_asked >= 5 or session.is_time_up:
@@ -841,7 +849,10 @@ class InterviewOSApplication:
             )
             
             engine.start(session)
-            print_round_header("Project Deep Dive", job.title, candidate_name, duration_minutes, extra_info={"🔗 Repository": project_profile.repository_name, "📁 Discovered Files": str(len(project_profile.dependencies.files))})
+            engine.state_machine.transition(session, InterviewEvent.INTRODUCTION_COMPLETE)
+            print_round_header("Project Deep Dive", job.title, candidate_name, duration_minutes, extra_info={"🔗 Repository": project_profile.repository_name, "📁 Discovered Files": str(len(project_profile.important_files))})
+
+
             
             first_question = f"Could you give an architectural overview of your {project_profile.repository_name} project, and explain the major design decisions you made?"
             engine.ask(session, first_question)
@@ -865,7 +876,9 @@ class InterviewOSApplication:
                         score=latest.score,
                         strengths=latest.strengths,
                         weaknesses=latest.weaknesses,
-                        feedback="Assessed on architectural ownership."
+                        expected_answer=latest.expected_answer,
+                        feedback="Assessed on architectural ownership.",
+                        voice_mode=voice_mode,
                     )
                 
                 if session.questions_asked >= 5 or session.is_time_up:

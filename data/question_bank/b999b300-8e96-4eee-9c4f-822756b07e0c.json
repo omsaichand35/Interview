@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "b999b300-8e96-4eee-9c4f-822756b07e0c",
+    "question_type": "mcq",
+    "topic": "Databases",
+    "difficulty": "medium",
+    "question": "What is the primary benefit of using a database index?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "Reduces the size of the database"
+      },
+      {
+        "id": "opt_2",
+        "text": "Improves data security"
+      },
+      {
+        "id": "opt_3",
+        "text": "Enhances query performance by allowing faster access to data"
+      },
+      {
+        "id": "opt_4",
+        "text": "Increases data redundancy"
+      }
+    ],
+    "correct_options": [
+      "opt_3"
+    ],
+    "explanation": "Database indexes improve query performance by allowing the database to quickly locate data, reducing the time it takes to execute queries.",
+    "concepts_tested": [
+      "Database Performance Optimization",
+      "Indexing",
+      "Query Optimization"
+    ]
+  },
+  "created_at": "2026-09-03T16:17:59.268528",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

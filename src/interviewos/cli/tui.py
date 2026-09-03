@@ -102,7 +102,7 @@ def print_question_card(
     if voice_mode:
         try:
             from interviewos.voice import get_voice_engine
-            get_voice_engine().speak(question_text)
+            get_voice_engine().speak(question_text, block=True)
         except Exception:
             pass
 
@@ -112,14 +112,28 @@ def prompt_candidate_answer(voice_mode: bool = False) -> str:
     if voice_mode:
         try:
             from interviewos.voice import get_voice_engine
-            spoken = get_voice_engine().listen(timeout=10, phrase_time_limit=45)
-            if spoken:
-                console.print(f"[bold green]Candidate [Spoken Voice] ❯ [/bold green][white]{spoken}[/white]")
-                confirm = Prompt.ask("[dim]Press Enter to submit spoken answer, or type text to edit[/dim]", default=spoken)
-                if confirm.strip():
-                    return confirm.strip()
+            engine = get_voice_engine()
+            accumulated_speech = []
+
+            while True:
+                spoken = engine.listen(timeout=15, phrase_time_limit=90)
+                if spoken:
+                    accumulated_speech.append(spoken)
+                    full_text = " ".join(accumulated_speech)
+                    console.print(f"[bold green]Candidate [Spoken Voice] ❯ [/bold green][white]{full_text}[/white]")
+                    confirm = Prompt.ask("[dim]Press Enter to submit, type 'm' to speak more, or edit text[/dim]", default=full_text)
+                    if confirm.strip().lower() == "m":
+                        console.print("[dim cyan]🎙 Resuming listening for additional thoughts...[/dim cyan]")
+                        continue
+                    elif confirm.strip():
+                        return confirm.strip()
+                else:
+                    if accumulated_speech:
+                        return " ".join(accumulated_speech)
+                    break
         except Exception:
             pass
+
 
     while True:
         try:
@@ -141,7 +155,9 @@ def print_evaluation_card(
     strengths: Optional[List[str]] = None,
     weaknesses: Optional[List[str]] = None,
     feedback: Optional[str] = None,
-    follow_up_hint: Optional[str] = None
+    expected_answer: Optional[str] = None,
+    follow_up_hint: Optional[str] = None,
+    voice_mode: bool = False,
 ) -> None:
     """Render real-time AI answer assessment feedback."""
     score_pct = int(score * 100) if score <= 1.0 else int(score)
@@ -159,6 +175,11 @@ def print_evaluation_card(
     rows = []
     if feedback:
         rows.append(f"[bold white]{feedback}[/bold white]\n")
+
+    if expected_answer:
+        rows.append("[bold cyan]Expected Answer:[/bold cyan]")
+        rows.append(f"  [cyan]{expected_answer}[/cyan]")
+        rows.append("")
 
     if strengths:
         rows.append("[bold green]✔ Observed Strengths:[/bold green]")
@@ -185,6 +206,14 @@ def print_evaluation_card(
         padding=(1, 2)
     )
     console.print(panel)
+
+    if voice_mode and feedback:
+        try:
+            from interviewos.voice import get_voice_engine
+            get_voice_engine().speak(feedback, block=True)
+        except Exception:
+            pass
+
 
 def print_final_scorecard(
     round_name: str,

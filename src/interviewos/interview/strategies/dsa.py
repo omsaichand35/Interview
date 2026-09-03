@@ -38,17 +38,36 @@ class DSAProblemGenerator:
         
         prompt = f"""
 Generate a Data Structures and Algorithms problem for a {job.title}.
-The difficulty should be {difficulty}.
+Target difficulty: {difficulty}
 
 Covered topics to avoid: {', '.join(covered_topics) if covered_topics else 'None'}
-The JD emphasizes: {job.summary}
+The JD emphasizes: {job.summary or 'Software Development'}
 
-The problem must test approach and reasoning, not just memorization.
-Return ONLY structured JSON matching this schema:
-{DSAProblem.model_json_schema()}
+Return a JSON object matching this exact structure:
+
+{{
+    "problem_id": "prob_1",
+    "title": "Two Sum",
+    "statement": "Given an array of integers nums and an integer target, return the indices of the two numbers that add up to the target. You may assume each input has exactly one solution, and you cannot use the same element twice. Example: Input: nums = [2, 7, 11, 15], target = 9, Output: [0, 1]",
+    "difficulty": "easy",
+    "topics": ["Hash Table", "Arrays", "Two Pointers"],
+    "constraints": ["2 <= nums.length <= 10^4", "-10^9 <= nums[i] <= 10^9", "-10^9 <= target <= 10^9"],
+    "examples": [
+        {{"input": "nums = [2, 7, 11, 15], target = 9", "output": "[0, 1]"}},
+        {{"input": "nums = [3, 2, 4], target = 6", "output": "[1, 2]"}}
+    ],
+    "expected_complexity": "O(n) time, O(n) space using hash table",
+    "hidden_solution_information": "Use a hash table to store values seen so far. For each number, check if target - number exists in the hash table. This enables O(n) time complexity instead of O(n^2) with nested loops."
+}}
+
+IMPORTANT: Return ONLY valid JSON, no markdown or schema metadata.
 """
-        return await self.llm.generate_structured(prompt=prompt,
-            system_prompt="You are an expert technical interviewer designing DSA questions. Ensure problem constraints and examples are clear and well-formed.", model=DSAProblem)
+        return await self.llm.generate_structured(
+            prompt=prompt,
+            system_prompt="You are an expert technical interviewer designing DSA questions. Ensure problem constraints and examples are clear and well-formed. Return ONLY a top-level JSON object.",
+            model=DSAProblem
+        )
+
 
 
 class DSAProblemValidator:

@@ -50,25 +50,29 @@ Return ONLY valid JSON matching the schema.
         prompt = f"""
 Generate one objective assessment question.
 
-Role:
-{job.title}
+Role: {job.title}
+Topic: {topic.name}
+Difficulty: {topic.difficulty.value}
+Question type: {question_type.value}
 
-Topic:
-{topic.name}
+Return a JSON object matching this exact structure. The question ID is: {uuid4()}
 
-Difficulty:
-{topic.difficulty.value}
-
-Question type:
-{question_type.value}
-
-Return an object matching:
-
-{AssessmentQuestion.model_json_schema()}
-
-The question ID should be:
-
-{uuid4()}
+{{
+    "id": "{uuid4()}",
+    "question_type": "mcq",
+    "topic": "{topic.name}",
+    "difficulty": "medium",
+    "question": "What is the primary benefit of using a message queue in distributed systems?",
+    "options": [
+        {{"id": "opt_1", "text": "Decouples producers and consumers, enabling asynchronous communication"}},
+        {{"id": "opt_2", "text": "Ensures all requests are processed synchronously"}},
+        {{"id": "opt_3", "text": "Eliminates the need for databases"}},
+        {{"id": "opt_4", "text": "Provides automatic data encryption"}}
+    ],
+    "correct_options": ["opt_1"],
+    "explanation": "Message queues decouple service components, allowing producers to send messages without waiting for consumers to process them immediately. This enables asynchronous communication and better scalability.",
+    "concepts_tested": ["Distributed Systems", "Asynchronous Processing", "Message Queues"]
+}}
 """
 
         return await self.llm.generate_structured(

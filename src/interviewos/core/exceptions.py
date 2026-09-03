@@ -40,6 +40,12 @@ class LLMUnavailableError(LLMError):
     pass
 
 
+class LLMRateLimitError(LLMError):
+    """Raised when the LLM provider returns a rate limit error (HTTP 429)."""
+
+    pass
+
+
 class InvalidLLMResponseError(LLMError):
     """Raised when the LLM response cannot be validated after retries."""
 

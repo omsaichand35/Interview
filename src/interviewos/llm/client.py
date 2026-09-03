@@ -88,8 +88,14 @@ class LLMClient:
         """Generate a response and parse it into a Pydantic model with retries and timeouts."""
         import asyncio
         import logging
+        import random
         from pydantic import BaseModel
-        from interviewos.core.exceptions import LLMUnavailableError, InvalidLLMResponseError, LLMError
+        from interviewos.core.exceptions import (
+            LLMUnavailableError,
+            InvalidLLMResponseError,
+            LLMError,
+            LLMRateLimitError,
+        )
         from interviewos.llm.structured_output import parse_structured_output, StructuredOutputError
 
         if timeout_seconds is None:
@@ -133,14 +139,28 @@ class LLMClient:
                 )
                 await asyncio.sleep(1)
                 
+            except LLMRateLimitError as e:
+                logger.warning(f"[LLMClient] Rate limit hit on attempt {attempt}/{max_retries}. Error: {e}")
+                if attempt == max_retries:
+                    raise LLMUnavailableError(f"LLM request failed due to rate limits after {max_retries} attempts.") from e
+                # Exponential backoff with random jitter for rate limits (base 2s)
+                backoff = min(30.0, 2.0 * (2 ** (attempt - 1)))
+                jitter = random.uniform(0.2, 1.5)
+                sleep_time = backoff + jitter
+                logger.info(f"[LLMClient] Retrying after {sleep_time:.2f}s backoff...")
+                await asyncio.sleep(sleep_time)
+
             except LLMError as e:
                 logger.warning(f"[LLMClient] LLM API error on attempt {attempt}/{max_retries}. Error: {e}")
                 if attempt == max_retries:
                     raise LLMUnavailableError(f"LLM request failed after {max_retries} attempts.") from e
-                await asyncio.sleep(min(3 * attempt, 15))
+                # Exponential backoff with random jitter for general LLM errors
+                backoff = min(15.0, 1.5 * (2 ** (attempt - 1)))
+                jitter = random.uniform(0.1, 1.0)
+                await asyncio.sleep(backoff + jitter)
                 
             except Exception as e:
                 logger.error(f"[LLMClient] Unexpected error: {e}")
                 raise
 
-        raise InvalidLLMResponseError("Max retries exceeded.")
+        raise InvalidLLMResponseError("Max retries exceeded.")

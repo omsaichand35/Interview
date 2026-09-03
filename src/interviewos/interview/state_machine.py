@@ -14,11 +14,14 @@ class InterviewStateMachine:
         InterviewState.INTRODUCTION: {
             InterviewEvent.INTRODUCTION_COMPLETE:
                 InterviewState.QUESTIONING,
+            InterviewEvent.ANSWER_RECEIVED:
+                InterviewState.QUESTIONING,
             InterviewEvent.PRESENT_PROBLEM:
                 InterviewState.PROBLEM_PRESENTATION,
             InterviewEvent.END:
                 InterviewState.COMPLETED,
         },
+
 
         InterviewState.PROBLEM_PRESENTATION: {
             InterviewEvent.MOVE_TO_UNDERSTANDING:

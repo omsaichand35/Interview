@@ -1,0 +1,42 @@
+{
+  "question": {
+    "id": "a8fb17ec-f460-4c09-a7de-fa6e06c60603",
+    "question_type": "multiple_select",
+    "topic": "Networking fundamentals (TCP/IP, DNS, firewalls, routing)",
+    "difficulty": "medium",
+    "question": "Which of the following statements about TCP/IP, DNS, and firewalls are correct?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "The TCP three-way handshake consists of SYN, SYN-ACK, and ACK packets."
+      },
+      {
+        "id": "opt2",
+        "text": "DNS uses TCP exclusively for zone transfers and UDP for queries."
+      },
+      {
+        "id": "opt3",
+        "text": "A stateful firewall tracks the state of active connections and makes decisions based on context."
+      },
+      {
+        "id": "opt4",
+        "text": "In IPv4, the default TTL value is universally set to 64 hops."
+      }
+    ],
+    "correct_options": [
+      "opt1",
+      "opt3"
+    ],
+    "explanation": "Option A correctly describes the TCP three-way handshake. Option B is incorrect because DNS can also use TCP for large responses (>512 bytes) and not exclusively for zone transfers. Option C correctly defines a stateful firewall's operation. Option D is incorrect because the default TTL varies by operating system (e.g., 64 on Linux, 128 on Windows, 255 on some routers) and is not universally 64.",
+    "concepts_tested": [
+      "TCP three-way handshake",
+      "DNS protocol operation",
+      "Stateful firewall inspection",
+      "IP TTL values"
+    ]
+  },
+  "created_at": "2026-09-02T12:09:38.666416",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

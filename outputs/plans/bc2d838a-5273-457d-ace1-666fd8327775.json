@@ -1,0 +1,549 @@
+{
+  "id": "bc2d838a-5273-457d-ace1-666fd8327775",
+  "candidate_name": "Boppudi Omsaichand",
+  "goal": "Prepare for Evertz Student Engineer Internship 2026-27 by addressing critical skill gaps and building foundational knowledge across operating systems, networking, databases, application servers, programming, front-end development, soft skills, cloud/devops, and broadcast/media interests.",
+  "overall_mastery": 9.5,
+  "topics": [
+    {
+      "id": "31904fd6-1c91-4d49-80c8-cf8f910680d5",
+      "title": "Operating Systems",
+      "mastery_score": 5.0,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "20a557eb-d0bb-4e94-802f-20debc0640dc",
+          "title": "Linux/Unix",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "fa6404f9-45ec-4384-9b3b-b9989d5faa3e",
+          "title": "Windows environments",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "cd1fdfa9-1a13-461b-bcde-5f67c7b993fd",
+      "title": "Networking",
+      "mastery_score": 12.5,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "2696b6c0-6a20-4344-9406-2eab6b81f127",
+          "title": "Networking fundamentals (TCP/IP, DNS, firewalls, routing)",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "3f186e6f-630b-4e55-a197-b008ced1ecda",
+          "title": "Networking concepts (general)",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "67489d46-be12-47cf-9e1e-4e1a489cf868",
+          "title": "IPv4 networking knowledge",
+          "mastery_score": 20.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "1c7d8c28-65b4-4968-a0e1-ea3aab37114e",
+          "title": "CCNA certification or networking coursework",
+          "mastery_score": 20.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "9e46e49a-b162-4b43-a0c8-35bf459bdfac",
+      "title": "Databases and SQL",
+      "mastery_score": 5.0,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "6c30e706-3a9b-4be5-90ba-dd67f2d625b8",
+          "title": "Databases and SQL",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "43470324-f5d2-4f88-9fac-34becebf0c6e",
+      "title": "Application Servers",
+      "mastery_score": 5.0,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "79df46e3-c934-4b78-8ee1-06c0544af430",
+          "title": "Tomcat",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "829688cf-eb22-4f44-b009-a3a7bf6fb9fd",
+          "title": "Nginx",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "a6e20edd-f09b-44c1-8a0a-ba35ecbbbec2",
+          "title": "Apache HTTP Server",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "7f40ed3c-b5c8-458e-9820-13acdc6c9740",
+      "title": "Programming & Scripting",
+      "mastery_score": 8.0,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "604933a5-18de-4b33-ba99-ea68fa8ea5b2",
+          "title": "Python",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "146db8b8-2743-42e6-8e8f-9747b7ec2499",
+          "title": "JavaScript",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "ef937379-75a6-4dd9-a233-2d11936b0abe",
+          "title": "Bash scripting",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "65c8aec2-9cb0-45c1-9c5a-3353c3d64fa9",
+          "title": "PowerShell scripting",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "80c4c897-8067-4fac-b055-85f046fe0464",
+          "title": "Python scripting experience",
+          "mastery_score": 20.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "0596f548-9235-4760-9203-063b292c6f93",
+      "title": "Front-End Development",
+      "mastery_score": 5.0,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "f9174427-2cce-4bed-be3d-0c56e7c32fe5",
+          "title": "HTML5",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "9d4ec320-21a4-4f91-997c-56576e7d123a",
+          "title": "CSS3",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "fb3b6411-7409-4991-ac42-c268692756d8",
+          "title": "JavaScript (ES6+)",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "6285681a-eab3-41ef-844b-e91ffe63f320",
+          "title": "CSS preprocessors (SCSS/SASS/LESS)",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "8225b7b8-4473-47a8-839e-47130199dcbb",
+          "title": "Modern front-end framework (Angular or React)",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "e99fa1a8-f496-4d16-8145-78fc2f4896c3",
+          "title": "Responsive, mobile-first design",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "a34102fb-2cdf-4484-b091-efa60ef6ea13",
+          "title": "Modern UI/UX principles",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "e3fe2f44-8e67-4958-94a6-5ed522a1f713",
+          "title": "Component-based architecture & SPA",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "7c462aa5-68f8-402b-ab77-55017a5f23ef",
+          "title": "Product-based UI customization",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "c6bb2a7f-c3fd-43a2-bbfc-dffc95b02fcf",
+      "title": "Soft Skills & Collaboration",
+      "mastery_score": 5.0,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "a3594c05-9f47-496c-93b7-495a2b274689",
+          "title": "Communication skills (good communication, collaborative)",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "7b3ad7c1-eaed-4ed1-bb75-3f7676dd6bb4",
+          "title": "Written communication skills",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "5cc4ad34-822e-4c37-855c-1eb38a857270",
+          "title": "Ability to work independently & in team",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "dcc20b77-d5be-49bc-b37b-aae08a6e59e0",
+          "title": "Analytical & problem-solving skills",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "1a5d91a3-8f10-43ad-99e7-d724ee5a963f",
+          "title": "Curiosity & willingness to learn new technologies",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "13b0fe15-38c4-4691-9700-2b8957657f4a",
+          "title": "Eagerness to learn new frameworks & technologies",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "e15dd770-5741-4299-aa96-f648c5c662c9",
+          "title": "Eagerness to learn (general)",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "32cd3445-91d5-4441-a551-1c7485afed1e",
+          "title": "Methodical approach to debugging / troubleshooting",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "7853ceae-396b-46e2-9534-a029fb06638a",
+          "title": "Strong willingness to continuously improve technical skills",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "b1bf88b5-2f3c-46e5-a463-e60de75e702b",
+          "title": "Reliability: completing tasks on time & communicating progress",
+          "mastery_score": 5.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "fd12e846-0a25-4042-b72f-eb906e48f179",
+      "title": "Cloud & DevOps",
+      "mastery_score": 20.0,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "3353e567-0aed-437d-89fe-eeb03729d816",
+          "title": "Cloud concepts / exposure (AWS)",
+          "mastery_score": 20.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "60f8c1eb-cf08-448d-9b75-8c671255a5e3",
+          "title": "Experience with cloud platforms like AWS",
+          "mastery_score": 20.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "1f513fee-3478-4111-b5c0-1f00690664be",
+          "title": "Familiarity with APIs and troubleshooting integration",
+          "mastery_score": 20.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "8ac41939-d038-46c2-9591-06c493373129",
+          "title": "Experience with log analysis",
+          "mastery_score": 20.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "38338b1b-35a3-411a-9ee2-611f79d82e8c",
+          "title": "Basic knowledge of DevOps tools (Git, CI/CD, Docker)",
+          "mastery_score": 20.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "98d75eec-5b38-4a1c-9dd7-8a252e96bf05",
+          "title": "Familiarity with remote diagnostic or monitoring tools",
+          "mastery_score": 20.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "e054af54-166d-4cd5-b58f-e9d92bd06ebd",
+          "title": "Exposure to security concepts or SSO like Keycloak",
+          "mastery_score": 20.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "b37c5107-0914-4e14-83f6-4364ba0eb6d4",
+          "title": "Comfortable using Git; exposure to Jira or Agile practices",
+          "mastery_score": 20.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    },
+    {
+      "id": "33331c04-0656-4da4-aef8-e04dfd90c8c1",
+      "title": "Broadcast/Media Interest",
+      "mastery_score": 20.0,
+      "state": "not_started",
+      "priority": "critical",
+      "prerequisites": [],
+      "subtopics": [
+        {
+          "id": "5e95b400-76d5-414b-9cc0-f783cff4b3b4",
+          "title": "Interest in broadcast technology and familiarity with IP video or Evertz products",
+          "mastery_score": 20.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        },
+        {
+          "id": "dafff484-b3ce-40d1-9029-4e99c3f5d946",
+          "title": "Interest in media, broadcast, or streaming technology",
+          "mastery_score": 20.0,
+          "state": "not_started",
+          "priority": "critical",
+          "prerequisites": [],
+          "subtopics": [],
+          "assessment_history": []
+        }
+      ],
+      "assessment_history": []
+    }
+  ],
+  "last_updated": "2026-09-02T14:33:56.892069",
+  "recommended_next_topic_id": "20a557eb-d0bb-4e94-802f-20debc0640dc"
+}

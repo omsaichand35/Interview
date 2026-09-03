@@ -160,8 +160,12 @@ class InterviewEngine:
                 ),
                 score=decision.assessment.score,
                 feedback=decision.assessment.feedback,
+                expected_answer=decision.assessment.expected_answer,
+                strengths=decision.assessment.strengths,
+                weaknesses=decision.assessment.weaknesses,
             )
         )
+
 
         if (
                 decision.action
@@ -261,4 +265,4 @@ class InterviewEngine:
         )
 
         return decision
-
+

@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "0cc84c20-2767-408d-936a-2c0e1013bab3",
+    "question_type": "mcq",
+    "topic": "Scripting ability in Python and/or JavaScript",
+    "difficulty": "medium",
+    "question": "Which of the following code snippets correctly swaps the values of two variables `a` and `b` in Python without using a temporary variable?",
+    "options": [
+      {
+        "id": "A",
+        "text": "a, b = b, a"
+      },
+      {
+        "id": "B",
+        "text": "a = b; b = a"
+      },
+      {
+        "id": "C",
+        "text": "a = a + b; b = a - b; a = a - b"
+      },
+      {
+        "id": "D",
+        "text": "swap(a, b)"
+      }
+    ],
+    "correct_options": [
+      "A"
+    ],
+    "explanation": "In Python, the statement `a, b = b, a` uses tuple unpacking to exchange the values of `a` and `b` in a single, readable line without needing a temporary variable. Option B incorrectly overwrites `a` before assigning to `b`. Option C works only for numeric types and is less clear. Option D is not a built-in Python function.",
+    "concepts_tested": [
+      "variable swapping",
+      "tuple unpacking",
+      "Python basics"
+    ]
+  },
+  "created_at": "2026-09-02T13:47:07.435616",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

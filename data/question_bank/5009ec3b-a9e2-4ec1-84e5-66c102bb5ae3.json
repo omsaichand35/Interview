@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "5009ec3b-a9e2-4ec1-84e5-66c102bb5ae3",
+    "question_type": "mcq",
+    "topic": "Linux",
+    "difficulty": "hard",
+    "question": "A Linux system is configured to use the `aufs` file system. What is the primary reason for its adoption in Linux distributions?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "To provide a union mount of multiple file systems"
+      },
+      {
+        "id": "opt_2",
+        "text": "To improve disk performance by caching frequently accessed files"
+      },
+      {
+        "id": "opt_3",
+        "text": "To support only read-only file systems"
+      },
+      {
+        "id": "opt_4",
+        "text": "To replace the traditional `ext4` file system"
+      }
+    ],
+    "correct_options": [
+      "opt_1"
+    ],
+    "explanation": "The `aufs` file system is a union mount file system, which allows multiple file systems to be mounted as a single file system. This enables features like overlay file systems and snapshotting, making it a popular choice for Linux distributions.",
+    "concepts_tested": [
+      "Linux File Systems",
+      "Union Mounts",
+      "aufs"
+    ]
+  },
+  "created_at": "2026-09-03T16:16:51.274700",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

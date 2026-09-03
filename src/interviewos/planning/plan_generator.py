@@ -51,7 +51,49 @@ class PlanGenerator:
         for gap in skill_gap_report.gaps:
             prompt += f"- {gap.skill} (Gap: {gap.gap_score}, Priority: {gap.priority})\n"
 
-        prompt += f"Return a JSON object matching:\n\n{InitialPlanStructure.model_json_schema()}"
+        prompt += """
+Return a JSON object matching this exact structure:
+
+{
+    "goal": "Prepare for Senior Backend Engineer role at TechCorp",
+    "topics": [
+        {
+            "title": "Python & System Design",
+            "mastery_score": 65,
+            "priority": "critical",
+            "subtopics": [
+                {
+                    "title": "Advanced OOP & Design Patterns",
+                    "mastery_score": 60,
+                    "priority": "high",
+                    "subtopics": []
+                },
+                {
+                    "title": "System Architecture & Scalability",
+                    "mastery_score": 55,
+                    "priority": "critical",
+                    "subtopics": []
+                }
+            ]
+        },
+        {
+            "title": "Databases & SQL",
+            "mastery_score": 70,
+            "priority": "high",
+            "subtopics": [
+                {
+                    "title": "Query Optimization & Indexing",
+                    "mastery_score": 65,
+                    "priority": "high",
+                    "subtopics": []
+                }
+            ]
+        }
+    ]
+}
+
+IMPORTANT: Return ONLY valid JSON, no markdown or schema metadata.
+"""
 
         response = self.llm.sync_generate_structured(
             prompt=prompt,

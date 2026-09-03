@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "7fef8b74-47df-4dd3-90bb-44f4318fa2a6",
+    "question_type": "mcq",
+    "topic": "Linux/Unix",
+    "difficulty": "medium",
+    "question": "What is the primary purpose of the 'umount' command in Linux?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "To remount a file system with different options"
+      },
+      {
+        "id": "opt_2",
+        "text": "To unmount a file system, freeing up system resources"
+      },
+      {
+        "id": "opt_3",
+        "text": "To mount a file system from a different device"
+      },
+      {
+        "id": "opt_4",
+        "text": "To check the file system for errors and repair it if necessary"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "The 'umount' command is used to unmount a file system, which frees up system resources and prevents further access to the file system until it is remounted.",
+    "concepts_tested": [
+      "File Systems",
+      "System Administration",
+      "Command-Line Tools"
+    ]
+  },
+  "created_at": "2026-09-03T14:50:31.766984",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

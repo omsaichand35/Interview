@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "d0237ba5-c9ef-4845-bba2-46e1a6aca497",
+    "question_type": "mcq",
+    "topic": "Networking fundamentals",
+    "difficulty": "medium",
+    "question": "What is the primary function of a router's MAC address table?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "To filter incoming packets based on IP addresses"
+      },
+      {
+        "id": "opt_2",
+        "text": "To forward packets to the next hop based on network layer routing tables"
+      },
+      {
+        "id": "opt_3",
+        "text": "To authenticate incoming connections based on MAC addresses"
+      },
+      {
+        "id": "opt_4",
+        "text": "To manage network congestion using packet prioritization"
+      }
+    ],
+    "correct_options": [
+      "opt_2"
+    ],
+    "explanation": "A router's MAC address table maps MAC addresses to their corresponding ports, allowing the router to forward packets to the correct device on the local network. This enables efficient packet forwarding and reduces network congestion.",
+    "concepts_tested": [
+      "Network Routing",
+      "MAC Address Tables",
+      "Packet Forwarding"
+    ]
+  },
+  "created_at": "2026-09-03T14:51:00.942969",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "7304f99c-9e9e-40e0-96fa-f067a38a7165",
+    "question_type": "mcq",
+    "topic": "Networking fundamentals",
+    "difficulty": "medium",
+    "question": "Which protocol is primarily responsible for routing traffic between subnets in an organization?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "ICMP (Internet Control Message Protocol)"
+      },
+      {
+        "id": "opt_2",
+        "text": "IGMP (Internet Group Management Protocol)"
+      },
+      {
+        "id": "opt_3",
+        "text": "BGP (Border Gateway Protocol)"
+      },
+      {
+        "id": "opt_4",
+        "text": "IGRP (Interior Gateway Routing Protocol)"
+      }
+    ],
+    "correct_options": [
+      "opt_4"
+    ],
+    "explanation": "IGRP is a routing protocol used to route traffic between subnets within an organization. It is particularly useful in environments with multiple subnets and varying network topologies.",
+    "concepts_tested": [
+      "Routing Protocols",
+      "Subnet Routing",
+      "Network Topology"
+    ]
+  },
+  "created_at": "2026-09-03T16:17:16.636006",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

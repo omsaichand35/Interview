@@ -37,12 +37,36 @@ Generate a Managerial Interview Blueprint for the following job profile:
 Title: {job.title}
 Summary: {job.summary}
 
-Identify the top managerial competencies required for this role from the following list:
+Identify the top managerial competencies required from these options:
 Leadership, Decision Making, Prioritization, Delegation, Conflict Management, Stakeholder Management, Strategic Thinking, Accountability.
 
-Assign a priority (1=highest, 5=lowest) and a rationale for why it's important.
-Output strictly as JSON matching this schema:
-{ManagerialInterviewBlueprint.model_json_schema()}
+Assign a priority (1=highest, 5=lowest) and a rationale.
+
+Return a JSON object matching this exact structure:
+
+{{
+    "targets": [
+        {{
+            "competency": "Leadership",
+            "priority": 1,
+            "rationale": "Required to lead technical teams and drive project vision"
+        }},
+        {{
+            "competency": "Decision Making",
+            "priority": 2,
+            "rationale": "Essential for making technical and architectural decisions under pressure"
+        }},
+        {{
+            "competency": "Accountability",
+            "priority": 3,
+            "rationale": "Important for owning project outcomes and delivery"
+        }}
+    ],
+    "duration_minutes": 45,
+    "total_questions": 4
+}}
+
+IMPORTANT: Return ONLY valid JSON, no markdown or schema metadata.
 """
         return await self.llm.generate_structured(prompt=prompt, system_prompt="You are an expert executive recruiter.", model=ManagerialInterviewBlueprint)
 

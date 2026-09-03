@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "cf37f05a-b29a-432e-9ce0-ac620a968dd6",
+    "question_type": "mcq",
+    "topic": "Troubleshooting skills",
+    "difficulty": "medium",
+    "question": "A network device is not responding to ping requests. What is the first step to troubleshoot this issue?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "Verify the physical connection between the device and the network switch"
+      },
+      {
+        "id": "opt_2",
+        "text": "Check the device's IP address configuration"
+      },
+      {
+        "id": "opt_3",
+        "text": "Run a full network scan to identify potential issues"
+      },
+      {
+        "id": "opt_4",
+        "text": "Restart the device's power supply"
+      }
+    ],
+    "correct_options": [
+      "opt_1"
+    ],
+    "explanation": "Verifying the physical connection is the first step in troubleshooting a network device that is not responding to ping requests. This ensures that the issue is not related to a simple physical connection problem.",
+    "concepts_tested": [
+      "Network Troubleshooting",
+      "Physical Layer Issues"
+    ]
+  },
+  "created_at": "2026-09-03T14:52:38.981411",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

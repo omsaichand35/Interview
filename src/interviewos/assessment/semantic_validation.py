@@ -51,17 +51,30 @@ Return ONLY valid JSON.
         prompt = f"""
 Review this generated assessment question.
 
-Target role:
-
-{job.title}
+Target role: {job.title}
 
 Question:
 
 {question.model_dump_json(indent=2)}
 
-Return:
+Return a JSON object matching this exact structure:
 
-{QuestionValidationResult.model_json_schema()}
+{{
+    "valid": true,
+    "issues": []
+}}
+
+Or if there are issues:
+
+{{
+    "valid": false,
+    "issues": [
+        {{"code": "ambiguous_wording", "message": "The question has ambiguous phrasing that could confuse candidates", "severity": "error"}},
+        {{"code": "incorrect_answer", "message": "The marked correct answer is not actually correct", "severity": "error"}}
+    ]
+}}
+
+IMPORTANT: Only return valid JSON, no schema metadata or markdown blocks.
 """
 
         return await self.llm.generate_structured(

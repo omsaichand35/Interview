@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "00349b4c-d87f-479e-9095-2217f327e566",
+    "question_type": "mcq",
+    "topic": "Application servers (Tomcat, Nginx, Apache)",
+    "difficulty": "medium",
+    "question": "Which of the following statements correctly describes the primary function of Apache Tomcat in a Java EE web application stack?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "It acts as a high-performance static file server and reverse proxy."
+      },
+      {
+        "id": "opt2",
+        "text": "It provides servlet and JSP container functionality to execute Java web applications."
+      },
+      {
+        "id": "opt3",
+        "text": "It functions as a load balancer distributing traffic among multiple backend services."
+      },
+      {
+        "id": "opt4",
+        "text": "It serves as an HTTP cache to reduce origin server load."
+      }
+    ],
+    "correct_options": [
+      "opt2"
+    ],
+    "explanation": "Apache Tomcat is a servlet container that implements Java Servlet, JSP, and related technologies, enabling it to run Java-based web applications. It is not primarily designed for static file serving, load balancing, or caching; those roles are typically handled by web servers such as Nginx or Apache HTTP Server.",
+    "concepts_tested": [
+      "Servlet container",
+      "Application server vs web server",
+      "Tomcat role"
+    ]
+  },
+  "created_at": "2026-09-02T13:48:05.665277",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

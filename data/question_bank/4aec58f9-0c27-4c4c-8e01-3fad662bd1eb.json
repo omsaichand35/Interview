@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "4aec58f9-0c27-4c4c-8e01-3fad662bd1eb",
+    "question_type": "mcq",
+    "topic": "Linux/Unix",
+    "difficulty": "medium",
+    "question": "What is the primary function of the 'umount' command in Linux?",
+    "options": [
+      {
+        "id": "A",
+        "text": "To mount a file system"
+      },
+      {
+        "id": "B",
+        "text": "To unmount a file system"
+      },
+      {
+        "id": "C",
+        "text": "To format a file system"
+      },
+      {
+        "id": "D",
+        "text": "To create a new file system"
+      }
+    ],
+    "correct_options": [
+      "B"
+    ],
+    "explanation": "The 'umount' command is used to unmount a file system, which means to detach it from the system's file system hierarchy.",
+    "concepts_tested": [
+      "Linux file systems",
+      "umount command"
+    ]
+  },
+  "created_at": "2026-09-02T21:35:54.484581",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

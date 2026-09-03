@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "69fe55d3-19a9-421b-819b-9cd3d297ed62",
+    "question_type": "mcq",
+    "topic": "Networking fundamentals",
+    "difficulty": "medium",
+    "question": "What is the primary function of Spanning Tree Protocol (STP) in a network?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "To prevent network loops and collisions"
+      },
+      {
+        "id": "opt_2",
+        "text": "To ensure all devices are connected to the same VLAN"
+      },
+      {
+        "id": "opt_3",
+        "text": "To provide network redundancy and fault tolerance"
+      },
+      {
+        "id": "opt_4",
+        "text": "To optimize network bandwidth utilization"
+      }
+    ],
+    "correct_options": [
+      "opt_3"
+    ],
+    "explanation": "Spanning Tree Protocol (STP) is used to prevent network loops and collisions by selecting the best path for data transmission and blocking redundant paths.",
+    "concepts_tested": [
+      "STP",
+      "Network Topology",
+      "Network Redundancy"
+    ]
+  },
+  "created_at": "2026-09-03T16:17:35.240514",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

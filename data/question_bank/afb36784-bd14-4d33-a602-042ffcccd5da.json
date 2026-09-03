@@ -1,0 +1,31 @@
+{
+  "question": {
+    "id": "afb36784-bd14-4d33-a602-042ffcccd5da",
+    "question_type": "true_false",
+    "topic": "Analytical and problem-solving skills",
+    "difficulty": "medium",
+    "question": "When faced with an intermittent system failure, the most effective initial approach is to gather reproducible steps and logs before making any changes.",
+    "options": [
+      {
+        "id": "opt_true",
+        "text": "True"
+      },
+      {
+        "id": "opt_false",
+        "text": "False"
+      }
+    ],
+    "correct_options": [
+      "opt_true"
+    ],
+    "explanation": "In troubleshooting intermittent issues, collecting reliable reproduction steps and relevant logs is crucial to understand the problem's context and avoid introducing unnecessary changes that could obscure the root cause. This aligns with systematic problem‑solving methodologies.",
+    "concepts_tested": [
+      "root cause analysis",
+      "troubleshooting methodology"
+    ]
+  },
+  "created_at": "2026-09-02T12:12:20.036393",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

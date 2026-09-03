@@ -1,0 +1,39 @@
+{
+  "question": {
+    "id": "228b7548-52a5-47d7-a59c-2af152056010",
+    "question_type": "mcq",
+    "topic": "Networking fundamentals",
+    "difficulty": "medium",
+    "question": "A network device is configured with a subnet mask of 255.255.255.0. What is the maximum number of devices that can be addressed on this network?",
+    "options": [
+      {
+        "id": "opt_1",
+        "text": "256 devices"
+      },
+      {
+        "id": "opt_2",
+        "text": "512 devices"
+      },
+      {
+        "id": "opt_3",
+        "text": "1024 devices"
+      },
+      {
+        "id": "opt_4",
+        "text": "2048 devices"
+      }
+    ],
+    "correct_options": [
+      "opt_1"
+    ],
+    "explanation": "A subnet mask of 255.255.255.0 is a class C subnet mask, which allows for 256 possible IP addresses, including the network address and the broadcast address. Therefore, the maximum number of devices that can be addressed on this network is 256.",
+    "concepts_tested": [
+      "Subnet Masks",
+      "IP Addressing"
+    ]
+  },
+  "created_at": "2026-09-03T14:51:13.244664",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}

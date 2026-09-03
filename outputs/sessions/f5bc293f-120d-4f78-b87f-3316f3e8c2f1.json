@@ -1,0 +1,155 @@
+{
+  "id": "f5bc293f-120d-4f78-b87f-3316f3e8c2f1",
+  "candidate_id": "61fef50c-761b-4626-bc55-37981b201d6b",
+  "role": "Enterprise Support Engineer",
+  "assessment_id": "7c006e90-7656-4ae1-bdcc-9e35ed27eee2",
+  "question_ids": [
+    "aa5537b4-24d8-4d84-b73f-bd11e3933ea5",
+    "4edc6a61-75e2-4372-a816-86fb483098f2",
+    "5009ec3b-a9e2-4ec1-84e5-66c102bb5ae3",
+    "8a023623-a2de-4bdc-972f-127b9a520489",
+    "fa3a8c26-65b9-44ba-850a-495720b6e896",
+    "18534177-063d-45aa-b5e6-e9b585867852",
+    "1859c22a-cb82-4062-a43a-5638e5fea8e9",
+    "8a405108-5248-4008-9ed8-0112f974e120",
+    "7304f99c-9e9e-40e0-96fa-f067a38a7165",
+    "1fb29208-0b2b-4a9b-be1b-e7f157736f3e",
+    "f7145840-dedf-4de8-852c-e588cfc49a5c",
+    "69fe55d3-19a9-421b-819b-9cd3d297ed62",
+    "0788b5c6-1ea2-443a-b96d-346ec37c06ca",
+    "1a877a93-0405-437f-85cc-34943fd47bb3",
+    "b97eb446-81f1-4a0f-b9e3-0503543dd448",
+    "c1b31c0e-e2a7-4382-b7a9-705edce94d0e",
+    "d4e0476d-a873-4fc0-b539-0c563f58969e",
+    "b999b300-8e96-4eee-9c4f-822756b07e0c",
+    "2b7952e7-58a9-4446-bf7c-e0a81bb092ca",
+    "4b924f65-bfc2-479f-9115-75a9c06e3e13"
+  ],
+  "answers": [
+    {
+      "question_id": "aa5537b4-24d8-4d84-b73f-bd11e3933ea5",
+      "selected_options": [
+        "opt_1"
+      ]
+    },
+    {
+      "question_id": "4edc6a61-75e2-4372-a816-86fb483098f2",
+      "selected_options": [
+        "opt_2"
+      ]
+    },
+    {
+      "question_id": "5009ec3b-a9e2-4ec1-84e5-66c102bb5ae3",
+      "selected_options": [
+        "opt_3"
+      ]
+    },
+    {
+      "question_id": "8a023623-a2de-4bdc-972f-127b9a520489",
+      "selected_options": [
+        "opt_4"
+      ]
+    },
+    {
+      "question_id": "fa3a8c26-65b9-44ba-850a-495720b6e896",
+      "selected_options": [
+        "opt_1"
+      ]
+    },
+    {
+      "question_id": "18534177-063d-45aa-b5e6-e9b585867852",
+      "selected_options": [
+        "opt_2"
+      ]
+    },
+    {
+      "question_id": "1859c22a-cb82-4062-a43a-5638e5fea8e9",
+      "selected_options": [
+        "opt_3"
+      ]
+    },
+    {
+      "question_id": "8a405108-5248-4008-9ed8-0112f974e120",
+      "selected_options": [
+        "opt_4"
+      ]
+    },
+    {
+      "question_id": "7304f99c-9e9e-40e0-96fa-f067a38a7165",
+      "selected_options": [
+        "opt_1"
+      ]
+    },
+    {
+      "question_id": "1fb29208-0b2b-4a9b-be1b-e7f157736f3e",
+      "selected_options": [
+        "opt_2"
+      ]
+    },
+    {
+      "question_id": "f7145840-dedf-4de8-852c-e588cfc49a5c",
+      "selected_options": [
+        "opt_3"
+      ]
+    },
+    {
+      "question_id": "69fe55d3-19a9-421b-819b-9cd3d297ed62",
+      "selected_options": [
+        "opt_4"
+      ]
+    },
+    {
+      "question_id": "0788b5c6-1ea2-443a-b96d-346ec37c06ca",
+      "selected_options": [
+        "opt_1"
+      ]
+    },
+    {
+      "question_id": "1a877a93-0405-437f-85cc-34943fd47bb3",
+      "selected_options": [
+        "opt_2"
+      ]
+    },
+    {
+      "question_id": "b97eb446-81f1-4a0f-b9e3-0503543dd448",
+      "selected_options": [
+        "opt_3"
+      ]
+    },
+    {
+      "question_id": "c1b31c0e-e2a7-4382-b7a9-705edce94d0e",
+      "selected_options": [
+        "opt_4"
+      ]
+    },
+    {
+      "question_id": "d4e0476d-a873-4fc0-b539-0c563f58969e",
+      "selected_options": [
+        "opt_1"
+      ]
+    },
+    {
+      "question_id": "b999b300-8e96-4eee-9c4f-822756b07e0c",
+      "selected_options": [
+        "opt_2"
+      ]
+    },
+    {
+      "question_id": "2b7952e7-58a9-4446-bf7c-e0a81bb092ca",
+      "selected_options": [
+        "opt_3"
+      ]
+    },
+    {
+      "question_id": "4b924f65-bfc2-479f-9115-75a9c06e3e13",
+      "selected_options": [
+        "opt_4"
+      ]
+    }
+  ],
+  "status": "submitted",
+  "duration_minutes": 30,
+  "started_at": "2026-09-03T16:18:12.588120",
+  "submitted_at": "2026-09-03T16:19:00.135655",
+  "result": null
+}

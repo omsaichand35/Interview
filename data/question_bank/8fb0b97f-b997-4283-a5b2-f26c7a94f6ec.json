@@ -1,0 +1,40 @@
+{
+  "question": {
+    "id": "8fb0b97f-b997-4283-a5b2-f26c7a94f6ec",
+    "question_type": "mcq",
+    "topic": "Linux/Unix",
+    "difficulty": "medium",
+    "question": "When a user presses Ctrl+C in a terminal, which signal is sent to the foreground process by default?",
+    "options": [
+      {
+        "id": "opt1",
+        "text": "SIGTERM"
+      },
+      {
+        "id": "opt2",
+        "text": "SIGKILL"
+      },
+      {
+        "id": "opt3",
+        "text": "SIGSTOP"
+      },
+      {
+        "id": "opt4",
+        "text": "SIGINT"
+      }
+    ],
+    "correct_options": [
+      "opt4"
+    ],
+    "explanation": "Pressing Ctrl+C generates the SIGINT (signal interrupt) which, by default, terminates the foreground process unless the program has installed a custom handler.",
+    "concepts_tested": [
+      "Signals",
+      "Process Control",
+      "Keyboard Interrupts"
+    ]
+  },
+  "created_at": "2026-09-02T12:10:03.812610",
+  "source": "llm_generated",
+  "quality_score": 1.0,
+  "times_used": 0
+}
